@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoLight from "@/assets/logo-horizontal.svg";
-import logoDark from "@/assets/logo-horizontal-inverted.svg";
+import logoAccarino from "@/assets/logo-accarino.svg";
 
 interface LogoProps {
   variant?: "light" | "dark";
@@ -16,9 +15,9 @@ const Logo = ({ variant = "dark", className = "" }: LogoProps) => {
       aria-label="Studio Legale Accarino"
     >
       <img
-        src={isLight ? logoDark : logoLight}
+        src={logoAccarino}
         alt="Studio Legale Accarino"
-        className="h-10 w-auto md:h-11"
+        className="h-12 w-auto md:h-14"
       />
     </Link>
   );
