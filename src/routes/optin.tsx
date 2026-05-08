@@ -201,15 +201,15 @@ function Optin() {
                 Il tuo profilo
               </div>
 
-              <dl className="mt-6 grid gap-3 sm:grid-cols-2">
+              <dl className="mt-6 grid gap-4 sm:grid-cols-2">
                 {summaryItems.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="group flex items-start gap-3 border border-border bg-gold-soft/40 px-4 py-4 transition-luxe hover:border-gold/60">
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center bg-gold text-primary">
-                      <Icon className="h-4 w-4" strokeWidth={2} />
+                  <div key={label} className="flex flex-col gap-4 border border-border bg-gold-soft/40 p-5 transition-luxe hover:border-gold/60 sm:p-6">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-gold text-primary">
+                      <Icon className="h-5 w-5" strokeWidth={2} />
                     </span>
-                    <div className="min-w-0 flex-1 pr-1">
+                    <div className="min-w-0">
                       <dt className="text-caption uppercase tracking-[0.22em] text-muted-foreground">{label}</dt>
-                      <dd className="mt-1 text-body-sm font-semibold text-primary break-words leading-snug">{value}</dd>
+                      <dd className="mt-2 text-body font-semibold text-primary break-words leading-snug">{value}</dd>
                     </div>
                   </div>
                 ))}
