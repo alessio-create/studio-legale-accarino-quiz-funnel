@@ -142,8 +142,8 @@ function Optin() {
       <main className="container section-y">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-20">
           <div className="min-w-0 animate-fade-up">
-            <span className="inline-flex items-center gap-2.5 border border-accent/40 bg-accent/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-accent">
-              <span className="flex h-5 w-5 items-center justify-center bg-accent text-accent-foreground">
+            <span className="inline-flex items-center gap-2.5 border border-gold/40 bg-gold-soft px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold-deep">
+              <span className="flex h-5 w-5 items-center justify-center bg-gold text-primary">
                 <BadgeCheck className="h-3 w-3" strokeWidth={2.75} />
               </span>
               Idoneità verificata
@@ -152,7 +152,7 @@ function Optin() {
               Il tuo caso è
               <br className="md:hidden" />
               <span className="md:inline"> </span>
-              <span className="text-accent">idoneo.</span>
+              <span className="text-gold-deep">idoneo.</span>
             </h1>
             <div className="rule-gold mt-6 w-24 origin-left animate-draw-line" />
             <p className="mt-6 text-lead">
@@ -195,35 +195,36 @@ function Optin() {
           </div>
 
           <aside className="min-w-0 space-y-10 lg:sticky lg:top-28">
-            <section className="border border-border bg-card p-6 shadow-card lift-luxe sm:p-8 md:p-9">
+            <section className="border border-gold/40 bg-card p-6 shadow-luxe sm:p-8 md:p-9">
               <div className="eyebrow">
                 <Sparkles className="h-3.5 w-3.5" />
                 Il tuo profilo
               </div>
-              <h2 className="mt-5 text-heading text-primary text-balance">{painData.headline}</h2>
-              <div className="rule-gold mt-5 w-16" />
-              <p className="mt-5 text-body text-muted-foreground">{painData.how}</p>
 
-              <dl className="mt-8 grid gap-3 sm:grid-cols-2">
+              <dl className="mt-6 grid gap-3 sm:grid-cols-2">
                 {summaryItems.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="group flex items-start gap-3 border border-border bg-background/60 px-4 py-3.5 transition-luxe hover:border-accent/60 hover:bg-background">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-accent/30 bg-accent/10 text-accent">
-                      <Icon className="h-4 w-4" />
+                  <div key={label} className="group flex items-start gap-3 border border-border bg-gold-soft/40 px-4 py-4 transition-luxe hover:border-gold/60">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center bg-gold text-primary">
+                      <Icon className="h-4 w-4" strokeWidth={2} />
                     </span>
                     <div className="min-w-0 flex-1 pr-1">
                       <dt className="text-caption uppercase tracking-[0.22em] text-muted-foreground">{label}</dt>
-                      <dd className="text-body-sm font-medium text-primary break-words">{value}</dd>
+                      <dd className="mt-1 text-body-sm font-semibold text-primary break-words leading-snug">{value}</dd>
                     </div>
                   </div>
                 ))}
               </dl>
+
+              <h2 className="mt-8 text-heading text-primary text-balance">{painData.headline}</h2>
+              <div className="rule-gold mt-5 w-16" />
+              <p className="mt-5 text-body text-muted-foreground">{painData.how}</p>
 
               <div className="mt-8 border-t border-border pt-7">
                 <p className="eyebrow">Cosa facciamo per te</p>
                 <ul className="mt-5 space-y-3.5">
                   {painData.actions.map((action) => (
                     <li key={action} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-gold-deep" />
                       <span className="text-body-sm text-primary">{action}</span>
                     </li>
                   ))}
