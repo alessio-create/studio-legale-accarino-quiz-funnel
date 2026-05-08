@@ -195,28 +195,29 @@ function Optin() {
           </div>
 
           <aside className="min-w-0 space-y-10 lg:sticky lg:top-28">
-            <section className="border border-border bg-card p-6 shadow-card lift-luxe sm:p-8 md:p-9">
+            <section className="border border-gold/40 bg-card p-6 shadow-luxe sm:p-8 md:p-9">
               <div className="eyebrow">
                 <Sparkles className="h-3.5 w-3.5" />
                 Il tuo profilo
               </div>
-              <h2 className="mt-5 text-heading text-primary text-balance">{painData.headline}</h2>
-              <div className="rule-gold mt-5 w-16" />
-              <p className="mt-5 text-body text-muted-foreground">{painData.how}</p>
 
-              <dl className="mt-8 grid gap-3 sm:grid-cols-2">
+              <dl className="mt-6 grid gap-3 sm:grid-cols-2">
                 {summaryItems.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="group flex items-start gap-3 border border-border bg-background/60 px-4 py-3.5 transition-luxe hover:border-gold/60 hover:bg-background">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-gold/40 bg-gold-soft text-gold-deep">
-                      <Icon className="h-4 w-4" />
+                  <div key={label} className="group flex items-start gap-3 border border-border bg-gold-soft/40 px-4 py-4 transition-luxe hover:border-gold/60">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center bg-gold text-primary">
+                      <Icon className="h-4 w-4" strokeWidth={2} />
                     </span>
                     <div className="min-w-0 flex-1 pr-1">
                       <dt className="text-caption uppercase tracking-[0.22em] text-muted-foreground">{label}</dt>
-                      <dd className="text-body-sm font-medium text-primary break-words">{value}</dd>
+                      <dd className="mt-1 text-body-sm font-semibold text-primary break-words leading-snug">{value}</dd>
                     </div>
                   </div>
                 ))}
               </dl>
+
+              <h2 className="mt-8 text-heading text-primary text-balance">{painData.headline}</h2>
+              <div className="rule-gold mt-5 w-16" />
+              <p className="mt-5 text-body text-muted-foreground">{painData.how}</p>
 
               <div className="mt-8 border-t border-border pt-7">
                 <p className="eyebrow">Cosa facciamo per te</p>
