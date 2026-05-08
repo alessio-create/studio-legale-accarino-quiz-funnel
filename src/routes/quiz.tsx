@@ -95,7 +95,7 @@ function Quiz() {
   return (
     <div className="flex min-h-screen flex-col bg-soft grain">
       <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur-md">
-        <div className="container flex h-16 items-center justify-center md:h-20">
+        <div className="container flex h-20 items-center justify-center md:h-28">
           <Logo />
         </div>
         <div className="relative h-px w-full bg-border/60">

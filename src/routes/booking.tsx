@@ -77,7 +77,7 @@ function Booking() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <header className="border-b border-border bg-background/85 backdrop-blur-md">
-        <div className="container flex h-16 items-center justify-center md:h-20">
+        <div className="container flex h-20 items-center justify-center md:h-28">
           <Logo />
         </div>
         <div className="rule-gold" />
