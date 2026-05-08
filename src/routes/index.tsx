@@ -188,22 +188,22 @@ function Index() {
         <div className="container">
           <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-24">
             <Reveal>
-              <span className="eyebrow">La soluzione</span>
+              <span className="eyebrow text-primary">La soluzione</span>
               <h2 className="mt-5 text-display-sm text-primary text-balance">
                 Difendiamo proprietari e imprese
                 {" "}
-                <span className="text-accent">nei conflitti con la Pubblica Amministrazione.</span>
+                <span className="text-primary/70">nei conflitti con la Pubblica Amministrazione.</span>
               </h2>
 
               <ul className="mt-12 grid gap-8">
                 {solutionItems.map((b) => (
                   <li key={b.title} className="flex items-start gap-5">
-                    <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center border-2 border-accent text-accent">
+                    <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center border-2 border-primary bg-primary text-primary-foreground">
                       <Check className="h-4 w-4" strokeWidth={3} />
                     </span>
                     <div className="flex-1">
                       <p className="text-title text-primary">{b.title}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.desc}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-primary/75">{b.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -220,7 +220,7 @@ function Index() {
 
             <Reveal delay={120}>
               <div className="relative">
-                <div className="absolute -left-3 -top-3 h-full w-full border border-accent" aria-hidden />
+                <div className="absolute -left-3 -top-3 h-full w-full border border-primary" aria-hidden />
                 <img
                   src={lawBooks}
                   alt="Codice di diritto amministrativo e fascicoli"
@@ -228,15 +228,15 @@ function Index() {
                   loading="lazy"
                 />
               </div>
-              <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
+              <div className="mt-10 grid grid-cols-3 gap-6 border-t border-primary/20 pt-8">
                 {[
                   { v: "20+", l: "Anni in diritto amministrativo" },
                   { v: "+35%", l: "Indennità media ottenuta" },
                   { v: "200+", l: "Procedure espropriative" },
                 ].map((s) => (
                   <div key={s.l}>
-                    <p className="text-stat text-accent">{s.v}</p>
-                    <p className="mt-2 text-caption uppercase tracking-[0.22em] text-muted-foreground">{s.l}</p>
+                    <p className="text-stat text-primary">{s.v}</p>
+                    <p className="mt-2 text-caption uppercase tracking-[0.22em] text-primary/70">{s.l}</p>
                   </div>
                 ))}
               </div>
