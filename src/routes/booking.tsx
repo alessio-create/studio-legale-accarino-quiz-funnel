@@ -89,7 +89,7 @@ function Booking() {
             <span className="eyebrow-center">Step finale</span>
             <h1 className="mt-5 text-display text-primary text-balance">
               Scegli il momento per la tua call con
-              {" "}<span className="text-accent">l’Avv. Accarino.</span>
+              {" "}<span className="text-gold">l’Avv. Accarino.</span>
             </h1>
             <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
           </Reveal>
@@ -97,7 +97,7 @@ function Booking() {
           <Reveal delay={120} className="mt-10 overflow-hidden border border-border bg-card shadow-luxe md:mt-14">
             {confirmed ? (
               <div className="px-6 py-14 text-center animate-scale-in sm:px-10 md:py-20">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center bg-amber text-accent-foreground animate-pulse-amber">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center bg-amber text-gold-foreground animate-pulse-amber">
                   <Check className="h-8 w-8" strokeWidth={2.5} />
                 </div>
                 <h2 className="mt-7 text-display-sm text-primary">Consulenza preventiva confermata</h2>
@@ -112,10 +112,10 @@ function Booking() {
                   <div className="flex items-center justify-between">
                     <h3 className="text-heading text-primary">{months[viewMonth]} {viewYear}</h3>
                     <div className="flex gap-1">
-                      <button onClick={prevMonth} aria-label="Mese precedente" className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-luxe hover:border-accent hover:text-accent">
+                      <button onClick={prevMonth} aria-label="Mese precedente" className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-luxe hover:border-gold hover:text-gold">
                         <ChevronLeft className="h-4 w-4" />
                       </button>
-                      <button onClick={nextMonth} aria-label="Mese successivo" className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-luxe hover:border-accent hover:text-accent">
+                      <button onClick={nextMonth} aria-label="Mese successivo" className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-luxe hover:border-gold hover:text-gold">
                         <ChevronRight className="h-4 w-4" />
                       </button>
                     </div>
@@ -135,8 +135,8 @@ function Booking() {
                           onClick={() => { setSelectedDay(day); setSelectedSlot(null); }}
                           className={`aspect-square text-sm font-medium tabular-nums transition-luxe ${
                             disabled ? "cursor-not-allowed text-muted-foreground/30"
-                            : selected ? "bg-amber text-accent-foreground shadow-amber scale-105"
-                            : "text-primary hover:bg-secondary hover:text-accent hover:scale-105"
+                            : selected ? "bg-amber text-gold-foreground shadow-amber scale-105"
+                            : "text-primary hover:bg-secondary hover:text-gold hover:scale-105"
                           }`}
                         >{day}</button>
                       );
@@ -158,7 +158,7 @@ function Booking() {
                             onClick={() => setSelectedSlot(s)}
                             style={{ animationDelay: `${idx * 50}ms` }}
                             className={`border px-3 py-3.5 text-base font-medium tabular-nums transition-luxe animate-fade-in ${
-                              selectedSlot === s ? "border-accent bg-amber text-accent-foreground" : "border-border bg-card text-primary hover:border-accent hover:text-accent hover:-translate-y-0.5"
+                              selectedSlot === s ? "border-gold bg-amber text-gold-foreground" : "border-border bg-card text-primary hover:border-gold hover:text-gold hover:-translate-y-0.5"
                             }`}
                           >{s}</button>
                         ))}
@@ -189,13 +189,13 @@ function Booking() {
         <div className="container max-w-6xl">
           <div className="grid gap-10 md:gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-20">
             <Reveal className="relative group mx-auto w-full max-w-sm lg:max-w-none">
-              <div className="absolute -left-2 -top-2 h-full w-full border border-accent transition-all duration-700 group-hover:-left-5 group-hover:-top-5" aria-hidden />
+              <div className="absolute -left-2 -top-2 h-full w-full border border-gold transition-all duration-700 group-hover:-left-5 group-hover:-top-5" aria-hidden />
               <img src={founder} alt="Avv. Accarino" className="relative w-full object-cover shadow-luxe transition-transform duration-700 group-hover:scale-[1.01]" loading="lazy" />
             </Reveal>
             <Reveal delay={150}>
               <span className="eyebrow">Chi ti risponderà</span>
               <h2 className="mt-5 text-display text-primary text-balance">
-                Avv. <span className="text-accent">Accarino.</span>
+                Avv. <span className="text-gold">Accarino.</span>
               </h2>
               <div className="rule-gold mt-6 w-24 origin-left animate-draw-line" />
               <p className="mt-6 text-lead">
@@ -214,7 +214,7 @@ function Booking() {
                   { v: "200+", l: "Casi seguiti" },
                 ].map((s, i) => (
                   <Reveal key={s.l} delay={300 + i * 100}>
-                    <p className="text-stat text-accent">{s.v}</p>
+                    <p className="text-stat text-gold">{s.v}</p>
                     <p className="mt-3 text-caption uppercase tracking-[0.24em] text-muted-foreground">{s.l}</p>
                   </Reveal>
                 ))}
@@ -230,7 +230,7 @@ function Booking() {
           <Reveal className="text-center">
             <span className="eyebrow-center">Prossimi step</span>
             <h2 className="mt-5 text-display text-primary-foreground text-balance">
-              Cosa succede dopo aver <span className="text-accent">prenotato.</span>
+              Cosa succede dopo aver <span className="text-gold">prenotato.</span>
             </h2>
             <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
           </Reveal>
@@ -244,8 +244,8 @@ function Booking() {
             ].map(({ icon: Icon, title, body }, i) => (
               <Reveal as="li" key={title} delay={i * 120} className="relative bg-primary p-7 group transition-luxe hover:bg-primary/70 md:p-9">
                 <div className="flex items-center gap-4">
-                  <span className="text-stat text-accent">0{i + 1}</span>
-                  <Icon className="h-5 w-5 text-accent transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                  <span className="text-stat text-gold">0{i + 1}</span>
+                  <Icon className="h-5 w-5 text-gold transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-6 text-title text-primary-foreground md:mt-7">{title}</h3>
                 <p className="mt-3 text-body-sm text-primary-foreground/70">{body}</p>
@@ -261,7 +261,7 @@ function Booking() {
           <Reveal className="text-center">
             <span className="eyebrow-center">FAQ</span>
             <h2 className="mt-5 text-display text-primary text-balance">
-              Tutto quello che vuoi sapere <span className="text-accent">prima della call.</span>
+              Tutto quello che vuoi sapere <span className="text-gold">prima della call.</span>
             </h2>
             <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
           </Reveal>
@@ -269,7 +269,7 @@ function Booking() {
             <Accordion type="single" collapsible className="mt-12 border-t border-border md:mt-16">
               {faqs.map((f, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-border">
-                  <AccordionTrigger className="py-6 text-left text-title text-primary hover:text-accent hover:no-underline md:py-7">
+                  <AccordionTrigger className="py-6 text-left text-title text-primary hover:text-gold hover:no-underline md:py-7">
                     {f.q}
                   </AccordionTrigger>
                   <AccordionContent className="pb-6 text-body text-muted-foreground md:pb-7">
@@ -288,7 +288,7 @@ function Booking() {
           <Reveal>
             <span className="eyebrow-center">Pronto a iniziare?</span>
             <h2 className="mt-5 text-display text-primary-foreground text-balance">
-              Prenota ora la tua <span className="text-accent">consulenza preventiva.</span>
+              Prenota ora la tua <span className="text-gold">consulenza preventiva.</span>
             </h2>
             <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
             <p className="mt-6 text-lead text-primary-foreground/70">
