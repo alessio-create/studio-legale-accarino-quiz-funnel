@@ -49,32 +49,32 @@
 :root {
   --radius: 0px;
 
-  /* Surfaces — neutral white brand */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.25 0.07 265);
-  --soft: oklch(0.98 0.003 250);
+  /* Surfaces — neutral white brand (Accarino) */
+  --background: oklch(1 0 0);                  /* #FFFFFF */
+  --foreground: oklch(0.2522 0.0562 264);      /* #14213D */
+  --soft: oklch(0.9846 0 0);                   /* #F7F7F7 */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.07 265);
+  --card-foreground: oklch(0.2522 0.0562 264);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.07 265);
+  --popover-foreground: oklch(0.2522 0.0562 264);
 
   /* Primary — Deep Blue #14213D */
-  --primary: oklch(0.25 0.07 265);
+  --primary: oklch(0.2522 0.0562 264);
   --primary-foreground: oklch(1 0 0);
-  --primary-glow: oklch(0.36 0.09 265);
+  --primary-glow: oklch(0.4014 0.1128 262);    /* #244584 */
 
-  /* Bright Yellow #FDA311 + tints */
-  --gold: oklch(0.78 0.16 70);
-  --gold-deep: oklch(0.7 0.17 65);
-  --gold-soft: oklch(0.97 0.04 80);
+  /* Accent — Bright Yellow #FDA311 + tints */
+  --gold: oklch(0.7871 0.168 70);              /* #FDA311 */
+  --gold-deep: oklch(0.74 0.175 67);           /* deepened for text */
+  --gold-soft: oklch(0.9693 0.0248 75);        /* #FFF3E3 */
 
   /* Muted accent surface — yellow-tinted parchment */
-  --accent: oklch(0.97 0.04 80);
-  --accent-foreground: oklch(0.25 0.07 265);
-  --accent-glow: oklch(0.85 0.13 75);
+  --accent: oklch(0.9693 0.0248 75);           /* #FFF3E3 */
+  --accent-foreground: oklch(0.2522 0.0562 264);
+  --accent-glow: oklch(0.85 0.14 72);
 
-  --secondary: oklch(0.965 0.003 250);
-  --secondary-foreground: oklch(0.25 0.07 265);
+  --secondary: oklch(0.9846 0 0);              /* #F7F7F7 */
+  --secondary-foreground: oklch(0.2522 0.0562 264);
 
   --muted: oklch(0.96 0.003 250);
   --muted-foreground: oklch(0.46 0.015 260);
