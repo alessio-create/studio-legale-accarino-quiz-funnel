@@ -142,8 +142,8 @@ function Optin() {
       <main className="container section-y">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-20">
           <div className="min-w-0 animate-fade-up">
-            <span className="inline-flex items-center gap-2.5 border border-accent/40 bg-accent/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-accent">
-              <span className="flex h-5 w-5 items-center justify-center bg-accent text-accent-foreground">
+            <span className="inline-flex items-center gap-2.5 border border-gold/40 bg-gold-soft px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold-deep">
+              <span className="flex h-5 w-5 items-center justify-center bg-gold text-primary">
                 <BadgeCheck className="h-3 w-3" strokeWidth={2.75} />
               </span>
               Idoneità verificata
@@ -152,7 +152,7 @@ function Optin() {
               Il tuo caso è
               <br className="md:hidden" />
               <span className="md:inline"> </span>
-              <span className="text-accent">idoneo.</span>
+              <span className="text-gold-deep">idoneo.</span>
             </h1>
             <div className="rule-gold mt-6 w-24 origin-left animate-draw-line" />
             <p className="mt-6 text-lead">
@@ -206,8 +206,8 @@ function Optin() {
 
               <dl className="mt-8 grid gap-3 sm:grid-cols-2">
                 {summaryItems.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="group flex items-start gap-3 border border-border bg-background/60 px-4 py-3.5 transition-luxe hover:border-accent/60 hover:bg-background">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-accent/30 bg-accent/10 text-accent">
+                  <div key={label} className="group flex items-start gap-3 border border-border bg-background/60 px-4 py-3.5 transition-luxe hover:border-gold/60 hover:bg-background">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-gold/40 bg-gold-soft text-gold-deep">
                       <Icon className="h-4 w-4" />
                     </span>
                     <div className="min-w-0 flex-1 pr-1">
@@ -223,7 +223,7 @@ function Optin() {
                 <ul className="mt-5 space-y-3.5">
                   {painData.actions.map((action) => (
                     <li key={action} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-gold-deep" />
                       <span className="text-body-sm text-primary">{action}</span>
                     </li>
                   ))}
