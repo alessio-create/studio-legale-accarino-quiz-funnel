@@ -4,8 +4,9 @@ import {
   AlertTriangle, Clock, Landmark, Star, Sparkles,
 } from "lucide-react";
 import heroCourthouse from "@/assets/hero-courthouse.jpg";
-import practiceEspropri from "@/assets/practice-espropriazioni.jpg";
-import practiceUrbanistica from "@/assets/practice-urbanistica.jpg";
+import personLandowner from "@/assets/person-landowner.jpg";
+import personHomeowner from "@/assets/person-homeowner.jpg";
+import personBuilder from "@/assets/person-builder.jpg";
 import lawBooks from "@/assets/law-books.jpg";
 import founder from "@/assets/founder.jpg";
 import Banner from "@/components/funnel/Banner";
@@ -55,20 +56,20 @@ const problems = [
 
 const audience = [
   {
-    image: practiceEspropri,
-    alt: "Terreno agricolo oggetto di procedura espropriativa",
+    image: personLandowner,
+    alt: "Proprietario terriero davanti al proprio fondo",
     title: "Proprietari terrieri & aziende agricole",
     desc: "Famiglie con proprietà ereditate, imprese agricole, fondi attraversati da nuove infrastrutture. Difendiamo l’indennità reale, non quella offerta dalla PA.",
   },
   {
-    image: practiceUrbanistica,
-    alt: "Cantiere edilizio con documenti tecnici",
+    image: personHomeowner,
+    alt: "Proprietaria di casa davanti alla propria abitazione",
     title: "Proprietari di casa & piccoli costruttori",
     desc: "Strutture esistenti, sopraelevazioni, ampliamenti, sanatorie. Impugniamo ordinanze di demolizione e blocchi su abusi recuperabili.",
   },
   {
-    image: lawBooks,
-    alt: "Documenti urbanistici e codice degli appalti",
+    image: personBuilder,
+    alt: "Imprenditore edile in cantiere",
     title: "PMI & imprese di costruzione",
     desc: "Costruttori e developer fermati da dinieghi, vincoli o silenzio della PA. Sblocchiamo permessi e progetti con ricorsi mirati al TAR.",
   },
@@ -183,7 +184,7 @@ function Index() {
       </section>
 
       {/* SOLUTION */}
-      <section className="section-y">
+      <section className="section-y bg-amber">
         <div className="container">
           <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-24">
             <Reveal>
