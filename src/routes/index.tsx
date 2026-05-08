@@ -137,7 +137,7 @@ function Index() {
         <div className="absolute inset-0 -z-10">
           <img src={heroCourthouse} alt="Tribunale amministrativo" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/80 to-primary/95" />
-          <div className="absolute inset-0 animate-hero-shift bg-[radial-gradient(circle_at_20%_20%,color-mix(in_oklab,var(--color-accent)_18%,transparent),transparent_55%)]" />
+          <div className="absolute inset-0 animate-hero-shift bg-[radial-gradient(circle_at_20%_20%,color-mix(in_oklab,var(--color-gold)_18%,transparent),transparent_55%)]" />
         </div>
 
         <div className="container relative w-full py-20">
