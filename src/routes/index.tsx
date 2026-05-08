@@ -311,8 +311,8 @@ function Index() {
             {audience.map(({ image, alt, title, desc }) => (
               <Reveal key={title} delay={80}>
                 <div className="group h-full overflow-hidden border border-border bg-card shadow-card transition-luxe hover:border-accent hover:shadow-luxe">
-                  <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                    <img src={image} alt={alt} loading="lazy" className="h-full w-full object-cover transition-luxe group-hover:scale-105" />
+                  <div className="aspect-[3/4] w-full overflow-hidden bg-muted">
+                    <img src={image} alt={alt} loading="lazy" className="h-full w-full object-cover object-top transition-luxe group-hover:scale-105" />
                   </div>
                   <div className="p-8">
                     <h3 className="text-title text-primary">{title}</h3>
