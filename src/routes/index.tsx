@@ -353,7 +353,7 @@ function Index() {
                     <blockquote className="mt-6 text-lg leading-snug text-primary text-balance">“{r.quote}”</blockquote>
                   </div>
                   <footer className="mt-8 border-t border-border pt-5">
-                    <p className="font-semibold text-primary">{r.author}</p>
+                    <p className="font-semibold text-gold-deep">{r.author}</p>
                     <p className="text-sm text-muted-foreground">{r.role}</p>
                     <p className="mt-1 text-xs uppercase tracking-[0.2em] text-gold">{r.hotel}</p>
                   </footer>
