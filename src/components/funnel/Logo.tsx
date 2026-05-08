@@ -17,7 +17,7 @@ const Logo = ({ variant = "dark", className = "" }: LogoProps) => {
       <img
         src={logoAccarino}
         alt="Studio Legale Accarino"
-        className="h-12 w-auto md:h-14"
+        className="h-16 w-auto md:h-20"
       />
     </Link>
   );

@@ -15,7 +15,7 @@ const Banner = ({ variant = "light", showCta = true }: BannerProps) => {
         isLight ? "border-border bg-background/85" : "border-primary-foreground/10 bg-primary/85"
       }`}
     >
-      <div className={`container flex h-20 items-center ${showCta ? "justify-between" : "justify-center"}`}>
+      <div className={`container flex h-28 items-center ${showCta ? "justify-between" : "justify-center"}`}>
         <Logo variant={isLight ? "dark" : "light"} />
         {showCta && (
           <div className="flex items-center gap-3">
