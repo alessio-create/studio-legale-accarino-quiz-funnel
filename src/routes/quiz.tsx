@@ -100,7 +100,7 @@ function Quiz() {
         </div>
         <div className="relative h-px w-full bg-border/60">
           <div
-            className="absolute inset-y-0 left-0 bg-accent transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+            className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -125,19 +125,19 @@ function Quiz() {
                   onClick={() => select(option)}
                   style={{ animation: "fade-up 0.55s cubic-bezier(0.16,1,0.3,1) both", animationDelay: `${140 + i * 70}ms` }}
                   className={`group relative flex w-full items-center justify-between gap-4 overflow-hidden border bg-card p-5 text-left lift-luxe sm:p-6 md:p-7 ${
-                    selected ? "border-accent shadow-amber" : "border-border hover:border-accent/60"
+                    selected ? "border-gold shadow-amber" : "border-border hover:border-gold/60"
                   }`}
                 >
                   <span
                     aria-hidden
-                    className={`absolute inset-y-0 left-0 w-[3px] bg-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                    className={`absolute inset-y-0 left-0 w-[3px] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
                       selected ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
                     }`}
                   />
                   <span className="text-title text-primary">{option}</span>
                   <span
                     className={`flex h-9 w-9 shrink-0 items-center justify-center border transition-luxe ${
-                      selected ? "border-accent bg-amber text-accent-foreground" : "border-border text-muted-foreground group-hover:border-accent group-hover:text-accent"
+                      selected ? "border-gold bg-amber text-gold-foreground" : "border-border text-muted-foreground group-hover:border-gold group-hover:text-gold"
                     }`}
                   >
                     {selected ? <Check className="h-4 w-4" strokeWidth={2.5} /> : <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />}
@@ -148,11 +148,11 @@ function Quiz() {
           </div>
 
           <div className="mt-14 flex items-center justify-between">
-            <Button variant="ghost" onClick={back} disabled={step === 0} className="text-muted-foreground hover:text-accent">
+            <Button variant="ghost" onClick={back} disabled={step === 0} className="text-muted-foreground hover:text-gold">
               <ArrowLeft className="h-4 w-4" /> Indietro
             </Button>
             <p className="flex items-center gap-2 text-[0.6875rem] uppercase tracking-[0.28em] text-muted-foreground">
-              <ShieldCheck className="h-3.5 w-3.5 text-accent" />
+              <ShieldCheck className="h-3.5 w-3.5 text-gold" />
               Risposte riservate
             </p>
           </div>
