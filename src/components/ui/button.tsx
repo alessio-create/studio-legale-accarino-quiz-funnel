@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-secondary hover:text-secondary-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "btn-cta bg-amber text-accent-foreground font-semibold tracking-[0.08em] uppercase shadow-amber border border-accent/40 hover:-translate-y-0.5 hover:shadow-luxe hover:[&>svg]:translate-x-1",
-        ctaDark: "btn-cta bg-primary text-primary-foreground font-semibold tracking-[0.08em] uppercase border border-accent/40 shadow-card hover:border-accent hover:-translate-y-0.5 hover:shadow-luxe hover:[&>svg]:translate-x-1",
-        outlineLight: "border border-primary-foreground/40 bg-primary-foreground/[0.04] text-primary-foreground font-medium tracking-[0.06em] uppercase hover:bg-amber hover:text-accent-foreground hover:border-accent",
+        cta: "btn-cta bg-primary text-primary-foreground font-semibold tracking-[0.18em] uppercase text-[11px] shadow-inset-gold hover:bg-[color:var(--color-primary-glow)] hover:[&>svg]:translate-x-1",
+        ctaDark: "btn-cta bg-amber text-primary font-semibold tracking-[0.18em] uppercase text-[11px] hover:bg-background hover:[&>svg]:translate-x-1",
+        outlineLight: "btn-cta border border-primary-foreground/30 bg-transparent text-primary-foreground font-semibold tracking-[0.18em] uppercase text-[11px] hover:bg-amber hover:text-primary hover:border-amber hover:[&>svg]:translate-x-1",
       },
       size: {
         default: "h-10 px-5 py-2",
