@@ -142,7 +142,7 @@ function Index() {
 
         <div className="container relative w-full py-20">
           <div className="mx-auto max-w-4xl text-center animate-fade-up">
-            <span className="eyebrow-center text-accent">
+            <span className="eyebrow-center text-gold">
               <Scale className="h-3.5 w-3.5" />
               Edilizia · Urbanistica · Espropri
             </span>
@@ -150,7 +150,7 @@ function Index() {
               Difendi il tuo patrimonio dalle
               <br className="md:hidden" />
               <span className="md:inline"> </span>
-              <span className="text-accent">decisioni della PA.</span>
+              <span className="text-gold">decisioni della PA.</span>
             </h1>
             <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-primary-foreground/80">
               Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi:
@@ -173,7 +173,7 @@ function Index() {
                 <span className="font-semibold text-primary-foreground">5.0</span>
                 <span className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-accent" strokeWidth={0} />
+                    <Star key={i} className="h-3.5 w-3.5 fill-gold" strokeWidth={0} />
                   ))}
                 </span>
                 <span>· Clienti verificati in tutta Italia</span>
@@ -245,14 +245,14 @@ function Index() {
         </div>
       </section>
 
-      <Ticker variant="dark" speed="slow" items={tickerStats.map((s) => <span key={s} className="text-accent">{s}</span>)} />
+      <Ticker variant="dark" speed="slow" items={tickerStats.map((s) => <span key={s} className="text-gold">{s}</span>)} />
 
       {/* PROBLEM */}
       <section className="bg-primary py-24 text-primary-foreground md:py-32">
         <div className="container">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:items-start">
             <Reveal className="lg:sticky lg:top-32">
-              <span className="eyebrow text-accent">Il problema</span>
+              <span className="eyebrow text-gold">Il problema</span>
               <h2 className="mt-5 text-display-sm text-primary-foreground text-balance">
                 Sei solo davanti alla macchina dello Stato.
               </h2>
@@ -261,7 +261,7 @@ function Index() {
                 Tu hai 60 giorni e un avvocato generalista. Lo squilibrio è strutturale —
                 e si batte solo con specialisti del diritto amministrativo.
               </p>
-              <div className="mt-10 border-l-2 border-accent pl-5">
+              <div className="mt-10 border-l-2 border-gold pl-5">
                 <p className="text-sm italic text-primary-foreground/80">
                   “Pensavamo che l’indennità offerta fosse l’unica possibile.
                   Era meno della metà del valore reale del fondo.”
@@ -276,10 +276,10 @@ function Index() {
                   delay={i * 80}
                   className="flex items-start gap-6 bg-primary p-8 transition-luxe hover:bg-primary-foreground/5"
                 >
-                  <span className="text-stat text-accent">0{i + 1}</span>
+                  <span className="text-stat text-gold">0{i + 1}</span>
                   <div>
                     <div className="flex items-center gap-3">
-                      <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
+                      <Icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
                       <h3 className="text-title text-primary-foreground">{title}</h3>
                     </div>
                     <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{body}</p>
@@ -291,7 +291,7 @@ function Index() {
         </div>
       </section>
 
-      <Ticker variant="light" speed="slow" items={tickerResults} separator={<Sparkles className="h-4 w-4 text-accent" />} />
+      <Ticker variant="light" speed="slow" items={tickerResults} separator={<Sparkles className="h-4 w-4 text-gold" />} />
 
       {/* AUDIENCE */}
       <section className="bg-soft section-y">
@@ -310,7 +310,7 @@ function Index() {
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {audience.map(({ image, alt, title, desc }) => (
               <Reveal key={title} delay={80}>
-                <div className="group h-full overflow-hidden border border-border bg-card shadow-card transition-luxe hover:border-accent hover:shadow-luxe">
+                <div className="group h-full overflow-hidden border border-border bg-card shadow-card transition-luxe hover:border-gold hover:shadow-luxe">
                   <div className="aspect-[3/4] w-full overflow-hidden bg-muted">
                     <img src={image} alt={alt} loading="lazy" className="h-full w-full object-cover object-top transition-luxe group-hover:scale-105" />
                   </div>
@@ -347,15 +347,15 @@ function Index() {
               <Reveal key={r.author} delay={80}>
                 <article className="flex h-full flex-col justify-between border border-border bg-card p-8 shadow-card transition-luxe hover:shadow-luxe">
                   <div>
-                    <div className="flex gap-1 text-accent">
-                      {[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-accent" strokeWidth={0} />))}
+                    <div className="flex gap-1 text-gold">
+                      {[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-gold" strokeWidth={0} />))}
                     </div>
                     <blockquote className="mt-6 text-lg leading-snug text-primary text-balance">“{r.quote}”</blockquote>
                   </div>
                   <footer className="mt-8 border-t border-border pt-5">
                     <p className="font-semibold text-primary">{r.author}</p>
                     <p className="text-sm text-muted-foreground">{r.role}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.2em] text-accent">{r.hotel}</p>
+                    <p className="mt-1 text-xs uppercase tracking-[0.2em] text-gold">{r.hotel}</p>
                   </footer>
                 </article>
               </Reveal>
@@ -376,8 +376,8 @@ function Index() {
           <Reveal delay={120}>
             <Accordion type="single" collapsible className="mt-12 space-y-3">
               {faqs.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border border-border bg-card px-6 shadow-card transition-luxe data-[state=open]:border-accent">
-                  <AccordionTrigger className="py-5 text-left text-title text-primary hover:text-accent hover:no-underline data-[state=open]:text-accent">
+                <AccordionItem key={i} value={`item-${i}`} className="border border-border bg-card px-6 shadow-card transition-luxe data-[state=open]:border-gold">
+                  <AccordionTrigger className="py-5 text-left text-title text-primary hover:text-gold hover:no-underline data-[state=open]:text-gold">
                     {f.q}
                   </AccordionTrigger>
                   <AccordionContent className="pb-5 text-base leading-relaxed text-muted-foreground">
@@ -397,7 +397,7 @@ function Index() {
             <h2 className="mx-auto max-w-3xl text-display text-primary-foreground text-balance">
               La PA ha tempo, struttura e potere.
               {" "}
-              <span className="text-accent">Tu hai bisogno del legale giusto.</span>
+              <span className="text-gold">Tu hai bisogno del legale giusto.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-primary-foreground/80">
               Verifica in 90 secondi se il tuo caso ha margini reali. Senza impegno.
