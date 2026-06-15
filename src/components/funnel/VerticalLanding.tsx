@@ -296,8 +296,13 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
       <Ticker
         variant="light"
         speed="slow"
-        items={cfg.resultsTicker}
-        separator={<Award className="h-4 w-4 text-gold" strokeWidth={1.5} />}
+        items={cfg.resultsTicker.map((s) => (
+          <span key={s} className="inline-flex items-center gap-2.5">
+            <CheckCircle2 className="h-3.5 w-3.5 text-gold-deep/70" strokeWidth={1.5} />
+            {s}
+          </span>
+        ))}
+        separator={<Award className="h-4 w-4 text-gold-deep" strokeWidth={1.5} />}
       />
 
       {/* PROCESS */}
