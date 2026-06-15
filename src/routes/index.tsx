@@ -135,7 +135,7 @@ function Index() {
         <div className="absolute inset-0 grain opacity-25" />
 
         <div className="container relative z-10 pb-28 pt-40 sm:pb-32 sm:pt-48 lg:pb-40 lg:pt-56">
-          <div className="max-w-4xl animate-fade-up">
+          <div className="mx-auto max-w-4xl animate-fade-up text-center">
             <div className="mb-8 flex justify-center">
               <Logo variant="gold" className="h-10 w-auto md:h-12" />
             </div>
@@ -146,7 +146,7 @@ function Index() {
               Difendi il tuo patrimonio dalle{" "}
               <span className="italic-accent text-gold">decisioni della PA.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
+            <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
               Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi:
               quando lo Stato sbaglia, esistono i ricorsi giusti. Verifica in 90 secondi
               se il tuo caso ha margini reali.
