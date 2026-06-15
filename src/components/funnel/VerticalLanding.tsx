@@ -18,6 +18,7 @@ export type VerticalLPConfig = {
   eyebrow: string;
   heroImage: string;
   heroImageAlt: string;
+  heroTint?: string;
   solutionImage: string;
   solutionImageAlt: string;
   heroH1Plain: string;
@@ -55,16 +56,30 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
       <Banner scrollAware />
 
       {/* HERO */}
-      <section className="relative isolate flex min-h-[70svh] items-end overflow-hidden bg-primary text-primary-foreground">
+      <section
+        className="relative isolate flex min-h-[70svh] items-end overflow-hidden text-primary-foreground"
+        style={{ backgroundColor: cfg.heroTint ?? "var(--color-primary)" }}
+      >
         <img
           src={cfg.heroImage}
           alt={cfg.heroImageAlt}
           className="absolute inset-0 h-full w-full object-cover"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/20" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to right, color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 95%, transparent), color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 85%, transparent), color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 55%, transparent))`,
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to top, ${cfg.heroTint ?? "var(--color-primary)"}, color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 70%, transparent), color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 20%, transparent))`,
+          }}
+        />
         <div className="absolute inset-0 grain opacity-25" />
+
 
         <div className="container relative z-10 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
           <div className="max-w-4xl animate-fade-up">

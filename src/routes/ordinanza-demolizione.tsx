@@ -54,6 +54,7 @@ const config = {
   vertical: "demolizione" as const,
   eyebrow: "Emergenza Edilizia",
   heroImage: heroImg,
+  heroTint: "#3d1f1a",
   heroImageAlt: "Edificio oggetto di contestazione urbanistica",
   solutionImage: solutionImg,
   solutionImageAlt: "Studio legale al lavoro su pratiche edilizie",

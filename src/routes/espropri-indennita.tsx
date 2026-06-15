@@ -54,6 +54,7 @@ const config = {
   vertical: "espropri" as const,
   eyebrow: "Espropri & Indennità",
   heroImage: heroImg,
+  heroTint: "#1f3a2b",
   heroImageAlt: "Terreno oggetto di procedura espropriativa",
   solutionImage: solutionImg,
   solutionImageAlt: "Codice di diritto amministrativo e perizie",

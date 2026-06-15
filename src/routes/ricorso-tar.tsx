@@ -54,6 +54,7 @@ const config = {
   vertical: "tar" as const,
   eyebrow: "Sblocco Progetti & TAR",
   heroImage: heroImg,
+  heroTint: "#101a35",
   heroImageAlt: "Colonnato di tribunale amministrativo",
   solutionImage: solutionImg,
   solutionImageAlt: "Pratiche urbanistiche e progettuali",
