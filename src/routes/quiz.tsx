@@ -295,27 +295,8 @@ function Quiz() {
       <main className="relative z-10 flex flex-1 items-center justify-center py-16 sm:py-20 lg:py-24">
         <div className="container">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
-            {/* Left vertical meta */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
-              <div className="flex flex-col items-start gap-3">
-                <span
-                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                >
-                  Capitolo {String(step + 1).padStart(2, "0")}
-                </span>
-                <div className="ml-1 h-12 w-px bg-gold/30" />
-              </div>
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-              >
-                {meta.chapter}
-              </span>
-            </div>
-
             {/* Main content */}
-            <div key={current.id} className="col-span-12 max-w-3xl animate-fade-up lg:col-span-10">
+            <div key={current.id} className="col-span-12 max-w-3xl animate-fade-up lg:col-start-2 lg:col-span-10">
               <div className="flex items-center gap-5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">
                   {String(step + 1).padStart(2, "0")}
@@ -397,16 +378,6 @@ function Quiz() {
                   Risposte riservate
                 </p>
               </div>
-            </div>
-
-            {/* Right vertical mark */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-end justify-between gap-12 pt-2">
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                {meta.mark}
-              </span>
             </div>
           </div>
         </div>
