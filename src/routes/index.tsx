@@ -152,7 +152,7 @@ function Index() {
             <p className="eyebrow !text-gold">
               <span className="text-primary-foreground/70">Studio Legale · Salerno &amp; Cava de’ Tirreni</span>
             </p>
-            <h1 className="mt-7 text-balance text-[clamp(2.25rem,6.2vw,5.25rem)] font-500 leading-[1.06] tracking-[-0.025em] text-primary-foreground">
+            <h1 className="mt-7 text-balance text-[clamp(2rem,5.2vw,4.25rem)] font-500 leading-[1.06] tracking-[-0.025em] text-primary-foreground">
               Difendi il tuo patrimonio dalle{" "}
               <span className="italic-accent text-gold">decisioni della PA.</span>
             </h1>
