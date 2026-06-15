@@ -55,7 +55,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
       <Banner scrollAware />
 
       {/* HERO */}
-      <section className="relative isolate flex min-h-[88svh] items-end overflow-hidden bg-primary text-primary-foreground">
+      <section className="relative isolate flex min-h-[70svh] items-end overflow-hidden bg-primary text-primary-foreground">
         <img
           src={cfg.heroImage}
           alt={cfg.heroImageAlt}
@@ -66,7 +66,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/20" />
         <div className="absolute inset-0 grain opacity-25" />
 
-        <div className="container relative z-10 pb-28 pt-40 sm:pb-32 sm:pt-48 lg:pb-40 lg:pt-56">
+        <div className="container relative z-10 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
           <div className="max-w-4xl animate-fade-up">
             <p className="eyebrow !text-gold">
               <span className="text-primary-foreground/70">Studio Legale Accarino · {cfg.eyebrow}</span>
