@@ -147,7 +147,7 @@ function Index() {
               />
             </div>
             <div className="mb-8 flex justify-center">
-              <Logo variant="gold" logomarkOnly className="h-10 w-auto md:h-12" />
+              <Logo variant="gold" logomarkOnly className="h-16 w-auto md:h-20" />
             </div>
             <p className="eyebrow !text-gold">
               <span className="text-primary-foreground/70">Studio Legale · Salerno &amp; Cava de’ Tirreni</span>
