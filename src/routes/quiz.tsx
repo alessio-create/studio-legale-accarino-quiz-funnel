@@ -253,10 +253,165 @@ function Quiz() {
   const back = () => { if (step > 0) setStep((s) => s - 1); };
 
   return (
-    <div
-      className="relative isolate flex min-h-screen flex-col overflow-hidden text-primary-foreground"
-      style={{ backgroundColor: "var(--color-primary)" }}
-    >
+    <div className="relative isolate flex min-h-screen flex-col overflow-hidden bg-background text-foreground">
+      {/* Warm ambient gold glow — top-right */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.10]"
+        style={{ background: "radial-gradient(60% 50% at 90% 0%, var(--color-gold) 0%, transparent 70%)" }}
+      />
+      <div className="absolute inset-0 grain opacity-40" />
+
+      {/* Corner brackets */}
+      <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/30 lg:left-12 lg:top-12" />
+      <span aria-hidden className="absolute bottom-6 right-6 z-10 h-4 w-4 border-b border-r border-gold/30 lg:bottom-12 lg:right-12" />
+
+      {/* Header with progress hairline */}
+      <header className="relative z-10 border-b border-primary/10">
+        <div className="container flex h-20 items-center justify-between md:h-24">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
+              <span aria-hidden className="absolute -inset-2 border border-gold/20" />
+            </div>
+            <div className="hidden h-px w-8 bg-gold/40 sm:block" />
+            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
+              {meta.chapter}
+            </span>
+          </div>
+          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            {String(step + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+          </span>
+        </div>
+        <div className="relative h-px w-full bg-primary/10">
+          <div
+            className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </header>
+
+      {/* Main */}
+      <main className="relative z-10 flex flex-1 items-center justify-center py-16 sm:py-20 lg:py-24">
+        <div className="container">
+          <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
+            {/* Left vertical meta */}
+            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
+              <div className="flex flex-col items-start gap-3">
+                <span
+                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
+                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                >
+                  Capitolo {String(step + 1).padStart(2, "0")}
+                </span>
+                <div className="ml-1 h-12 w-px bg-gold/30" />
+              </div>
+              <span
+                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
+                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+              >
+                {meta.chapter}
+              </span>
+            </div>
+
+            {/* Main content */}
+            <div key={current.id} className="col-span-12 max-w-3xl animate-fade-up lg:col-span-10">
+              <div className="flex items-center gap-5">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">
+                  {String(step + 1).padStart(2, "0")}
+                </span>
+                <div className="h-px w-8 bg-gold/40" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  {current.eyebrow}
+                </span>
+              </div>
+
+              <div className="relative mt-6">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
+                >
+                  {current.watermark}
+                </span>
+                <h1 className="relative text-balance text-[clamp(1.75rem,4.6vw,3.25rem)] font-500 leading-[1.08] tracking-[-0.02em] text-primary">
+                  {current.title}
+                </h1>
+              </div>
+              <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
+
+              <div className="mt-10 space-y-3">
+                {current.options.map((option, i) => {
+                  const selected = answers[current.id] === option;
+                  return (
+                    <button
+                      key={option}
+                      onClick={() => select(option)}
+                      style={{ animation: "fade-up 0.55s cubic-bezier(0.16,1,0.3,1) both", animationDelay: `${140 + i * 70}ms` }}
+                      className={`group relative flex w-full items-center justify-between gap-4 overflow-hidden border bg-primary/[0.03] p-5 text-left backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-primary/[0.06] sm:p-6 ${
+                        selected
+                          ? "border-gold shadow-[0_0_0_1px_var(--color-gold)]"
+                          : "border-primary/15 hover:border-gold/60"
+                      }`}
+                    >
+                      <span
+                        aria-hidden
+                        className={`absolute inset-y-0 left-0 w-[2px] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                          selected ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
+                        }`}
+                      />
+                      <div className="flex items-center gap-4">
+                        <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">
+                          {String.fromCharCode(65 + i)}
+                        </span>
+                        <span className="text-base text-foreground sm:text-lg">{option}</span>
+                      </div>
+                      <span
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center border transition-all duration-500 ${
+                          selected
+                            ? "border-gold bg-gold text-primary"
+                            : "border-primary/20 text-muted-foreground group-hover:border-gold group-hover:text-gold"
+                        }`}
+                      >
+                        {selected ? (
+                          <Check className="h-4 w-4" strokeWidth={2.5} />
+                        ) : (
+                          <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                        )}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="mt-12 flex items-center justify-between border-t border-primary/10 pt-6">
+                <Button
+                  variant="ghost"
+                  onClick={back}
+                  disabled={step === 0}
+                  className="text-muted-foreground hover:bg-transparent hover:text-gold disabled:opacity-30"
+                >
+                  <ArrowLeft className="h-4 w-4" /> Indietro
+                </Button>
+                <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                  <ShieldCheck className="h-3.5 w-3.5 text-gold" />
+                  Risposte riservate
+                </p>
+              </div>
+            </div>
+
+            {/* Right vertical mark */}
+            <div className="hidden lg:col-span-1 lg:flex flex-col items-end justify-between gap-12 pt-2">
+              <span
+                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
+                style={{ writingMode: "vertical-rl" }}
+              >
+                {meta.mark}
+              </span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
       {/* Ambient gold radial + grain */}
       <div
         aria-hidden
