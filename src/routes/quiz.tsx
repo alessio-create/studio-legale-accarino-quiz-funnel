@@ -333,7 +333,7 @@ function Quiz() {
                 >
                   {current.watermark}
                 </span>
-                <h1 className="relative text-balance text-[clamp(1.75rem,4.6vw,3.25rem)] font-500 leading-[1.08] tracking-[-0.02em] text-primary">
+                <h1 className="relative text-balance text-[clamp(1.25rem,3.2vw,2.25rem)] font-500 leading-[1.15] tracking-[-0.02em] text-primary">
                   {current.title}
                 </h1>
               </div>
