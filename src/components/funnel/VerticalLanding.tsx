@@ -352,7 +352,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                   <Star key={i} className="h-3.5 w-3.5 fill-gold" strokeWidth={0} />
                 ))}
               </span>
-              <span>· Recensioni verificate</span>
+              <span>· Testimonianze dirette</span>
             </div>
           </Reveal>
 
