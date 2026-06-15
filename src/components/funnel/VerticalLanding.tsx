@@ -69,7 +69,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         <div className="container relative z-10 pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
           <div className="mx-auto max-w-4xl animate-fade-up text-center">
             <div className="mb-8 flex justify-center">
-              <Logo variant="gold" logomarkOnly className="h-10 w-auto md:h-12" />
+              <Logo variant="gold" logomarkOnly className="h-16 w-auto md:h-20" />
             </div>
             <p className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] !text-gold">
               <span className="text-primary-foreground/70 uppercase tracking-widest">SBLOCCO PROGETTI & TAR</span>
