@@ -333,7 +333,7 @@ function Quiz() {
                 >
                   {current.watermark}
                 </span>
-                <h1 className="relative text-balance text-[clamp(1.75rem,4.6vw,3.25rem)] font-500 leading-[1.08] tracking-[-0.02em] text-primary">
+                <h1 className="relative text-balance text-[clamp(1.25rem,3.2vw,2.25rem)] font-500 leading-[1.15] tracking-[-0.02em] text-primary">
                   {current.title}
                 </h1>
               </div>
@@ -363,7 +363,7 @@ function Quiz() {
                         <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">
                           {String.fromCharCode(65 + i)}
                         </span>
-                        <span className="text-base text-foreground sm:text-lg">{option}</span>
+                        <span className="text-sm text-foreground sm:text-base">{option}</span>
                       </div>
                       <span
                         className={`flex h-9 w-9 shrink-0 items-center justify-center border transition-all duration-500 ${
