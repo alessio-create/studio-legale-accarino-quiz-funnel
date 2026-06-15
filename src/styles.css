@@ -117,22 +117,17 @@
     text-rendering: optimizeLegibility;
     line-height: 1.6;
   }
-  h1, h2, h3 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    color: var(--color-primary);
-    line-height: 1.08;
-  }
-  h4, h5 {
-    font-family: var(--font-serif);
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-sans);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: var(--color-primary);
-    line-height: 1.2;
+    line-height: 1.15;
   }
-  .font-editorial { font-family: var(--font-serif); }
-  .italic-accent { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+  /* Style reset: no italics anywhere — clean editorial sans look */
+  i, em, .italic, .italic-accent { font-style: normal !important; }
+  .font-editorial { font-family: var(--font-sans); }
+  .italic-accent { font-family: var(--font-sans); font-weight: 500; }
   p { text-wrap: pretty; }
   ::selection { background: color-mix(in oklab, var(--color-gold) 35%, transparent); color: var(--color-primary); }
 }
