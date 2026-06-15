@@ -429,16 +429,13 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             <p className="mx-auto mt-6 max-w-xl text-lg text-primary-foreground/80">
               {cfg.finalSub}
             </p>
-            <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-8">
+            <div className="mt-12 flex justify-center">
               <Button asChild variant="cta" size="xl" className="group">
                 <a href={ctaHref}>
                   Inizia ora
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-foreground/60">
-                Risposta qualificata in 24h
-              </span>
             </div>
           </Reveal>
         </div>
