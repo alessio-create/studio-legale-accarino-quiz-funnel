@@ -71,7 +71,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             <div className="mb-8 flex justify-center">
               <Logo variant="gold" className="h-10 w-auto md:h-12" />
             </div>
-            <p className="eyebrow !text-gold">
+            <p className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] !text-gold">
               <span className="text-primary-foreground/70 uppercase tracking-widest">SBLOCCO PROGETTI & TAR</span>
             </p>
             <h1 className="mt-7 text-balance text-[clamp(2rem,5.2vw,4.25rem)] font-500 leading-[1.06] tracking-[-0.025em] text-primary-foreground">
