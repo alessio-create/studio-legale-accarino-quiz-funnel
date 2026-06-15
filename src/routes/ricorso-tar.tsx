@@ -7,10 +7,44 @@ import solutionImg from "@/assets/practice-urbanistica.jpg";
 export const Route = createFileRoute("/ricorso-tar")({
   head: () => ({
     meta: [
-      { title: "Permesso negato o silenzio della PA? Sblocca al TAR | Studio Accarino" },
-      { name: "description", content: "Diniego permesso, silenzio della PA, vincoli pretestuosi? Verifica in 90 secondi se hai margini di ricorso al TAR. Tempo medio di sblocco: 90 giorni." },
+      { title: "Permesso negato o silenzio della PA? Sblocca al TAR | Accarino" },
+      {
+        name: "description",
+        content:
+          "Diniego permesso, silenzio della PA, vincoli pretestuosi? Verifica in 90 secondi se hai margini di ricorso al TAR. Tempo medio di sblocco: 90 giorni.",
+      },
       { property: "og:title", content: "Ricorso al TAR per sbloccare permessi e progetti" },
-      { property: "og:description", content: "Diniego, silenzio, vincoli: gli strumenti del TAR per rimettere in moto la PA. Verifica in 90 secondi." },
+      {
+        property: "og:description",
+        content: "Diniego, silenzio, vincoli: gli strumenti del TAR per rimettere in moto la PA.",
+      },
+      { property: "og:url", content: "/ricorso-tar" },
+    ],
+    links: [{ rel: "canonical", href: "/ricorso-tar" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Ricorso al TAR contro dinieghi e silenzio della PA",
+          provider: { "@type": "LegalService", name: "Studio Legale Accarino" },
+          areaServed: "IT",
+          url: "/ricorso-tar",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: config.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: () => <VerticalLanding {...config} />,
