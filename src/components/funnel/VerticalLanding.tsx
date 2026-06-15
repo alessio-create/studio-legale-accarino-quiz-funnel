@@ -53,9 +53,9 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
-      {/* HERO */}
+      {/* HERO — Editorial legal asymmetry */}
       <section
-        className="relative isolate flex min-h-[70svh] items-end overflow-hidden text-primary-foreground"
+        className="relative isolate flex min-h-[80svh] items-center overflow-hidden text-primary-foreground"
         style={{ backgroundColor: "var(--color-primary)" }}
       >
         <div
@@ -65,30 +65,105 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         />
         <div className="absolute inset-0 grain opacity-25" />
 
+        {/* Corner brackets */}
+        <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/40 lg:left-12 lg:top-12" />
+        <span aria-hidden className="absolute bottom-6 right-6 z-10 h-4 w-4 border-b border-r border-gold/40 lg:bottom-12 lg:right-12" />
 
-        <div className="container relative z-10 pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
-          <div className="mx-auto max-w-4xl animate-fade-up text-center">
-            <div className="mb-8 flex justify-center">
-              <Logo variant="gold" logomarkOnly className="h-16 w-auto md:h-20" />
+        <div className="container relative z-10 py-20 sm:py-24 lg:py-28">
+          <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
+            {/* Left vertical meta */}
+            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
+              <div className="flex flex-col items-start gap-3">
+                <span
+                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
+                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                >
+                  Capitolo 01
+                </span>
+                <div className="ml-1 h-12 w-px bg-gold/30" />
+              </div>
+              <span
+                className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40"
+                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+              >
+                Analisi legale
+              </span>
             </div>
-            <p className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] !text-gold">
-              <span className="text-primary-foreground/70 uppercase tracking-widest">SBLOCCO PROGETTI & TAR</span>
-            </p>
-            <h1 className="mt-7 text-balance text-[clamp(2rem,5.2vw,4.25rem)] font-500 leading-[1.06] tracking-[-0.025em] text-primary-foreground">
-              {cfg.heroH1Plain}{" "}
-              <span className="italic-accent text-gold">{cfg.heroH1Accent}</span>
-            </h1>
-            <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
-              {cfg.heroSub}
-            </p>
 
-            <div className="mt-10 flex justify-center">
-              <Button asChild variant="cta" size="xl" className="group">
-                <a href={ctaHref}>
-                  Verifica il tuo caso
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
+            {/* Main content */}
+            <div className="col-span-12 flex animate-fade-up flex-col items-start lg:col-span-10">
+              {/* Monogram + eyebrow */}
+              <div className="mb-10 flex items-center gap-5">
+                <div className="relative">
+                  <Logo variant="gold" logomarkOnly className="h-10 w-auto md:h-12" />
+                  <span aria-hidden className="absolute -inset-2 border border-gold/20" />
+                </div>
+                <div className="h-px w-8 bg-gold/40" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60">
+                  SBLOCCO PROGETTI & TAR
+                </span>
+              </div>
+
+              {/* Headline */}
+              <div className="relative max-w-4xl">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -left-8 -top-20 select-none font-serif text-[220px] leading-none text-gold/5 lg:-left-16"
+                >
+                  A
+                </span>
+                <h1 className="relative text-balance text-[clamp(2rem,5.4vw,4.5rem)] font-500 leading-[1.05] tracking-[-0.025em] text-primary-foreground">
+                  {cfg.heroH1Plain}{" "}
+                  <span className="italic-accent px-1 text-gold">{cfg.heroH1Accent}</span>
+                </h1>
+              </div>
+
+              {/* Sub + CTA */}
+              <div className="mt-12 flex w-full flex-col items-start gap-10 border-t border-primary-foreground/10 pt-10 md:flex-row md:items-center md:gap-16">
+                <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+                  {cfg.heroSub}
+                </p>
+
+                <div className="flex flex-col gap-5">
+                  <Button asChild variant="cta" size="xl" className="group">
+                    <a href={ctaHref}>
+                      Verifica il tuo caso
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </Button>
+                  <div className="flex items-center gap-3 text-primary-foreground/50">
+                    <span className="h-px w-8 bg-gold/40" />
+                    <span className="text-[10px] uppercase tracking-[0.22em]">
+                      90 secondi · senza impegno
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right vertical mark */}
+            <div className="hidden lg:col-span-1 lg:flex justify-end">
+              <div className="flex flex-col items-center gap-4 pt-2">
+                <div className="h-32 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
+                <span
+                  className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.4em] text-gold"
+                  style={{ writingMode: "vertical-rl" }}
+                >
+                  Studio Legale Accarino
+                </span>
+              </div>
+            </div>
+
+            {/* Credibility band */}
+            <div className="col-span-12 mt-14 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-primary-foreground/10 pt-8 lg:mt-20">
+              {["Diritto Amministrativo", "Consulenza Tecnica", "Ricorsi TAR", "Stime Peritali"].map((t) => (
+                <span
+                  key={t}
+                  className="text-[10px] font-semibold uppercase tracking-[0.25em] text-primary-foreground/45"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
         </div>
