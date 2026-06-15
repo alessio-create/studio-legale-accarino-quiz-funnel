@@ -2,10 +2,14 @@ import { Link } from "@tanstack/react-router";
 import logoDark from "@/assets/logo-horizontal.svg";
 import logoGold from "@/assets/logo-horizontal-gold.svg";
 import logoLight from "@/assets/logo-horizontal-inverted.svg";
+import monogramDark from "@/assets/monogram.svg";
+import monogramGold from "@/assets/monogram-gold.svg";
+import monogramLight from "@/assets/monogram-inverted.svg";
 
 interface LogoProps {
   variant?: "dark" | "light" | "gold";
   className?: string;
+  logomarkOnly?: boolean;
 }
 
 const SRC = {
@@ -14,7 +18,13 @@ const SRC = {
   gold: logoGold,
 } as const;
 
-const Logo = ({ variant = "dark", className = "" }: LogoProps) => {
+const MONOGRAM = {
+  dark: monogramDark,
+  light: monogramLight,
+  gold: monogramGold,
+} as const;
+
+const Logo = ({ variant = "dark", className = "", logomarkOnly = false }: LogoProps) => {
   return (
     <Link
       to="/"
@@ -22,7 +32,7 @@ const Logo = ({ variant = "dark", className = "" }: LogoProps) => {
       aria-label="Studio Legale Accarino"
     >
       <img
-        src={SRC[variant]}
+        src={logomarkOnly ? MONOGRAM[variant] : SRC[variant]}
         alt="Studio Legale Accarino"
         className="h-10 w-auto md:h-12"
       />
