@@ -184,7 +184,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 ))}
               </ul>
 
-              <div className="mt-12 flex items-center gap-6">
+              <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
                 <Button asChild variant="cta" size="lg">
                   <a href={ctaHref}>
                     Verifica idoneità <ArrowRight className="h-4 w-4" />
@@ -192,10 +192,10 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 </Button>
                 <a
                   href={ctaHref}
-                  className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-gold-deep"
+                  className="inline-flex items-center gap-2 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-gold-deep"
                 >
                   90 secondi · senza impegno
-                  <ArrowUpRight className="h-3.5 w-3.5 text-gold-deep" />
+                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-gold-deep" />
                 </a>
               </div>
             </Reveal>
@@ -352,7 +352,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                   <Star key={i} className="h-3.5 w-3.5 fill-gold" strokeWidth={0} />
                 ))}
               </span>
-              <span>· Recensioni verificate</span>
+              <span>· Testimonianze dirette</span>
             </div>
           </Reveal>
 
