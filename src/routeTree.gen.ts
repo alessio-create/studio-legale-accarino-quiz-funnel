@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as OrdinanzaDemolizioneRouteImport } from './routes/ordinanza-demolizione'
 import { Route as OptinRouteImport } from './routes/optin'
 import { Route as EspropriIndennitaRouteImport } from './routes/espropri-indennita'
 import { Route as BookingRouteImport } from './routes/booking'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdinanzaDemolizioneRoute = OrdinanzaDemolizioneRouteImport.update({
+  id: '/ordinanza-demolizione',
+  path: '/ordinanza-demolizione',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OptinRoute = OptinRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/booking': typeof BookingRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
+  '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/booking': typeof BookingRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
+  '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,34 @@ export interface FileRoutesById {
   '/booking': typeof BookingRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
+  '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/booking' | '/espropri-indennita' | '/optin' | '/quiz'
+  fullPaths:
+    | '/'
+    | '/booking'
+    | '/espropri-indennita'
+    | '/optin'
+    | '/ordinanza-demolizione'
+    | '/quiz'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/booking' | '/espropri-indennita' | '/optin' | '/quiz'
-  id: '__root__' | '/' | '/booking' | '/espropri-indennita' | '/optin' | '/quiz'
+  to:
+    | '/'
+    | '/booking'
+    | '/espropri-indennita'
+    | '/optin'
+    | '/ordinanza-demolizione'
+    | '/quiz'
+  id:
+    | '__root__'
+    | '/'
+    | '/booking'
+    | '/espropri-indennita'
+    | '/optin'
+    | '/ordinanza-demolizione'
+    | '/quiz'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +104,7 @@ export interface RootRouteChildren {
   BookingRoute: typeof BookingRoute
   EspropriIndennitaRoute: typeof EspropriIndennitaRoute
   OptinRoute: typeof OptinRoute
+  OrdinanzaDemolizioneRoute: typeof OrdinanzaDemolizioneRoute
   QuizRoute: typeof QuizRoute
 }
 
@@ -86,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/quiz'
       fullPath: '/quiz'
       preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ordinanza-demolizione': {
+      id: '/ordinanza-demolizione'
+      path: '/ordinanza-demolizione'
+      fullPath: '/ordinanza-demolizione'
+      preLoaderRoute: typeof OrdinanzaDemolizioneRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/optin': {
@@ -124,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookingRoute: BookingRoute,
   EspropriIndennitaRoute: EspropriIndennitaRoute,
   OptinRoute: OptinRoute,
+  OrdinanzaDemolizioneRoute: OrdinanzaDemolizioneRoute,
   QuizRoute: QuizRoute,
 }
 export const routeTree = rootRouteImport
