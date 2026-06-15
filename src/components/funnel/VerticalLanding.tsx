@@ -79,7 +79,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         <div className="absolute inset-0 grain opacity-25" />
 
 
-        <div className="container relative z-10 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
+        <div className="container relative z-10 pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
           <div className="mx-auto max-w-4xl animate-fade-up text-center">
             <div className="mb-6 flex justify-center">
               <img

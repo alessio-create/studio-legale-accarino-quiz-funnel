@@ -123,7 +123,7 @@ function Index() {
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
       {/* ───────────── HERO — editorial, image-anchored, gold accent ───────────── */}
-      <section className="relative isolate flex min-h-[88svh] items-end overflow-hidden bg-primary text-primary-foreground">
+      <section className="relative isolate flex min-h-[70svh] items-end overflow-hidden bg-primary text-primary-foreground">
         <img
           src={heroCourthouse}
           alt="Tribunale amministrativo"
@@ -134,7 +134,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/20" />
         <div className="absolute inset-0 grain opacity-25" />
 
-        <div className="container relative z-10 pb-28 pt-40 sm:pb-32 sm:pt-48 lg:pb-40 lg:pt-56">
+        <div className="container relative z-10 pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
           <div className="mx-auto max-w-4xl animate-fade-up text-center">
             <div className="mb-6 flex justify-center">
               <img
