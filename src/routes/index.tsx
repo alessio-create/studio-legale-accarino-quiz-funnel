@@ -116,7 +116,7 @@ function Index() {
             </p>
             <h1 className="mt-7 text-balance text-[clamp(2.25rem,6.2vw,5.25rem)] font-500 leading-[1.06] tracking-[-0.025em] text-primary-foreground">
               Difendi il tuo patrimonio dalle{" "}
-              <span className="text-gold">decisioni della PA.</span>
+              <span className="italic-accent text-gold">decisioni della PA.</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
               Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi:
@@ -232,7 +232,7 @@ function Index() {
               <span className="eyebrow">La soluzione</span>
               <h2 className="mt-6 text-balance text-display-sm text-primary">
                 Difendiamo proprietari e imprese{" "}
-                <span className="text-gold-deep">nei conflitti con la Pubblica Amministrazione.</span>
+                <span className="italic-accent text-gold-deep">nei conflitti con la Pubblica Amministrazione.</span>
               </h2>
 
               <ul className="mt-12 grid gap-8">
@@ -322,7 +322,7 @@ function Index() {
               <span className="eyebrow text-gold">Il problema</span>
               <h2 className="mt-6 text-balance text-display-sm text-primary-foreground">
                 Sei solo davanti alla{" "}
-                <span className="text-gold">macchina dello Stato.</span>
+                <span className="italic-accent text-gold">macchina dello Stato.</span>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-primary-foreground/75">
                 La PA ha ufficio legale, periti interni e tempi a suo favore.
@@ -384,7 +384,7 @@ function Index() {
               <span className="eyebrow">Per chi è</span>
               <h2 className="mt-6 text-balance text-display-sm text-primary">
                 Lavoriamo con chi affronta la PA,{" "}
-                <span className="text-gold-deep">non con chi la subisce.</span>
+                <span className="italic-accent text-gold-deep">non con chi la subisce.</span>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Selezioniamo i casi: prendiamo solo quelli con margini concreti
@@ -450,7 +450,7 @@ function Index() {
             <span className="eyebrow-center">Dicono di noi</span>
             <h2 className="mt-6 text-balance text-display-sm text-primary">
               Casi reali,{" "}
-              <span className="text-gold-deep">risultati misurabili.</span>
+              <span className="italic-accent text-gold-deep">risultati misurabili.</span>
             </h2>
             <div className="mx-auto mt-6 flex items-center justify-center gap-3 text-sm text-muted-foreground">
               <GoogleIcon className="h-4 w-4" />
@@ -544,7 +544,7 @@ function Index() {
             <span className="eyebrow-center text-gold">L’ultimo passo</span>
             <h2 className="mx-auto mt-6 max-w-3xl text-balance text-display text-primary-foreground">
               La PA ha tempo, struttura e potere.{" "}
-              <span className="text-gold">Tu hai bisogno del legale giusto.</span>
+              <span className="italic-accent text-gold">Tu hai bisogno del legale giusto.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-primary-foreground/80">
               Verifica in 90 secondi se il tuo caso ha margini reali. Senza impegno.
