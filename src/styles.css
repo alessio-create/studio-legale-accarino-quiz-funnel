@@ -48,6 +48,7 @@
      without a sweeping refactor. Do NOT reintroduce Playfair here. */
   --font-sans: "Inter", "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, sans-serif;
   --font-serif: "Inter", "Source Sans 3", system-ui, sans-serif;
+}
 
 :root {
   --radius: 0px;
