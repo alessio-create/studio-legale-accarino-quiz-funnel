@@ -53,8 +53,6 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
-      <Banner scrollAware />
-
       {/* HERO */}
       <section
         className="relative isolate flex min-h-[70svh] items-end overflow-hidden text-primary-foreground"
