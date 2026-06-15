@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import {
   ArrowRight, Calendar as CalendarIcon, Check, ChevronLeft, ChevronRight,
-  Clock, MessageSquare, FileSignature, Sparkles,
+  Clock, MessageSquare, FileSignature, Sparkles, ShieldCheck,
 } from "lucide-react";
 import founder from "@/assets/founder.jpg";
 
@@ -76,117 +76,228 @@ function Booking() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background">
-      <header className="border-b border-border bg-background/85 backdrop-blur-md">
-        <div className="container flex h-20 items-center justify-center md:h-28">
-          <Logo />
+    <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* Ambient gold glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[80vh] opacity-[0.10]"
+        style={{ background: "radial-gradient(60% 50% at 90% 0%, var(--color-gold) 0%, transparent 70%)" }}
+      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[80vh] grain opacity-40" />
+
+      {/* Corner brackets */}
+      <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/30 lg:left-12 lg:top-12" />
+      <span aria-hidden className="absolute right-6 top-6 z-10 h-4 w-4 border-r border-t border-gold/30 lg:right-12 lg:top-12" />
+
+      {/* Header */}
+      <header className="relative z-10 border-b border-primary/10">
+        <div className="container flex h-20 items-center justify-between md:h-24">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
+              <span aria-hidden className="absolute -inset-2 border border-gold/20" />
+            </div>
+            <div className="hidden h-px w-8 bg-gold/40 sm:block" />
+            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
+              Prenotazione
+            </span>
+          </div>
+          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            06 / 06
+          </span>
         </div>
-        <div className="rule-gold" />
+        <div className="relative h-px w-full bg-primary/10">
+          <div className="absolute inset-y-0 left-0 bg-gold" style={{ width: "100%" }} />
+        </div>
       </header>
 
-      <section className="bg-soft grain section-y">
-        <div className="container max-w-5xl">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow-center">Step finale</span>
-            <h1 className="mt-5 text-display text-primary text-balance">
-              Scegli il momento per la tua call con
-              {" "}<span className="text-gold">l’Avv. Accarino.</span>
-            </h1>
-            <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
-          </Reveal>
-
-          <Reveal delay={120} className="mt-10 overflow-hidden border border-border bg-card shadow-luxe md:mt-14">
-            {confirmed ? (
-              <div className="px-6 py-14 text-center animate-scale-in sm:px-10 md:py-20">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center bg-amber text-gold-foreground animate-pulse-amber">
-                  <Check className="h-8 w-8" strokeWidth={2.5} />
-                </div>
-                <h2 className="mt-7 text-display-sm text-primary">Consulenza preventiva confermata</h2>
-                <p className="mt-4 text-lead">{selectedDay} {months[viewMonth]} {viewYear} · {selectedSlot}</p>
-                <p className="mt-7 text-body-sm text-muted-foreground">
-                  Riceverai a breve un’email di conferma con il link e il mini-briefing di preparazione.
-                </p>
+      {/* CALENDAR */}
+      <section className="relative z-10">
+        <div className="container py-16 sm:py-20 lg:py-24">
+          <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
+            {/* Left vertical meta */}
+            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
+              <div className="flex flex-col items-start gap-3">
+                <span
+                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
+                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                >
+                  Capitolo 06
+                </span>
+                <div className="ml-1 h-12 w-px bg-gold/30" />
               </div>
-            ) : (
-              <div className="grid md:grid-cols-[1.4fr_1fr]">
-                <div className="border-b border-border p-6 sm:p-7 md:border-b-0 md:border-r md:p-9">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-heading text-primary">{months[viewMonth]} {viewYear}</h3>
-                    <div className="flex gap-1">
-                      <button onClick={prevMonth} aria-label="Mese precedente" className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-luxe hover:border-gold hover:text-gold">
-                        <ChevronLeft className="h-4 w-4" />
-                      </button>
-                      <button onClick={nextMonth} aria-label="Mese successivo" className="flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-luxe hover:border-gold hover:text-gold">
-                        <ChevronRight className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="mt-7 grid grid-cols-7 gap-1 text-center text-caption uppercase tracking-[0.18em] text-muted-foreground">
-                    {weekdays.map((w, i) => (<div key={i} className="py-2">{w}</div>))}
-                  </div>
-                  <div className="mt-1 grid grid-cols-7 gap-1">
-                    {cells.map((day, i) => {
-                      if (day === null) return <div key={i} />;
-                      const disabled = isPast(day) || isWeekend(day);
-                      const selected = selectedDay === day;
-                      return (
-                        <button
-                          key={i}
-                          disabled={disabled}
-                          onClick={() => { setSelectedDay(day); setSelectedSlot(null); }}
-                          className={`aspect-square text-sm font-medium tabular-nums transition-luxe ${
-                            disabled ? "cursor-not-allowed text-muted-foreground/30"
-                            : selected ? "bg-amber text-gold-foreground shadow-amber scale-105"
-                            : "text-primary hover:bg-secondary hover:text-gold hover:scale-105"
-                          }`}
-                        >{day}</button>
-                      );
-                    })}
-                  </div>
-                </div>
+              <span
+                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
+                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+              >
+                Step finale
+              </span>
+            </div>
 
-                <div className="bg-soft p-6 sm:p-7 md:p-9">
-                  <span className="eyebrow">Orari disponibili</span>
-                  {selectedDay ? (
-                    <div className="animate-fade-in">
-                      <p className="mt-4 text-xl font-600 text-primary tracking-[-0.015em]">
-                        {selectedDay} {months[viewMonth]}
-                      </p>
-                      <div className="mt-7 grid grid-cols-2 gap-2.5">
-                        {slots.map((s, idx) => (
-                          <button
-                            key={s}
-                            onClick={() => setSelectedSlot(s)}
-                            style={{ animationDelay: `${idx * 50}ms` }}
-                            className={`border px-3 py-3.5 text-base font-medium tabular-nums transition-luxe animate-fade-in ${
-                              selectedSlot === s ? "border-gold bg-amber text-gold-foreground" : "border-border bg-card text-primary hover:border-gold hover:text-gold hover:-translate-y-0.5"
-                            }`}
-                          >{s}</button>
-                        ))}
+            <div className="col-span-12 lg:col-span-10">
+              <div className="flex items-center gap-5">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">VI</span>
+                <div className="h-px w-8 bg-gold/40" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  Calendario
+                </span>
+              </div>
+
+              <div className="relative mt-6 max-w-3xl">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
+                >
+                  ☉
+                </span>
+                <h1 className="relative text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
+                  Scegli il momento per la tua call con
+                  {" "}<span className="text-gold-deep">l’Avv. Accarino.</span>
+                </h1>
+              </div>
+              <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
+
+              <Reveal delay={120} className="relative mt-12 border border-primary/15 bg-primary/[0.02] backdrop-blur-sm md:mt-14">
+                <span aria-hidden className="absolute -left-px -top-px h-3 w-3 border-l border-t border-gold" />
+                <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-gold" />
+
+                {confirmed ? (
+                  <div className="px-6 py-14 text-center animate-scale-in sm:px-10 md:py-20">
+                    <div className="mx-auto flex h-14 w-14 items-center justify-center border border-gold bg-gold/10 text-gold-deep">
+                      <Check className="h-7 w-7" strokeWidth={2.5} />
+                    </div>
+                    <p className="mt-7 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-deep">
+                      Conferma ricevuta
+                    </p>
+                    <h2 className="mt-5 text-balance text-3xl font-500 tracking-[-0.02em] text-primary md:text-4xl">
+                      Consulenza preventiva confermata
+                    </h2>
+                    <div className="mx-auto mt-6 h-px w-16 bg-gold" />
+                    <p className="mt-6 text-lg text-primary">
+                      {selectedDay} {months[viewMonth]} {viewYear} · {selectedSlot}
+                    </p>
+                    <p className="mt-5 text-sm text-muted-foreground">
+                      Riceverai a breve un’email di conferma con il link e il mini-briefing di preparazione.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="grid md:grid-cols-[1.4fr_1fr]">
+                    <div className="border-b border-primary/10 p-6 sm:p-7 md:border-b-0 md:border-r md:p-9">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">A</span>
+                          <h3 className="text-lg font-500 tracking-[-0.01em] text-primary md:text-xl">
+                            {months[viewMonth]} {viewYear}
+                          </h3>
+                        </div>
+                        <div className="flex gap-1">
+                          <button onClick={prevMonth} aria-label="Mese precedente" className="flex h-9 w-9 items-center justify-center border border-primary/20 text-muted-foreground transition-colors hover:border-gold hover:text-gold">
+                            <ChevronLeft className="h-4 w-4" />
+                          </button>
+                          <button onClick={nextMonth} aria-label="Mese successivo" className="flex h-9 w-9 items-center justify-center border border-primary/20 text-muted-foreground transition-colors hover:border-gold hover:text-gold">
+                            <ChevronRight className="h-4 w-4" />
+                          </button>
+                        </div>
                       </div>
-                      {selectedSlot && (
-                        <Button onClick={() => setConfirmed(true)} variant="cta" size="lg" className="mt-7 w-full animate-scale-in">
-                          Conferma {selectedSlot} <ArrowRight className="h-4 w-4" />
-                        </Button>
+                      <div className="mt-7 grid grid-cols-7 gap-1 text-center text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                        {weekdays.map((w, i) => (<div key={i} className="py-2">{w}</div>))}
+                      </div>
+                      <div className="mt-1 grid grid-cols-7 gap-1">
+                        {cells.map((day, i) => {
+                          if (day === null) return <div key={i} />;
+                          const disabled = isPast(day) || isWeekend(day);
+                          const selected = selectedDay === day;
+                          return (
+                            <button
+                              key={i}
+                              disabled={disabled}
+                              onClick={() => { setSelectedDay(day); setSelectedSlot(null); }}
+                              className={`aspect-square border text-sm font-medium tabular-nums transition-all duration-300 ${
+                                disabled ? "cursor-not-allowed border-transparent text-muted-foreground/30"
+                                : selected ? "border-gold bg-gold text-primary shadow-[0_0_0_1px_var(--color-gold)]"
+                                : "border-transparent text-primary hover:border-gold/60 hover:text-gold-deep"
+                              }`}
+                            >{day}</button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="p-6 sm:p-7 md:p-9">
+                      <div className="flex items-center gap-3">
+                        <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">B</span>
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                          Orari disponibili
+                        </span>
+                      </div>
+                      {selectedDay ? (
+                        <div className="animate-fade-in">
+                          <p className="mt-5 text-xl font-500 text-primary tracking-[-0.015em]">
+                            {selectedDay} {months[viewMonth]}
+                          </p>
+                          <div className="mt-3 h-px w-12 bg-gold" />
+                          <div className="mt-6 grid grid-cols-2 gap-2.5">
+                            {slots.map((s, idx) => (
+                              <button
+                                key={s}
+                                onClick={() => setSelectedSlot(s)}
+                                style={{ animationDelay: `${idx * 50}ms` }}
+                                className={`group relative overflow-hidden border px-3 py-3.5 text-base font-medium tabular-nums transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] animate-fade-in ${
+                                  selectedSlot === s
+                                    ? "border-gold bg-gold/10 text-gold-deep shadow-[0_0_0_1px_var(--color-gold)]"
+                                    : "border-primary/15 bg-primary/[0.02] text-primary hover:border-gold/60 hover:text-gold-deep"
+                                }`}
+                              >
+                                <span
+                                  aria-hidden
+                                  className={`absolute inset-y-0 left-0 w-[2px] bg-gold transition-transform duration-500 origin-center ${
+                                    selectedSlot === s ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
+                                  }`}
+                                />
+                                {s}
+                              </button>
+                            ))}
+                          </div>
+                          {selectedSlot && (
+                            <Button onClick={() => setConfirmed(true)} variant="cta" size="lg" className="group mt-7 w-full animate-scale-in">
+                              Conferma {selectedSlot}
+                              <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                            </Button>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="mt-14 flex flex-col items-center justify-center text-center">
+                          <CalendarIcon className="h-10 w-10 text-muted-foreground/40 animate-float-soft" strokeWidth={1.5} />
+                          <p className="mt-5 text-sm text-muted-foreground">
+                            Seleziona un giorno per vedere gli orari disponibili.
+                          </p>
+                        </div>
                       )}
                     </div>
-                  ) : (
-                    <div className="mt-14 flex flex-col items-center justify-center text-center">
-                      <CalendarIcon className="h-10 w-10 text-muted-foreground/40 animate-float-soft" strokeWidth={1.5} />
-                      <p className="mt-5 text-body-sm text-muted-foreground">
-                        Seleziona un giorno per vedere gli orari disponibili.
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </Reveal>
+                  </div>
+                )}
+              </Reveal>
+
+              <p className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                <ShieldCheck className="h-3.5 w-3.5 text-gold" />
+                Consulenza preventiva · 30 minuti · senza impegno
+              </p>
+            </div>
+
+            <div className="hidden lg:col-span-1 lg:flex flex-col items-end gap-12 pt-2">
+              <span
+                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
+                style={{ writingMode: "vertical-rl" }}
+              >
+                Studio Legale Accarino · Booking
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* WHO */}
-      <section className="section-y">
+      <section className="relative z-10 border-t border-primary/10 py-20 md:py-28">
         <div className="container max-w-6xl">
           <div className="grid gap-10 md:gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-20">
             <Reveal className="relative group mx-auto w-full max-w-sm lg:max-w-none">
@@ -194,29 +305,35 @@ function Booking() {
               <img src={founder} alt="Avv. Accarino" className="relative w-full object-cover shadow-luxe transition-transform duration-700 group-hover:scale-[1.01]" loading="lazy" />
             </Reveal>
             <Reveal delay={150}>
-              <span className="eyebrow">Chi ti risponderà</span>
-              <h2 className="mt-5 text-display text-primary text-balance">
-                Avv. <span className="text-gold">Accarino.</span>
+              <div className="flex items-center gap-5">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                <div className="h-px w-8 bg-gold/40" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  Chi ti risponderà
+                </span>
+              </div>
+              <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
+                Avv. <span className="text-gold-deep">Accarino.</span>
               </h2>
-              <div className="rule-gold mt-6 w-24 origin-left animate-draw-line" />
-              <p className="mt-6 text-lead">
+              <div className="mt-6 h-px w-24 bg-gold" />
+              <p className="mt-6 text-lg leading-[1.55] text-muted-foreground">
                 Founder dello Studio Legale Accarino e responsabile dell’area
                 Edilizia, Urbanistica & Espropri. Da oltre 20 anni difende proprietari,
                 aziende agricole e imprese di costruzione nei procedimenti contro la PA.
               </p>
-              <p className="mt-5 text-body text-muted-foreground">
+              <p className="mt-5 text-base text-muted-foreground">
                 Quando prenoti, parli direttamente con lui. Niente filtri, niente
                 assistenti, niente “le farò sapere”.
               </p>
-              <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8 md:mt-12 md:pt-10">
+              <div className="mt-10 grid grid-cols-3 gap-6 border-t border-primary/10 pt-8 md:mt-12 md:pt-10">
                 {[
                   { v: "20+", l: "Anni di esperienza" },
                   { v: "+35%", l: "Indennità media ottenuta" },
                   { v: "200+", l: "Casi seguiti" },
                 ].map((s, i) => (
                   <Reveal key={s.l} delay={300 + i * 100}>
-                    <p className="text-stat text-gold">{s.v}</p>
-                    <p className="mt-3 text-caption uppercase tracking-[0.24em] text-muted-foreground">{s.l}</p>
+                    <p className="text-3xl font-500 tracking-[-0.02em] text-gold-deep md:text-4xl">{s.v}</p>
+                    <p className="mt-3 text-[10px] uppercase tracking-[0.24em] text-muted-foreground">{s.l}</p>
                   </Reveal>
                 ))}
               </div>
@@ -226,14 +343,28 @@ function Booking() {
       </section>
 
       {/* NEXT STEPS */}
-      <section className="bg-primary section-y text-primary-foreground">
-        <div className="container max-w-5xl">
-          <Reveal className="text-center">
-            <span className="eyebrow-center">Prossimi step</span>
-            <h2 className="mt-5 text-display text-primary-foreground text-balance">
+      <section className="relative z-10 border-t border-primary/10 bg-primary py-20 text-primary-foreground md:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.12]"
+          style={{ background: "radial-gradient(60% 50% at 10% 100%, var(--color-gold) 0%, transparent 70%)" }}
+        />
+        <span aria-hidden className="absolute left-6 top-6 h-4 w-4 border-l border-t border-gold/40 lg:left-12 lg:top-12" />
+        <span aria-hidden className="absolute bottom-6 right-6 h-4 w-4 border-b border-r border-gold/40 lg:bottom-12 lg:right-12" />
+
+        <div className="container relative z-10 max-w-5xl">
+          <Reveal>
+            <div className="flex items-center gap-5">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+              <div className="h-px w-8 bg-gold/40" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">
+                Prossimi step
+              </span>
+            </div>
+            <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em]">
               Cosa succede dopo aver <span className="text-gold">prenotato.</span>
             </h2>
-            <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
+            <div className="mt-6 h-px w-24 bg-gold" />
           </Reveal>
 
           <ol className="mt-12 grid gap-px overflow-hidden border border-primary-foreground/15 bg-primary-foreground/15 sm:grid-cols-2 md:mt-16 md:grid-cols-4">
@@ -243,13 +374,14 @@ function Booking() {
               { icon: FileSignature, title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
               { icon: Sparkles, title: "Avvio in 7 giorni", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
             ].map(({ icon: Icon, title, body }, i) => (
-              <Reveal as="li" key={title} delay={i * 120} className="relative bg-primary p-7 group transition-luxe hover:bg-primary/70 md:p-9">
+              <Reveal as="li" key={title} delay={i * 120} className="relative bg-primary p-7 group transition-colors hover:bg-primary/70 md:p-9">
                 <div className="flex items-center gap-4">
-                  <span className="text-stat text-gold">0{i + 1}</span>
-                  <Icon className="h-5 w-5 text-gold transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                  <span className="font-serif text-2xl text-gold tabular-nums">0{i + 1}</span>
+                  <div className="h-px w-6 bg-gold/40" />
+                  <Icon className="h-4 w-4 text-gold transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-6 text-title text-primary-foreground md:mt-7">{title}</h3>
-                <p className="mt-3 text-body-sm text-primary-foreground/70">{body}</p>
+                <h3 className="mt-6 text-lg font-500 tracking-[-0.01em] text-primary-foreground md:mt-7">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{body}</p>
               </Reveal>
             ))}
           </ol>
@@ -257,23 +389,34 @@ function Booking() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-soft grain section-y">
+      <section className="relative z-10 border-t border-primary/10 py-20 md:py-28">
         <div className="container max-w-3xl">
-          <Reveal className="text-center">
-            <span className="eyebrow-center">FAQ</span>
-            <h2 className="mt-5 text-display text-primary text-balance">
-              Tutto quello che vuoi sapere <span className="text-gold">prima della call.</span>
+          <Reveal>
+            <div className="flex items-center gap-5">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+              <div className="h-px w-8 bg-gold/40" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                FAQ
+              </span>
+            </div>
+            <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
+              Tutto quello che vuoi sapere <span className="text-gold-deep">prima della call.</span>
             </h2>
-            <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
+            <div className="mt-6 h-px w-24 bg-gold" />
           </Reveal>
           <Reveal delay={120}>
-            <Accordion type="single" collapsible className="mt-12 border-t border-border md:mt-16">
+            <Accordion type="single" collapsible className="mt-12 border-t border-primary/10 md:mt-16">
               {faqs.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border">
-                  <AccordionTrigger className="py-6 text-left text-title text-primary hover:text-gold hover:no-underline md:py-7">
-                    {f.q}
+                <AccordionItem key={i} value={`item-${i}`} className="border-b border-primary/10">
+                  <AccordionTrigger className="py-6 text-left text-lg font-500 tracking-[-0.01em] text-primary hover:text-gold hover:no-underline md:py-7">
+                    <span className="flex items-baseline gap-4">
+                      <span className="font-serif text-[10px] uppercase tracking-[0.3em] text-gold/70">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {f.q}
+                    </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-6 text-body text-muted-foreground md:pb-7">
+                  <AccordionContent className="pb-6 text-base text-muted-foreground md:pb-7">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -284,22 +427,30 @@ function Booking() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-primary py-20 md:py-28">
-        <div className="container max-w-4xl text-center">
+      <section className="relative z-10 border-t border-primary/10 bg-primary py-20 text-primary-foreground md:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.12]"
+          style={{ background: "radial-gradient(50% 60% at 50% 0%, var(--color-gold) 0%, transparent 70%)" }}
+        />
+        <div className="container relative z-10 max-w-4xl text-center">
           <Reveal>
-            <span className="eyebrow-center">Pronto a iniziare?</span>
-            <h2 className="mt-5 text-display text-primary-foreground text-balance">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+              Pronto a iniziare?
+            </span>
+            <h2 className="mt-5 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em]">
               Prenota ora la tua <span className="text-gold">consulenza preventiva.</span>
             </h2>
-            <div className="rule-gold mx-auto mt-6 w-24 animate-draw-line" />
-            <p className="mt-6 text-lead text-primary-foreground/70">
+            <div className="mx-auto mt-6 h-px w-24 bg-gold" />
+            <p className="mt-6 text-lg text-primary-foreground/70">
               30 minuti con l’Avv. Accarino. Senza impegno. Valore concreto garantito.
             </p>
           </Reveal>
           <Reveal delay={150}>
-            <Button asChild variant="cta" size="xl" className="mt-10">
+            <Button asChild variant="cta" size="xl" className="group mt-10">
               <Link to="/quiz">
-                Verifica il tuo caso <ArrowRight className="h-5 w-5" />
+                Verifica il tuo caso
+                <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
               </Link>
             </Button>
           </Reveal>
