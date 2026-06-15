@@ -8,7 +8,7 @@ import personLandowner from "@/assets/person-landowner.jpg";
 import personHomeowner from "@/assets/person-homeowner.jpg";
 import personBuilder from "@/assets/person-builder.jpg";
 import lawBooks from "@/assets/law-books.jpg";
-import Banner from "@/components/funnel/Banner";
+import Logo from "@/components/funnel/Logo";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import Ticker from "@/components/funnel/Ticker";
