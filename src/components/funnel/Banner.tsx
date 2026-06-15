@@ -1,36 +1,52 @@
+import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { Button } from "@/components/ui/button";
-import { Link } from "@tanstack/react-router";
 
 interface BannerProps {
   variant?: "light" | "dark";
+  /** Reactive — switches from primary/gold to white/dark on scroll. Default true on landing. */
+  scrollAware?: boolean;
   showCta?: boolean;
 }
 
-const Banner = ({ variant = "light", showCta = true }: BannerProps) => {
-  const isLight = variant === "light";
+const Banner = ({ variant = "light", scrollAware = false }: BannerProps) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!scrollAware) return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollAware]);
+
+  // Resolve effective theme
+  const isDark = scrollAware ? !scrolled : variant === "dark";
+
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b backdrop-blur-md ${
-        isLight ? "border-border bg-background/85" : "border-primary-foreground/10 bg-primary/85"
+      className={`sticky top-0 z-50 w-full border-b backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-500 ease-out ${
+        isDark
+          ? "border-primary-foreground/10 bg-primary/95"
+          : "border-border bg-background/90 shadow-card"
       }`}
     >
-      <div className={`container flex h-28 items-center ${showCta ? "justify-between" : "justify-center"}`}>
-        <Logo variant={isLight ? "dark" : "light"} />
-        {showCta && (
-          <div className="flex items-center gap-3">
-            <span
-              className={`hidden text-xs uppercase tracking-[0.2em] md:inline ${
-                isLight ? "text-muted-foreground" : "text-primary-foreground/60"
-              }`}
-            >
-              Risposta in 24h
-            </span>
-            <Button asChild variant="cta" size="default">
-              <Link to="/quiz">Verifica il tuo caso</Link>
-            </Button>
-          </div>
-        )}
+      <div className="container flex h-24 items-center justify-center md:h-28">
+        <div
+          className={`transition-opacity duration-500 ease-out ${
+            isDark ? "opacity-100" : "opacity-0 pointer-events-none absolute"
+          }`}
+          aria-hidden={!isDark}
+        >
+          <Logo variant="gold" />
+        </div>
+        <div
+          className={`transition-opacity duration-500 ease-out ${
+            isDark ? "opacity-0 pointer-events-none absolute" : "opacity-100"
+          }`}
+          aria-hidden={isDark}
+        >
+          <Logo variant="dark" />
+        </div>
       </div>
     </header>
   );
