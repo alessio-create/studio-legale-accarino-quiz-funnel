@@ -2,7 +2,7 @@
 import {
   ArrowRight, ArrowUpRight, Check, Star, Sparkles, type LucideIcon,
 } from "lucide-react";
-import Banner from "@/components/funnel/Banner";
+import Logo from "./Logo";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import Ticker from "@/components/funnel/Ticker";
