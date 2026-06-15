@@ -18,6 +18,7 @@ export type VerticalLPConfig = {
   eyebrow: string;
   heroImage: string;
   heroImageAlt: string;
+  heroTint?: string;
   solutionImage: string;
   solutionImageAlt: string;
   heroH1Plain: string;
