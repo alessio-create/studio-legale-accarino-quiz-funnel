@@ -52,7 +52,7 @@ export const Route = createFileRoute("/ordinanza-demolizione")({
 
 const config = {
   vertical: "demolizione" as const,
-  eyebrow: "Emergenza Edilizia",
+  eyebrow: "EMERGENZA EDILIZIA",
   heroImage: heroImg,
   heroTint: "#3d1f1a",
   heroImageAlt: "Edificio oggetto di contestazione urbanistica",
