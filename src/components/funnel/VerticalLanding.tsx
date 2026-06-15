@@ -202,14 +202,13 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
             <Reveal delay={140}>
               <div className="relative">
-                <span aria-hidden className="absolute -left-3 -top-3 h-10 w-10 border-l border-t border-gold" />
-                <span aria-hidden className="absolute -bottom-3 -right-3 h-10 w-10 border-b border-r border-gold" />
-                <div className="relative overflow-hidden">
+                <span aria-hidden className="absolute -left-3 -top-3 z-10 h-10 w-10 border-l border-t border-gold" />
+                <span aria-hidden className="absolute -bottom-3 -right-3 z-10 h-10 w-10 border-b border-r border-gold" />
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <img
                     src={cfg.solutionImage}
                     alt={cfg.solutionImageAlt}
-                    className="animate-image-reveal h-full w-full object-cover"
-                    loading="lazy"
+                    className="animate-image-reveal absolute inset-0 h-full w-full object-cover"
                   />
                   <span
                     aria-hidden
