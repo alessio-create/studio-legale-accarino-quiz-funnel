@@ -42,8 +42,12 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Unified clean sans-serif system — mirrors studiolegaleaccarino.it.
+     --font-serif is intentionally aliased to the same Inter stack so legacy
+     `font-serif`, `.text-display`, `.italic-accent` classes render as sans
+     without a sweeping refactor. Do NOT reintroduce Playfair here. */
   --font-sans: "Inter", "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, sans-serif;
-  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-serif: "Inter", "Source Sans 3", system-ui, sans-serif;
 }
 
 :root {
@@ -113,22 +117,17 @@
     text-rendering: optimizeLegibility;
     line-height: 1.6;
   }
-  h1, h2, h3 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    color: var(--color-primary);
-    line-height: 1.08;
-  }
-  h4, h5 {
-    font-family: var(--font-serif);
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-sans);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: var(--color-primary);
-    line-height: 1.2;
+    line-height: 1.15;
   }
-  .font-editorial { font-family: var(--font-serif); }
-  .italic-accent { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+  /* Style reset: no italics anywhere — clean editorial sans look */
+  i, em, .italic, .italic-accent { font-style: normal !important; }
+  .font-editorial { font-family: var(--font-sans); }
+  .italic-accent { font-family: var(--font-sans); font-weight: 500; }
   p { text-wrap: pretty; }
   ::selection { background: color-mix(in oklab, var(--color-gold) 35%, transparent); color: var(--color-primary); }
 }
@@ -215,16 +214,16 @@
   .shadow-amber { box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-gold) 50%, transparent); }
   .shadow-inset-gold { box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-gold) 50%, transparent); }
 
-  /* Editorial type scale — serif headings, tighter tracking */
-  .text-display { font-family: var(--font-serif); font-size: clamp(2.75rem, 5.6vw, 5.25rem); font-weight: 400; line-height: 1.02; letter-spacing: -0.02em; }
-  .text-display-sm { font-family: var(--font-serif); font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
-  .text-heading { font-family: var(--font-serif); font-size: clamp(1.75rem, 2.4vw, 2.25rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; }
-  .text-title { font-family: var(--font-sans); font-size: 1.1875rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.005em; }
+  /* Editorial type scale — Inter sans throughout (Accarino brand). */
+  .text-display { font-family: var(--font-sans); font-size: clamp(2.75rem, 5.6vw, 5.25rem); font-weight: 500; line-height: 1.08; letter-spacing: -0.025em; }
+  .text-display-sm { font-family: var(--font-sans); font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.025em; }
+  .text-heading { font-family: var(--font-sans); font-size: clamp(1.75rem, 2.4vw, 2.25rem); font-weight: 500; line-height: 1.18; letter-spacing: -0.02em; }
+  .text-title { font-family: var(--font-sans); font-size: 1.1875rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; }
   .text-lead { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-muted-foreground); font-weight: 400; }
   .text-body { font-family: var(--font-sans); font-size: 1rem; line-height: 1.7; }
   .text-body-sm { font-family: var(--font-sans); font-size: 0.9375rem; line-height: 1.65; }
   .text-caption { font-family: var(--font-sans); font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; }
-  .text-stat { font-family: var(--font-serif); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--color-primary); }
+  .text-stat { font-family: var(--font-sans); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1; color: var(--color-primary); }
   .text-eyebrow { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
 
   /* Chapter / ghost numerals */
