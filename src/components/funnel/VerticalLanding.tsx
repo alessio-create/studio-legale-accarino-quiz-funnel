@@ -1,6 +1,6 @@
 
 import {
-  ArrowRight, ArrowUpRight, Check, Star, Sparkles, type LucideIcon,
+  ArrowRight, ArrowUpRight, Award, BookOpen, Check, CheckCircle2, Scale, Star, type LucideIcon,
 } from "lucide-react";
 import Logo from "./Logo";
 import Footer from "@/components/funnel/Footer";
