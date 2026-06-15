@@ -136,6 +136,16 @@ function Index() {
 
         <div className="container relative z-10 pb-28 pt-40 sm:pb-32 sm:pt-48 lg:pb-40 lg:pt-56">
           <div className="mx-auto max-w-4xl animate-fade-up text-center">
+            <div className="mb-6 flex justify-center">
+              <img
+                src={heroIllustration}
+                alt="Illustrazione dello Studio Legale Accarino"
+                className="h-24 w-auto md:h-32"
+                width={1024}
+                height={768}
+                loading="eager"
+              />
+            </div>
             <div className="mb-8 flex justify-center">
               <Logo variant="gold" className="h-10 w-auto md:h-12" />
             </div>
