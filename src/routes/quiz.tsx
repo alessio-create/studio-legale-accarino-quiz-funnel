@@ -379,16 +379,6 @@ function Quiz() {
                 </p>
               </div>
             </div>
-
-            {/* Right vertical mark */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-end justify-between gap-12 pt-2">
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                {meta.mark}
-              </span>
-            </div>
           </div>
         </div>
       </main>
