@@ -9,19 +9,37 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RicorsoTarRouteImport } from './routes/ricorso-tar'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as OrdinanzaDemolizioneRouteImport } from './routes/ordinanza-demolizione'
 import { Route as OptinRouteImport } from './routes/optin'
+import { Route as EspropriIndennitaRouteImport } from './routes/espropri-indennita'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RicorsoTarRoute = RicorsoTarRouteImport.update({
+  id: '/ricorso-tar',
+  path: '/ricorso-tar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrdinanzaDemolizioneRoute = OrdinanzaDemolizioneRouteImport.update({
+  id: '/ordinanza-demolizione',
+  path: '/ordinanza-demolizione',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OptinRoute = OptinRouteImport.update({
   id: '/optin',
   path: '/optin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EspropriIndennitaRoute = EspropriIndennitaRouteImport.update({
+  id: '/espropri-indennita',
+  path: '/espropri-indennita',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookingRoute = BookingRouteImport.update({
@@ -38,39 +56,80 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
+  '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
+  '/ricorso-tar': typeof RicorsoTarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
+  '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
+  '/ricorso-tar': typeof RicorsoTarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
+  '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
+  '/ricorso-tar': typeof RicorsoTarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/booking' | '/optin' | '/quiz'
+  fullPaths:
+    | '/'
+    | '/booking'
+    | '/espropri-indennita'
+    | '/optin'
+    | '/ordinanza-demolizione'
+    | '/quiz'
+    | '/ricorso-tar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/booking' | '/optin' | '/quiz'
-  id: '__root__' | '/' | '/booking' | '/optin' | '/quiz'
+  to:
+    | '/'
+    | '/booking'
+    | '/espropri-indennita'
+    | '/optin'
+    | '/ordinanza-demolizione'
+    | '/quiz'
+    | '/ricorso-tar'
+  id:
+    | '__root__'
+    | '/'
+    | '/booking'
+    | '/espropri-indennita'
+    | '/optin'
+    | '/ordinanza-demolizione'
+    | '/quiz'
+    | '/ricorso-tar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookingRoute: typeof BookingRoute
+  EspropriIndennitaRoute: typeof EspropriIndennitaRoute
   OptinRoute: typeof OptinRoute
+  OrdinanzaDemolizioneRoute: typeof OrdinanzaDemolizioneRoute
   QuizRoute: typeof QuizRoute
+  RicorsoTarRoute: typeof RicorsoTarRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ricorso-tar': {
+      id: '/ricorso-tar'
+      path: '/ricorso-tar'
+      fullPath: '/ricorso-tar'
+      preLoaderRoute: typeof RicorsoTarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quiz': {
       id: '/quiz'
       path: '/quiz'
@@ -78,11 +137,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ordinanza-demolizione': {
+      id: '/ordinanza-demolizione'
+      path: '/ordinanza-demolizione'
+      fullPath: '/ordinanza-demolizione'
+      preLoaderRoute: typeof OrdinanzaDemolizioneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/optin': {
       id: '/optin'
       path: '/optin'
       fullPath: '/optin'
       preLoaderRoute: typeof OptinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/espropri-indennita': {
+      id: '/espropri-indennita'
+      path: '/espropri-indennita'
+      fullPath: '/espropri-indennita'
+      preLoaderRoute: typeof EspropriIndennitaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/booking': {
@@ -105,19 +178,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookingRoute: BookingRoute,
+  EspropriIndennitaRoute: EspropriIndennitaRoute,
   OptinRoute: OptinRoute,
+  OrdinanzaDemolizioneRoute: OrdinanzaDemolizioneRoute,
   QuizRoute: QuizRoute,
+  RicorsoTarRoute: RicorsoTarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
