@@ -7,7 +7,7 @@ import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import Ticker from "@/components/funnel/Ticker";
 import CountUp from "@/components/funnel/CountUp";
-import GoogleIcon from "@/components/funnel/GoogleIcon";
+import heroIllustration from "@/assets/hero-illustration.png";
 import { Button } from "@/components/ui/button";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
