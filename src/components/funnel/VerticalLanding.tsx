@@ -458,5 +458,3 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
   );
 }
 
-// silence unused Link
-void Link;
