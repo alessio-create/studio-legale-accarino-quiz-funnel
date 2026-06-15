@@ -52,7 +52,7 @@ export const Route = createFileRoute("/espropri-indennita")({
 
 const config = {
   vertical: "espropri" as const,
-  eyebrow: "Espropri & Indennità",
+  eyebrow: "ESPROPRI & INDENNITÀ",
   heroImage: heroImg,
   heroTint: "#1f3a2b",
   heroImageAlt: "Terreno oggetto di procedura espropriativa",
