@@ -161,18 +161,6 @@ function Index() {
               </Button>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-primary-foreground/70 md:text-sm">
-              <span className="inline-flex items-center gap-2">
-                <GoogleIcon className="h-4 w-4" />
-                <span className="font-semibold text-primary-foreground">5.0</span>
-                <span className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-gold" strokeWidth={0} />
-                  ))}
-                </span>
-                <span>· Clienti verificati in tutta Italia</span>
-              </span>
-            </div>
           </div>
         </div>
 
