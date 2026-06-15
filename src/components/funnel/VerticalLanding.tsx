@@ -7,7 +7,7 @@ import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import Ticker from "@/components/funnel/Ticker";
 import CountUp from "@/components/funnel/CountUp";
-import GoogleIcon from "@/components/funnel/GoogleIcon";
+import heroIllustration from "@/assets/hero-illustration.png";
 import { Button } from "@/components/ui/button";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -80,7 +80,17 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
 
         <div className="container relative z-10 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
-          <div className="max-w-4xl animate-fade-up">
+          <div className="mx-auto max-w-4xl animate-fade-up text-center">
+            <div className="mb-6 flex justify-center">
+              <img
+                src={heroIllustration}
+                alt="Illustrazione dello Studio Legale Accarino"
+                className="h-24 w-auto md:h-32"
+                width={1024}
+                height={768}
+                loading="eager"
+              />
+            </div>
             <div className="mb-8 flex justify-center">
               <Logo variant="gold" className="h-10 w-auto md:h-12" />
             </div>
@@ -91,38 +101,17 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               {cfg.heroH1Plain}{" "}
               <span className="italic-accent text-gold">{cfg.heroH1Accent}</span>
             </h1>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
+            <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
               {cfg.heroSub}
             </p>
 
-            <div className="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10">
+            <div className="mt-10 flex justify-center">
               <Button asChild variant="cta" size="xl" className="group">
                 <a href={ctaHref}>
                   Verifica il tuo caso
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <div className="flex items-center gap-4 text-sm">
-                <span className="text-3xl font-300 leading-none text-gold tabular-nums">
-                  <CountUp to={20} suffix="+" />
-                </span>
-                <span className="text-[11px] uppercase tracking-[0.18em] leading-snug text-primary-foreground/70">
-                  Anni di esperienza<br />in diritto amministrativo
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-primary-foreground/70 md:text-sm">
-              <span className="inline-flex items-center gap-2">
-                <GoogleIcon className="h-4 w-4" />
-                <span className="font-semibold text-primary-foreground">5.0</span>
-                <span className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-gold" strokeWidth={0} />
-                  ))}
-                </span>
-                <span>· Clienti verificati in tutta Italia</span>
-              </span>
             </div>
           </div>
         </div>
@@ -358,7 +347,6 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               <span className="italic-accent text-gold-deep">{cfg.reviewsH1Accent}</span>
             </h2>
             <div className="mx-auto mt-6 flex items-center justify-center gap-3 text-sm text-muted-foreground">
-              <GoogleIcon className="h-4 w-4" />
               <span className="font-semibold text-primary">5.0</span>
               <span className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
