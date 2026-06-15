@@ -69,13 +69,33 @@ const questions: Question[] = [
   },
 ];
 
+const verticalToPain: Record<string, string> = {
+  espropri: "Esproprio o indennità da rinegoziare",
+  demolizione: "Ordinanza di demolizione / abuso edilizio",
+  tar: "Diniego permessi / silenzio della PA",
+};
+
 function Quiz() {
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [activeQuestions, setActiveQuestions] = useState<Question[]>(questions);
 
-  const total = questions.length;
-  const current = questions[step];
+  // Read ?vertical= once on mount and pre-fill the matching "pain" answer
+  // so users coming from a vertical landing page skip that question.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const v = params.get("vertical");
+    if (v && verticalToPain[v]) {
+      const pain = verticalToPain[v];
+      setAnswers((a) => ({ ...a, pain }));
+      setActiveQuestions(questions.filter((q) => q.id !== "pain"));
+    }
+  }, []);
+
+  const total = activeQuestions.length;
+  const current = activeQuestions[step];
   const progress = ((step + 1) / total) * 100;
 
   const select = (option: string) => {

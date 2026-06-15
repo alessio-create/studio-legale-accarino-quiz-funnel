@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RicorsoTarRouteImport } from './routes/ricorso-tar'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as OrdinanzaDemolizioneRouteImport } from './routes/ordinanza-demolizione'
 import { Route as OptinRouteImport } from './routes/optin'
@@ -16,6 +17,11 @@ import { Route as EspropriIndennitaRouteImport } from './routes/espropri-indenni
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RicorsoTarRoute = RicorsoTarRouteImport.update({
+  id: '/ricorso-tar',
+  path: '/ricorso-tar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
+  '/ricorso-tar': typeof RicorsoTarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
+  '/ricorso-tar': typeof RicorsoTarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
+  '/ricorso-tar': typeof RicorsoTarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/optin'
     | '/ordinanza-demolizione'
     | '/quiz'
+    | '/ricorso-tar'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/optin'
     | '/ordinanza-demolizione'
     | '/quiz'
+    | '/ricorso-tar'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/optin'
     | '/ordinanza-demolizione'
     | '/quiz'
+    | '/ricorso-tar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,10 +118,18 @@ export interface RootRouteChildren {
   OptinRoute: typeof OptinRoute
   OrdinanzaDemolizioneRoute: typeof OrdinanzaDemolizioneRoute
   QuizRoute: typeof QuizRoute
+  RicorsoTarRoute: typeof RicorsoTarRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ricorso-tar': {
+      id: '/ricorso-tar'
+      path: '/ricorso-tar'
+      fullPath: '/ricorso-tar'
+      preLoaderRoute: typeof RicorsoTarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quiz': {
       id: '/quiz'
       path: '/quiz'
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   OptinRoute: OptinRoute,
   OrdinanzaDemolizioneRoute: OrdinanzaDemolizioneRoute,
   QuizRoute: QuizRoute,
+  RicorsoTarRoute: RicorsoTarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
