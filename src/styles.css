@@ -42,9 +42,12 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Unified clean sans-serif system — mirrors studiolegaleaccarino.it.
+     --font-serif is intentionally aliased to the same Inter stack so legacy
+     `font-serif`, `.text-display`, `.italic-accent` classes render as sans
+     without a sweeping refactor. Do NOT reintroduce Playfair here. */
   --font-sans: "Inter", "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, sans-serif;
-  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
-}
+  --font-serif: "Inter", "Source Sans 3", system-ui, sans-serif;
 
 :root {
   --radius: 0px;
