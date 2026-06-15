@@ -297,7 +297,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         variant="light"
         speed="slow"
         items={cfg.resultsTicker}
-        separator={<Sparkles className="h-4 w-4 text-gold" />}
+        separator={<Award className="h-4 w-4 text-gold" strokeWidth={1.5} />}
       />
 
       {/* PROCESS */}
