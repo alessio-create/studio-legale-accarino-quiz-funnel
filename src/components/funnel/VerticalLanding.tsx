@@ -81,6 +81,9 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
         <div className="container relative z-10 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
           <div className="max-w-4xl animate-fade-up">
+            <div className="mb-8 flex justify-center">
+              <Logo variant="gold" className="h-10 w-auto md:h-12" />
+            </div>
             <p className="eyebrow !text-gold">
               <span className="text-primary-foreground/70">Studio Legale Accarino · {cfg.eyebrow}</span>
             </p>
