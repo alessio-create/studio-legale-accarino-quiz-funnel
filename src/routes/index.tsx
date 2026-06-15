@@ -152,21 +152,13 @@ function Index() {
               se il tuo caso ha margini reali.
             </p>
 
-            <div className="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10">
+            <div className="mt-10 flex justify-center">
               <Button asChild variant="cta" size="xl" className="group">
                 <Link to="/quiz">
                   Verifica il tuo caso
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <div className="flex items-center gap-4 text-sm">
-                <span className="text-3xl font-300 leading-none text-gold tabular-nums">
-                  <CountUp to={20} suffix="+" />
-                </span>
-                <span className="text-[11px] uppercase tracking-[0.18em] leading-snug text-primary-foreground/70">
-                  Anni di esperienza<br />in diritto amministrativo
-                </span>
-              </div>
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-primary-foreground/70 md:text-sm">
