@@ -52,7 +52,7 @@ export const Route = createFileRoute("/ricorso-tar")({
 
 const config = {
   vertical: "tar" as const,
-  eyebrow: "Sblocco Progetti & TAR",
+  eyebrow: "SBLOCCO PROGETTI & TAR",
   heroImage: heroImg,
   heroTint: "#101a35",
   heroImageAlt: "Colonnato di tribunale amministrativo",
