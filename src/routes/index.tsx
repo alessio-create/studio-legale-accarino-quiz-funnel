@@ -8,7 +8,7 @@ import personLandowner from "@/assets/person-landowner.jpg";
 import personHomeowner from "@/assets/person-homeowner.jpg";
 import personBuilder from "@/assets/person-builder.jpg";
 import lawBooks from "@/assets/law-books.jpg";
-import Banner from "@/components/funnel/Banner";
+import Logo from "@/components/funnel/Logo";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import Ticker from "@/components/funnel/Ticker";
@@ -122,8 +122,6 @@ const faqs = [
 function Index() {
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
-      <Banner scrollAware />
-
       {/* ───────────── HERO — editorial, image-anchored, gold accent ───────────── */}
       <section className="relative isolate flex min-h-[88svh] items-end overflow-hidden bg-primary text-primary-foreground">
         <img
@@ -138,6 +136,9 @@ function Index() {
 
         <div className="container relative z-10 pb-28 pt-40 sm:pb-32 sm:pt-48 lg:pb-40 lg:pt-56">
           <div className="max-w-4xl animate-fade-up">
+            <div className="mb-8 flex justify-center">
+              <Logo variant="gold" className="h-10 w-auto md:h-12" />
+            </div>
             <p className="eyebrow !text-gold">
               <span className="text-primary-foreground/70">Studio Legale · Salerno &amp; Cava de’ Tirreni</span>
             </p>

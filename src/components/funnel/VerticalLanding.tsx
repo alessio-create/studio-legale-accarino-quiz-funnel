@@ -2,7 +2,7 @@
 import {
   ArrowRight, ArrowUpRight, Check, Star, Sparkles, type LucideIcon,
 } from "lucide-react";
-import Banner from "@/components/funnel/Banner";
+import Logo from "./Logo";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import Ticker from "@/components/funnel/Ticker";
@@ -53,8 +53,6 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
-      <Banner scrollAware />
-
       {/* HERO */}
       <section
         className="relative isolate flex min-h-[70svh] items-end overflow-hidden text-primary-foreground"
@@ -83,6 +81,9 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
         <div className="container relative z-10 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
           <div className="max-w-4xl animate-fade-up">
+            <div className="mb-8 flex justify-center">
+              <Logo variant="gold" className="h-10 w-auto md:h-12" />
+            </div>
             <p className="eyebrow !text-gold">
               <span className="text-primary-foreground/70">Studio Legale Accarino · {cfg.eyebrow}</span>
             </p>
