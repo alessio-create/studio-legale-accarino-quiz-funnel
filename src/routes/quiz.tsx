@@ -363,7 +363,7 @@ function Quiz() {
                         <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">
                           {String.fromCharCode(65 + i)}
                         </span>
-                        <span className="text-base text-foreground sm:text-lg">{option}</span>
+                        <span className="text-sm text-foreground sm:text-base">{option}</span>
                       </div>
                       <span
                         className={`flex h-9 w-9 shrink-0 items-center justify-center border transition-all duration-500 ${
