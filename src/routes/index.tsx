@@ -481,7 +481,6 @@ function Index() {
               <span className="italic-accent text-gold-deep">risultati misurabili.</span>
             </h2>
             <div className="mx-auto mt-6 flex items-center justify-center gap-3 text-sm text-muted-foreground">
-              <GoogleIcon className="h-4 w-4" />
               <span className="font-semibold text-primary">5.0</span>
               <span className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
