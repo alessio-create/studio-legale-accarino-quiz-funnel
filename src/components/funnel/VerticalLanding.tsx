@@ -56,41 +56,18 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
       {/* HERO */}
       <section
         className="relative isolate flex min-h-[70svh] items-end overflow-hidden text-primary-foreground"
-        style={{ backgroundColor: cfg.heroTint ?? "var(--color-primary)" }}
+        style={{ backgroundColor: "var(--color-primary)" }}
       >
-        <img
-          src={cfg.heroImage}
-          alt={cfg.heroImageAlt}
-          className="absolute inset-0 h-full w-full object-cover"
-          fetchPriority="high"
-        />
         <div
-          className="absolute inset-0"
-          style={{
-            background: `linear-gradient(to right, color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 95%, transparent), color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 85%, transparent), color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 55%, transparent))`,
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `linear-gradient(to top, ${cfg.heroTint ?? "var(--color-primary)"}, color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 70%, transparent), color-mix(in oklab, ${cfg.heroTint ?? "var(--color-primary)"} 20%, transparent))`,
-          }}
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.18]"
+          style={{ background: "radial-gradient(60% 50% at 90% 0%, var(--color-gold) 0%, transparent 70%)" }}
         />
         <div className="absolute inset-0 grain opacity-25" />
 
 
         <div className="container relative z-10 pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
           <div className="mx-auto max-w-4xl animate-fade-up text-center">
-            <div className="mb-6 flex justify-center">
-              <img
-                src={heroIllustration}
-                alt="Illustrazione dello Studio Legale Accarino"
-                className="h-24 w-auto md:h-32"
-                width={1024}
-                height={768}
-                loading="eager"
-              />
-            </div>
             <div className="mb-8 flex justify-center">
               <Logo variant="gold" className="h-10 w-auto md:h-12" />
             </div>
