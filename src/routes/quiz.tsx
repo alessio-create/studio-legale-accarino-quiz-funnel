@@ -253,24 +253,21 @@ function Quiz() {
   const back = () => { if (step > 0) setStep((s) => s - 1); };
 
   return (
-    <div
-      className="relative isolate flex min-h-screen flex-col overflow-hidden text-primary-foreground"
-      style={{ backgroundColor: "var(--color-primary)" }}
-    >
-      {/* Ambient gold radial + grain */}
+    <div className="relative isolate flex min-h-screen flex-col overflow-hidden bg-background text-foreground">
+      {/* Warm ambient gold glow — top-right */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.18]"
+        className="pointer-events-none absolute inset-0 opacity-[0.10]"
         style={{ background: "radial-gradient(60% 50% at 90% 0%, var(--color-gold) 0%, transparent 70%)" }}
       />
-      <div className="absolute inset-0 grain opacity-25" />
+      <div className="absolute inset-0 grain opacity-40" />
 
       {/* Corner brackets */}
-      <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/40 lg:left-12 lg:top-12" />
-      <span aria-hidden className="absolute bottom-6 right-6 z-10 h-4 w-4 border-b border-r border-gold/40 lg:bottom-12 lg:right-12" />
+      <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/30 lg:left-12 lg:top-12" />
+      <span aria-hidden className="absolute bottom-6 right-6 z-10 h-4 w-4 border-b border-r border-gold/30 lg:bottom-12 lg:right-12" />
 
       {/* Header with progress hairline */}
-      <header className="relative z-10 border-b border-primary-foreground/10">
+      <header className="relative z-10 border-b border-primary/10">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center gap-4">
             <div className="relative">
@@ -278,15 +275,15 @@ function Quiz() {
               <span aria-hidden className="absolute -inset-2 border border-gold/20" />
             </div>
             <div className="hidden h-px w-8 bg-gold/40 sm:block" />
-            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60 sm:inline">
+            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
               {meta.chapter}
             </span>
           </div>
-          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40">
+          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
             {String(step + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
           </span>
         </div>
-        <div className="relative h-px w-full bg-primary-foreground/10">
+        <div className="relative h-px w-full bg-primary/10">
           <div
             className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             style={{ width: `${progress}%` }}
@@ -310,7 +307,7 @@ function Quiz() {
                 <div className="ml-1 h-12 w-px bg-gold/30" />
               </div>
               <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40"
+                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
                 style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
               >
                 {meta.chapter}
@@ -324,7 +321,7 @@ function Quiz() {
                   {String(step + 1).padStart(2, "0")}
                 </span>
                 <div className="h-px w-8 bg-gold/40" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   {current.eyebrow}
                 </span>
               </div>
@@ -332,11 +329,11 @@ function Quiz() {
               <div className="relative mt-6">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-gold/5 lg:-left-12 lg:text-[220px]"
+                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
                 >
                   {current.watermark}
                 </span>
-                <h1 className="relative text-balance text-[clamp(1.75rem,4.6vw,3.25rem)] font-500 leading-[1.08] tracking-[-0.02em] text-primary-foreground">
+                <h1 className="relative text-balance text-[clamp(1.75rem,4.6vw,3.25rem)] font-500 leading-[1.08] tracking-[-0.02em] text-primary">
                   {current.title}
                 </h1>
               </div>
@@ -350,10 +347,10 @@ function Quiz() {
                       key={option}
                       onClick={() => select(option)}
                       style={{ animation: "fade-up 0.55s cubic-bezier(0.16,1,0.3,1) both", animationDelay: `${140 + i * 70}ms` }}
-                      className={`group relative flex w-full items-center justify-between gap-4 overflow-hidden border bg-primary-foreground/[0.03] p-5 text-left backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-primary-foreground/[0.06] sm:p-6 ${
+                      className={`group relative flex w-full items-center justify-between gap-4 overflow-hidden border bg-primary/[0.03] p-5 text-left backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-primary/[0.06] sm:p-6 ${
                         selected
                           ? "border-gold shadow-[0_0_0_1px_var(--color-gold)]"
-                          : "border-primary-foreground/15 hover:border-gold/60"
+                          : "border-primary/15 hover:border-gold/60"
                       }`}
                     >
                       <span
@@ -366,13 +363,13 @@ function Quiz() {
                         <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">
                           {String.fromCharCode(65 + i)}
                         </span>
-                        <span className="text-base text-primary-foreground sm:text-lg">{option}</span>
+                        <span className="text-base text-foreground sm:text-lg">{option}</span>
                       </div>
                       <span
                         className={`flex h-9 w-9 shrink-0 items-center justify-center border transition-all duration-500 ${
                           selected
                             ? "border-gold bg-gold text-primary"
-                            : "border-primary-foreground/20 text-primary-foreground/60 group-hover:border-gold group-hover:text-gold"
+                            : "border-primary/20 text-muted-foreground group-hover:border-gold group-hover:text-gold"
                         }`}
                       >
                         {selected ? (
@@ -386,16 +383,16 @@ function Quiz() {
                 })}
               </div>
 
-              <div className="mt-12 flex items-center justify-between border-t border-primary-foreground/10 pt-6">
+              <div className="mt-12 flex items-center justify-between border-t border-primary/10 pt-6">
                 <Button
                   variant="ghost"
                   onClick={back}
                   disabled={step === 0}
-                  className="text-primary-foreground/60 hover:bg-transparent hover:text-gold disabled:opacity-30"
+                  className="text-muted-foreground hover:bg-transparent hover:text-gold disabled:opacity-30"
                 >
                   <ArrowLeft className="h-4 w-4" /> Indietro
                 </Button>
-                <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary-foreground/50">
+                <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                   <ShieldCheck className="h-3.5 w-3.5 text-gold" />
                   Risposte riservate
                 </p>
@@ -405,7 +402,7 @@ function Quiz() {
             {/* Right vertical mark */}
             <div className="hidden lg:col-span-1 lg:flex flex-col items-end justify-between gap-12 pt-2">
               <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40"
+                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
                 style={{ writingMode: "vertical-rl" }}
               >
                 {meta.mark}
