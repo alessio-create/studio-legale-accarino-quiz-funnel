@@ -15,6 +15,7 @@ export const Route = createFileRoute("/optin")({
     meta: [
       { title: "Il tuo caso è idoneo — Studio Legale Accarino" },
       { name: "description", content: "Lascia i tuoi dati per accedere alla consulenza preventiva con l'Avv. Accarino." },
+      { name: "robots", content: "noindex,follow" },
     ],
   }),
   component: Optin,

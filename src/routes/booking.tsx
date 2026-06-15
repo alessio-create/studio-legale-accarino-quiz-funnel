@@ -17,7 +17,8 @@ export const Route = createFileRoute("/booking")({
   head: () => ({
     meta: [
       { title: "Prenota la consulenza — Studio Legale Accarino" },
-      { name: "description", content: "Scegli data e ora per la tua consulenza preventiva con l’Avv. Accarino." },
+      { name: "description", content: "Scegli data e ora per la tua consulenza preventiva con l'Avv. Accarino." },
+      { name: "robots", content: "noindex,follow" },
     ],
   }),
   component: Booking,

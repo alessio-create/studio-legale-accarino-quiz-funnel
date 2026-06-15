@@ -7,10 +7,44 @@ import solutionImg from "@/assets/office.jpg";
 export const Route = createFileRoute("/ordinanza-demolizione")({
   head: () => ({
     meta: [
-      { title: "Ordinanza di demolizione: hai 60 giorni. Verifica adesso | Studio Accarino" },
-      { name: "description", content: "L’80% delle ordinanze di demolizione contiene vizi annullabili. Verifica in 90 secondi se la tua è impugnabile — prima che scadano i 60 giorni." },
+      { title: "Ordinanza di demolizione: hai 60 giorni. Verifica adesso | Accarino" },
+      {
+        name: "description",
+        content:
+          "L'80% delle ordinanze di demolizione contiene vizi annullabili. Verifica in 90 secondi se la tua è impugnabile — prima che scadano i 60 giorni.",
+      },
       { property: "og:title", content: "Ordinanza di demolizione? Verifica in 90 secondi" },
-      { property: "og:description", content: "Hai 60 giorni per impugnare. Dopo, l’immobile passa al Comune. Scopri se la tua ordinanza è annullabile." },
+      {
+        property: "og:description",
+        content: "Hai 60 giorni per impugnare. Dopo, l'immobile passa al Comune.",
+      },
+      { property: "og:url", content: "/ordinanza-demolizione" },
+    ],
+    links: [{ rel: "canonical", href: "/ordinanza-demolizione" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Impugnazione ordinanza di demolizione",
+          provider: { "@type": "LegalService", name: "Studio Legale Accarino" },
+          areaServed: "IT",
+          url: "/ordinanza-demolizione",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: config.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: () => <VerticalLanding {...config} />,

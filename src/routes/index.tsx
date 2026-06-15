@@ -22,10 +22,37 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Studio Legale Accarino — Espropri, Edilizia & Urbanistica" },
-      { name: "description", content: "Avvocati specializzati in indennità di esproprio, ordinanze di demolizione e ricorsi al TAR. Difesa di proprietari e imprese contro la PA." },
-      { property: "og:title", content: "Studio Legale Accarino — Espropri, Edilizia & Urbanistica" },
-      { property: "og:description", content: "Difesa di proprietari e imprese nei conflitti con la PA. Espropri, abusi edilizi, dinieghi e ricorsi al TAR." },
+      { title: "Studio Legale Accarino — Espropri, Edilizia & TAR" },
+      {
+        name: "description",
+        content:
+          "Avvocati specializzati in indennità di esproprio, ordinanze di demolizione e ricorsi al TAR. Difesa di proprietari e imprese contro la PA.",
+      },
+      { property: "og:title", content: "Studio Legale Accarino — Espropri, Edilizia & TAR" },
+      {
+        property: "og:description",
+        content:
+          "Difesa di proprietari e imprese nei conflitti con la PA. Espropri, abusi edilizi, dinieghi e ricorsi al TAR.",
+      },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Studio Legale Accarino",
+          url: "/",
+          inLanguage: "it-IT",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "/?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
     ],
   }),
   component: Index,

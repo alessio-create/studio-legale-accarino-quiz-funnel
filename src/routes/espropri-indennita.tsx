@@ -7,10 +7,44 @@ import solutionImg from "@/assets/law-books.jpg";
 export const Route = createFileRoute("/espropri-indennita")({
   head: () => ({
     meta: [
-      { title: "Indennità di esproprio troppo bassa? Verifica in 90 secondi | Studio Accarino" },
-      { name: "description", content: "L’indennità che ti ha offerto la PA è quasi sempre sotto valore. Scopri in 90 secondi quanto puoi davvero ottenere. +35% medio sull’offerta iniziale." },
-      { property: "og:title", content: "Indennità di esproprio sotto valore? — Studio Legale Accarino" },
-      { property: "og:description", content: "L’offerta della PA è quasi mai quella giusta. Verifica i margini reali del tuo caso in 90 secondi." },
+      { title: "Indennità di esproprio sotto valore? Verifica in 90s | Accarino" },
+      {
+        name: "description",
+        content:
+          "L'indennità che ti ha offerto la PA è quasi sempre sotto valore. Scopri in 90 secondi quanto puoi davvero ottenere. +35% medio sull'offerta iniziale.",
+      },
+      { property: "og:title", content: "Indennità di esproprio sotto valore? — Studio Accarino" },
+      {
+        property: "og:description",
+        content: "L'offerta della PA è quasi mai quella giusta. Verifica i margini reali in 90 secondi.",
+      },
+      { property: "og:url", content: "/espropri-indennita" },
+    ],
+    links: [{ rel: "canonical", href: "/espropri-indennita" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Rinegoziazione indennità di esproprio",
+          provider: { "@type": "LegalService", name: "Studio Legale Accarino" },
+          areaServed: "IT",
+          url: "/espropri-indennita",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: config.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: () => <VerticalLanding {...config} />,

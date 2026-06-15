@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RicorsoTarRouteImport } from './routes/ricorso-tar'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as OrdinanzaDemolizioneRouteImport } from './routes/ordinanza-demolizione'
@@ -17,6 +18,11 @@ import { Route as EspropriIndennitaRouteImport } from './routes/espropri-indenni
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RicorsoTarRoute = RicorsoTarRouteImport.update({
   id: '/ricorso-tar',
   path: '/ricorso-tar',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/ordinanza-demolizione'
     | '/quiz'
     | '/ricorso-tar'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/ordinanza-demolizione'
     | '/quiz'
     | '/ricorso-tar'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/ordinanza-demolizione'
     | '/quiz'
     | '/ricorso-tar'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   OrdinanzaDemolizioneRoute: typeof OrdinanzaDemolizioneRoute
   QuizRoute: typeof QuizRoute
   RicorsoTarRoute: typeof RicorsoTarRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ricorso-tar': {
       id: '/ricorso-tar'
       path: '/ricorso-tar'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   OrdinanzaDemolizioneRoute: OrdinanzaDemolizioneRoute,
   QuizRoute: QuizRoute,
   RicorsoTarRoute: RicorsoTarRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -9,6 +9,7 @@ export const Route = createFileRoute("/quiz")({
     meta: [
       { title: "Verifica il tuo caso — Studio Legale Accarino" },
       { name: "description", content: "90 secondi per capire se il tuo caso ha margini reali in materia di esproprio, edilizia o ricorso al TAR." },
+      { name: "robots", content: "noindex,follow" },
     ],
   }),
   component: Quiz,
