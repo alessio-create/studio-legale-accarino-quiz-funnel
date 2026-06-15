@@ -122,8 +122,6 @@ const faqs = [
 function Index() {
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
-      <Banner scrollAware />
-
       {/* ───────────── HERO — editorial, image-anchored, gold accent ───────────── */}
       <section className="relative isolate flex min-h-[88svh] items-end overflow-hidden bg-primary text-primary-foreground">
         <img
