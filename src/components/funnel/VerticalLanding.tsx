@@ -226,7 +226,13 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
       <Ticker
         variant="dark"
         speed="slow"
-        items={cfg.latinTicker.map((s) => <span key={s} className="text-gold">{s}</span>)}
+        items={cfg.latinTicker.map((s) => (
+          <span key={s} className="inline-flex items-center gap-2.5 text-gold">
+            <BookOpen className="h-3.5 w-3.5 opacity-60" />
+            {s}
+          </span>
+        ))}
+        separator={<Scale className="h-4 w-4 text-gold/70" strokeWidth={1.5} />}
       />
 
       {/* PROBLEM */}
