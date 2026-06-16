@@ -39,7 +39,7 @@ const generateMonthDays = (year: number, month: number) => {
 };
 
 const faqs = [
-  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. L’Avv. Accarino arriva alla call con risposte già pronte sulla tua situazione." },
+  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. L’Studio Accarino arriva alla call con risposte già pronte sulla tua situazione." },
   { q: "Quanto dura la consulenza preventiva?", a: "30 minuti netti. Niente sales pitch: analisi del tuo caso, risposta a 2–3 domande concrete, e — se ci sono margini reali — proposta di collaborazione con tempi e costi chiari." },
   { q: "Cosa devo preparare?", a: "Idealmente: copia dell’atto ricevuto (decreto di esproprio, ordinanza, diniego), eventuali planimetrie o titoli edilizi. Se non li hai pronti, parliamo lo stesso." },
   { q: "La consulenza è davvero senza impegno?", a: "Sì. È un’analisi del tuo caso senza alcun obbligo di proseguire. Esci con una valutazione tecnica chiara anche se non lavoreremo insieme." },
@@ -144,7 +144,7 @@ function Booking() {
 
               <h1 className="mt-6 max-w-3xl text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
                 Scegli il momento per la tua call con
-                {" "}<span className="text-gold-deep">l’Avv. Accarino.</span>
+                {" "}<span className="text-gold-deep">l’Studio Accarino.</span>
               </h1>
               <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
 
@@ -385,7 +385,7 @@ function Booking() {
           <ol className="mt-12 grid gap-px overflow-hidden border border-primary-foreground/15 bg-primary-foreground/15 sm:grid-cols-2 md:mt-16 md:grid-cols-4">
             {[
               { title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
-              { title: "Call di 30 minuti", body: "L’Avv. Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
+              { title: "Call di 30 minuti", body: "L’Studio Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
               { title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
               { title: "Avvio in 7 giorni", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
             ].map(({ title, body }, i) => (
@@ -457,7 +457,7 @@ function Booking() {
             </h2>
             <div className="mx-auto mt-6 h-px w-24 bg-gold" />
             <p className="mt-6 text-lg text-primary-foreground/70">
-              30 minuti con l’Avv. Accarino. Senza impegno. Valore concreto garantito.
+              30 minuti con l’Studio Accarino. Senza impegno. Valore concreto garantito.
             </p>
           </Reveal>
           <Reveal delay={150}>
