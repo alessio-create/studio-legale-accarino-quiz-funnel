@@ -119,12 +119,12 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               </div>
 
               {/* Sub + CTA */}
-              <div className="mt-12 flex w-full flex-col items-start gap-10 border-t border-primary-foreground/10 pt-10 md:flex-row md:items-center md:gap-16">
+              <div className="mt-12 flex w-full flex-col items-center gap-10 border-t border-primary-foreground/10 pt-10 text-center md:flex-row md:items-center md:gap-16 md:text-left">
                 <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
                   {cfg.heroSub}
                 </p>
 
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col items-center gap-5 md:items-start">
                   <Button asChild variant="cta" size="xl" className="group">
                     <a href={ctaHref}>
                       Verifica il tuo caso
@@ -155,7 +155,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Credibility band */}
-            <div className="col-span-12 mt-14 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-primary-foreground/10 pt-8 lg:mt-20">
+            <div className="col-span-12 mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-primary-foreground/10 pt-8 md:justify-start lg:mt-20">
               {["Diritto Amministrativo", "Consulenza Tecnica", "Ricorsi TAR", "Stime Peritali"].map((t) => (
                 <span
                   key={t}
@@ -236,7 +236,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 ))}
               </ul>
 
-              <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
+              <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:gap-6">
                 <Button asChild variant="cta" size="lg">
                   <a href={ctaHref}>
                     Verifica idoneità <ArrowRight className="h-4 w-4" />
