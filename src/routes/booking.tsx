@@ -264,7 +264,11 @@ function Booking() {
                         </div>
                       ) : (
                         <div className="mt-14 flex flex-col items-center justify-center text-center">
-                          <CalendarIcon className="h-10 w-10 text-muted-foreground/40 animate-float-soft" strokeWidth={1.5} />
+                          <div className="flex items-center gap-3">
+                            <span className="h-px w-8 bg-gold/40" />
+                            <span className="text-gold">·</span>
+                            <span className="h-px w-8 bg-gold/40" />
+                          </div>
                           <p className="mt-5 text-sm text-muted-foreground">
                             Seleziona un giorno per vedere gli orari disponibili.
                           </p>
