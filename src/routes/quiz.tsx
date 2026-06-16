@@ -341,9 +341,9 @@ function Quiz() {
                         }`}
                       />
                       <div className="flex items-center gap-4">
-                        <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-primary/20 bg-background/50 text-[10px] font-bold tracking-[0.2em] text-gold/80 transition-colors group-hover:border-gold group-hover:bg-gold group-hover:text-primary">
                           {String.fromCharCode(65 + i)}
-                        </span>
+                        </div>
                         <span className="text-sm text-foreground sm:text-base">{option}</span>
                       </div>
                       <span
