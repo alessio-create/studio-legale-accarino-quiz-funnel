@@ -432,16 +432,12 @@ function Index() {
             {audience.map((a, i) => (
               <Reveal key={a.title} delay={i * 120} className="bg-background">
                 <article className="group flex h-full flex-col">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-primary">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-soft">
                     <img
                       src={a.image}
                       alt={a.alt}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover object-top grayscale transition-all duration-[1200ms] ease-out group-hover:scale-[1.04] group-hover:grayscale-0"
-                    />
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-primary/40"
+                      className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-8">
