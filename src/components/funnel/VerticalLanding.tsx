@@ -70,14 +70,9 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
             {/* Brand identity */}
             <div className="mb-12 flex flex-col items-center sm:mb-16">
-              <Logo variant="gold" logomarkOnly className="mb-4 h-12 w-auto" />
-              <div className="text-[13px] font-semibold uppercase tracking-[0.2em] text-primary-foreground">
-                Accarino
-              </div>
-              <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-primary-foreground/50">
-                Studio Legale
-              </div>
+              <Logo variant="gold" logomarkOnly className="h-20 w-auto" />
             </div>
+
 
             {/* Eyebrow */}
             <div className="mb-8 flex items-center gap-3">
