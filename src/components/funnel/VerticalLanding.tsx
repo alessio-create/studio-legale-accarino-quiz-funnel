@@ -91,11 +91,11 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Main content */}
-            <div className="col-span-12 flex animate-fade-up flex-col items-start text-left lg:col-span-10">
+            <div className="col-span-12 flex animate-fade-up flex-col items-center text-center lg:col-span-10">
               {/* Monogram + eyebrow */}
               <div className="mb-10 flex items-center gap-5">
                 <div className="relative">
-                  <Logo variant="gold" logomarkOnly className="h-10 w-auto md:h-12" />
+                  <Logo variant="gold" logomarkOnly className="h-16 w-auto md:h-20" />
                 </div>
                 <div className="hidden h-px w-8 bg-gold/40 md:block" />
                 <span className="hidden text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60 md:inline">
@@ -118,12 +118,12 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               </div>
 
               {/* Sub + CTA */}
-              <div className="mt-12 flex w-full flex-col items-start gap-10 border-t border-primary-foreground/10 pt-10 text-left md:flex-row md:items-center md:gap-16">
+              <div className="mt-12 flex w-full flex-col items-center gap-10 border-t border-primary-foreground/10 pt-10 text-center md:flex-row md:items-center md:justify-center md:gap-16">
                 <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
                   {cfg.heroSub}
                 </p>
 
-                <div className="flex flex-col items-start gap-5">
+                <div className="flex flex-col items-center gap-5">
                   <Button asChild variant="cta" size="xl" className="group">
                     <a href={ctaHref}>
                       <div className="text-[10px] font-bold tracking-[0.2em]">INIZIA ORA</div>
