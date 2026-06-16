@@ -91,7 +91,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Main content */}
-            <div className="col-span-12 flex animate-fade-up flex-col items-center text-center md:items-start md:text-left lg:col-span-10">
+            <div className="col-span-12 flex animate-fade-up flex-col items-start text-left lg:col-span-10">
               {/* Monogram + eyebrow */}
               <div className="mb-10 flex items-center gap-5">
                 <div className="relative">
