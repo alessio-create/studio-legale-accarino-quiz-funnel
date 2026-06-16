@@ -382,8 +382,6 @@ function Booking() {
         </div>
       </section>
 
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="relative z-10  bg-soft py-20 md:py-28">
