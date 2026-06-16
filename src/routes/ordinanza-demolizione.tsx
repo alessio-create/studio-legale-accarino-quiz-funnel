@@ -7,7 +7,7 @@ import solutionImg from "@/assets/office.jpg";
 export const Route = createFileRoute("/ordinanza-demolizione")({
   head: () => ({
     meta: [
-      { title: "Ordinanza di demolizione: hai 60 giorni. Verifica adesso | Accarino" },
+      { title: "Ordinanza di demolizione: hai 60 giorni | Accarino" },
       {
         name: "description",
         content:
