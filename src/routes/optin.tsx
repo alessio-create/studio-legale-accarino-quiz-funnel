@@ -141,14 +141,11 @@ function Optin() {
       
       
 
-      {/* Header */}
-      <header className="relative z-10 ">
+      {/* Header with progress hairline */}
+      <header className="relative z-10">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center gap-4">
-            <div className="relative">
-              <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
-            </div>
-
+            <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
             <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
               Pratica idonea
             </span>
@@ -157,42 +154,65 @@ function Optin() {
             05 / 06
           </span>
         </div>
-        
+        <div className="relative h-1 w-full bg-primary/[0.06] rounded-full overflow-hidden">
+          <div
+            className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] rounded-full"
+            style={{ width: "83.3%" }}
+          />
+        </div>
       </header>
 
       <main className="relative z-10 flex flex-1 items-start justify-center py-16 sm:py-20 lg:py-24">
         <div className="container">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
-            <div className="col-span-12 max-w-3xl animate-fade-up lg:col-start-2 lg:col-span-10">
-              {/* Eyebrow — roman numeral */}
+            <div className="col-span-12 mx-auto max-w-3xl animate-fade-up lg:col-start-2 lg:col-span-10">
+              {/* Eyebrow — chapter index, quiz-style */}
               <div className="flex items-center gap-5">
-                <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">V</span>
-
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">05</span>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   Idoneità verificata
                 </span>
               </div>
 
-              {/* Headline — no watermark, simpler */}
-              <h1 className="mt-6 text-balance text-[clamp(1.5rem,3.6vw,2.6rem)] font-500 leading-[1.1] tracking-[-0.02em] text-primary">
-                Il tuo caso è <span className="text-gold-deep">idoneo.</span>
-              </h1>
-              
+              {/* Headline with watermark roman numeral */}
+              <div className="relative mt-6">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
+                >
+                  V
+                </span>
+                <h1 className="relative text-balance text-[clamp(1.5rem,3.6vw,2.6rem)] font-500 leading-[1.1] tracking-[-0.02em] text-primary">
+                  Il tuo caso è <span className="text-gold-deep">idoneo.</span>
+                </h1>
+              </div>
 
-              <p className="mt-6 max-w-xl text-base leading-[1.55] text-muted-foreground sm:text-lg">
+              <p className="mt-8 max-w-xl text-base leading-[1.55] text-muted-foreground sm:text-lg">
                 {painData.headline}
               </p>
               <p className="mt-3 max-w-xl text-sm leading-[1.55] text-muted-foreground/80">
                 {painData.lede}
               </p>
 
-              {/* What we do — plain dot + hairline */}
-              <ul className="mt-10 space-y-4  pt-6">
-                {painData.actions.map((action) => (
-                  <li key={action} className="flex items-start gap-4">
-                    <span className="mt-2 text-gold">·</span>
-
-                    <span className="text-sm leading-snug text-primary">{action}</span>
+              {/* What we do — hairline divider + lettered markers */}
+              <div className="mt-12 flex items-center gap-5">
+                <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">·</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  Cosa facciamo per te
+                </span>
+                <span className="h-px flex-1 bg-primary/15" />
+              </div>
+              <ul className="mt-6 space-y-3">
+                {painData.actions.map((action, i) => (
+                  <li
+                    key={action}
+                    className="group relative flex items-center gap-4 border border-primary/15 bg-primary/[0.03] p-4 backdrop-blur-sm transition-colors hover:border-gold/60 hover:bg-primary/[0.06] sm:p-5"
+                  >
+                    <span aria-hidden className="absolute inset-y-0 left-0 w-[2px] bg-gold" />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-primary/20 bg-background/50 text-[10px] font-bold tracking-[0.2em] text-gold/80">
+                      {String.fromCharCode(65 + i)}
+                    </div>
+                    <span className="text-sm leading-snug text-primary sm:text-base">{action}</span>
                   </li>
                 ))}
               </ul>
