@@ -133,25 +133,17 @@ function Booking() {
 
             <div className="col-span-12 lg:col-span-10">
               <div className="flex items-center gap-5">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">VI</span>
+                <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VIII</span>
                 <div className="h-px w-8 bg-gold/40" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   Calendario
                 </span>
               </div>
 
-              <div className="relative mt-6 max-w-3xl">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
-                >
-                  ☉
-                </span>
-                <h1 className="relative text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
-                  Scegli il momento per la tua call con
-                  {" "}<span className="text-gold-deep">l’Avv. Accarino.</span>
-                </h1>
-              </div>
+              <h1 className="mt-6 max-w-3xl text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
+                Scegli il momento per la tua call con
+                {" "}<span className="text-gold-deep">l’Avv. Accarino.</span>
+              </h1>
               <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
 
               <Reveal delay={120} className="relative mt-12 border border-primary/15 bg-primary/[0.02] backdrop-blur-sm md:mt-14">
