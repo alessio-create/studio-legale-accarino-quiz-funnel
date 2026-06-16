@@ -1,10 +1,21 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import monogramGold from "@/assets/monogram-gold.svg";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Check, ShieldCheck } from "lucide-react";
 
+const VERTICAL_VALUES = ["espropri", "demolizione", "tar", "generic"] as const;
+
 export const Route = createFileRoute("/quiz")({
+  validateSearch: (search: Record<string, unknown>) => {
+    const v = search.vertical;
+    return {
+      vertical:
+        typeof v === "string" && (VERTICAL_VALUES as readonly string[]).includes(v)
+          ? (v as (typeof VERTICAL_VALUES)[number])
+          : ("generic" as const),
+    };
+  },
   head: () => ({
     meta: [
       { title: "Verifica il tuo caso · Studio Legale Accarino" },
@@ -14,6 +25,7 @@ export const Route = createFileRoute("/quiz")({
   }),
   component: Quiz,
 });
+
 
 type VerticalKey = "espropri" | "demolizione" | "tar" | "generic";
 
@@ -210,22 +222,17 @@ const verticalQuestions: Record<Exclude<VerticalKey, "generic">, Question[]> = {
   ],
 };
 
-function getInitialVertical(): VerticalKey {
-  if (typeof window === "undefined") return "generic";
-  const v = new URLSearchParams(window.location.search).get("vertical");
-  if (v && v in verticalToPain) return v as VerticalKey;
-  return "generic";
-}
 
 function Quiz() {
   const navigate = useNavigate();
-  const [vertical] = useState<VerticalKey>(getInitialVertical);
+  const { vertical } = Route.useSearch() as { vertical: VerticalKey };
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>(() => {
     const init: Record<string, string> = {};
     if (vertical !== "generic") init.pain = verticalToPain[vertical];
     return init;
   });
+
 
 
 
