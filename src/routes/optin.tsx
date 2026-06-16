@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 export const Route = createFileRoute("/optin")({
   head: () => ({
     meta: [
-      { title: "Il tuo caso è idoneo — Studio Legale Accarino" },
+      { title: "Il tuo caso è idoneo · Studio Legale Accarino" },
       { name: "description", content: "Lascia i tuoi dati per accedere alla consulenza preventiva con l'Avv. Accarino." },
       { name: "robots", content: "noindex,follow" },
     ],
@@ -24,7 +24,7 @@ type ReviewItem = { quote: string; author: string; role: string; hotel: string }
 const painCopy: Record<string, { headline: string; lede: string; actions: string[]; reviews: ReviewItem[] }> = {
   "Esproprio o indennità da rinegoziare": {
     headline: "Indennità di esproprio rinegoziata sul valore reale del bene.",
-    lede: "Perizia tecnica indipendente, opposizione alla stima della PA e — dove serve — ricorso alla Corte d’Appello.",
+    lede: "Perizia tecnica indipendente, opposizione alla stima della PA e, dove serve, ricorso alla Corte d’Appello.",
     actions: [
       "Stima indipendente del bene confrontata con quella della PA",
       "Opposizione alla determinazione provvisoria nei termini",

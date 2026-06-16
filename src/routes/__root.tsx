@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Studio Legale Accarino — Diritto amministrativo, espropri, TAR" },
+      { title: "Studio Legale Accarino · Diritto amministrativo, espropri, TAR" },
       {
         name: "description",
         content:
