@@ -10,8 +10,8 @@ const Footer = () => (
         </p>
         <div className="flex flex-wrap justify-center gap-6">
           <Link to="/" className="hover:text-accent">Home</Link>
-          <a href="#" className="hover:text-accent">Privacy Policy</a>
-          <a href="#" className="hover:text-accent">Cookie Policy</a>
+          <Link to="/privacy-policy" className="hover:text-accent">Privacy Policy</Link>
+          <Link to="/cookie-policy" className="hover:text-accent">Cookie Policy</Link>
         </div>
       </div>
     </div>
