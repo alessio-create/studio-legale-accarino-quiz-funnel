@@ -375,7 +375,6 @@ function Booking() {
             <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em]">
               Cosa succede dopo aver <span className="text-gold">prenotato.</span>
             </h2>
-            <div className="mt-6 h-px w-24 bg-gold" />
           </Reveal>
 
           <ol className="mt-12 grid overflow-hidden sm:grid-cols-2 md:mt-16 md:grid-cols-4">
