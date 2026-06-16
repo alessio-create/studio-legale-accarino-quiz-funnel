@@ -205,12 +205,6 @@ function Index() {
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
-                  <div className="flex items-center gap-3 text-primary-foreground/50">
-
-                    <span className="text-[10px] uppercase tracking-[0.22em]">
-                      90 secondi · senza impegno
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
