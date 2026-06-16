@@ -276,7 +276,7 @@ function Optin() {
               {/* Reviews */}
               <div className="mt-16">
                 <div className="flex items-center gap-5">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                  <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VII</span>
                   <div className="h-px w-8 bg-gold/40" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                     Chi ha già risolto come te
