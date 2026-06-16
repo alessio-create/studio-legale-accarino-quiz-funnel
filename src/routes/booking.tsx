@@ -113,26 +113,8 @@ function Booking() {
       <section className="relative z-10">
         <div className="container py-16 sm:py-20 lg:py-24">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
-            {/* Left vertical meta */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
-              <div className="flex flex-col items-start gap-3">
-                <span
-                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                >
-                  Capitolo 06
-                </span>
-                <div className="ml-1 hidden" />
-              </div>
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-              >
-                Step finale
-              </span>
-            </div>
+            <div className="col-span-12 mx-auto max-w-5xl animate-fade-up lg:col-start-2 lg:col-span-10">
 
-            <div className="col-span-12 lg:col-span-10">
               <div className="flex items-center gap-5">
                 <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VIII</span>
 
