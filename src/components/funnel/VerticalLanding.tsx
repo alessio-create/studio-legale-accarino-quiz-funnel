@@ -154,7 +154,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Credibility band */}
-            <div className="col-span-12 mt-14 grid grid-cols-2 gap-3 border-t border-primary-foreground/10 pt-8 lg:mt-20 lg:grid-cols-4 lg:gap-4">
+            <div className="col-span-12 mt-14 grid grid-cols-2 gap-3 pt-8 lg:mt-20 lg:grid-cols-4 lg:gap-4">
               {["Diritto Amministrativo", "Consulenza Tecnica", "Ricorsi TAR", "Stime Peritali"].map((t) => (
                 <div
                   key={t}
