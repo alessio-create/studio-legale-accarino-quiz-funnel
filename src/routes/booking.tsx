@@ -330,48 +330,58 @@ function Booking() {
       </section>
 
       {/* NEXT STEPS */}
-      <section className="relative z-10  bg-primary py-20 text-primary-foreground md:py-28">
+      <section className="relative z-10 bg-primary py-24 text-primary-foreground md:py-32">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
+          className="pointer-events-none absolute inset-0 opacity-[0.10]"
           style={{ background: "radial-gradient(60% 50% at 10% 100%, var(--color-gold) 0%, transparent 70%)" }}
         />
-        
-        
 
-        <div className="container relative z-10 max-w-5xl">
+        <div className="container relative z-10 max-w-7xl">
           <Reveal>
-            <div className="flex items-center gap-5">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
-
-              <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">
+            <div className="mb-16 md:mb-20">
+              <span className="mb-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                <span className="h-1 w-1 rounded-full bg-gold" />
                 Prossimi step
               </span>
+              <h2 className="max-w-3xl text-balance text-[clamp(2rem,5vw,3.75rem)] font-300 leading-[1.05] tracking-[-0.02em] text-primary-foreground">
+                Cosa succede dopo aver{" "}
+                <span className="italic-accent text-gold">prenotato.</span>
+              </h2>
             </div>
-            <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em]">
-              Cosa succede dopo aver <span className="text-gold">prenotato.</span>
-            </h2>
           </Reveal>
 
-          <ol className="mt-12 grid overflow-hidden sm:grid-cols-2 md:mt-16 md:grid-cols-4">
+          <ol className="grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
             {[
-              { title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
-              { title: "Call di 30 minuti", body: "Lo Studio Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
-              { title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
-              { title: "Avvio in 7 giorni", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
-            ].map(({ title, body }, i) => (
-              <Reveal as="li" key={title} delay={i * 120} className="relative bg-primary p-7 group transition-colors hover:bg-primary/70 md:p-9">
-                <div className="flex items-center gap-4">
-                  <span className="font-serif text-2xl text-gold tabular-nums">0{i + 1}</span>
-
+              { num: "01", when: "Subito", title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
+              { num: "02", when: "Il giorno della call", title: "Call di 30 minuti", body: "Lo Studio Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
+              { num: "03", when: "Entro 48 ore", title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
+              { num: "04", when: "Entro 7 giorni", title: "Avvio", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
+            ].map(({ num, when, title, body }, i) => (
+              <Reveal as="li" key={num} delay={i * 120} className="group relative flex flex-col">
+                <div className="mb-7 flex items-baseline justify-between">
+                  <span className="font-300 text-5xl tracking-[-0.02em] text-gold opacity-90 tabular-nums md:text-6xl">
+                    {num}
+                  </span>
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.28em] text-primary-foreground/40">
+                    {when}
+                  </span>
                 </div>
-                <h3 className="mt-6 text-lg font-500 tracking-[-0.01em] text-primary-foreground md:mt-7">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{body}</p>
+                <div className="relative mb-7 h-px w-full overflow-hidden bg-primary-foreground/10">
+                  <span className="absolute inset-y-0 left-0 w-0 bg-gold transition-all duration-700 ease-out group-hover:w-full" />
+                </div>
+                <h3 className="text-lg font-500 tracking-[-0.01em] text-primary-foreground md:text-xl">
+                  {title}
+                </h3>
+                <p className="mt-4 text-sm leading-[1.65] font-300 text-primary-foreground/60">
+                  {body}
+                </p>
               </Reveal>
             ))}
           </ol>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section className="relative z-10  bg-soft py-20 md:py-28">
