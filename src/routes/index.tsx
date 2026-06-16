@@ -164,7 +164,7 @@ function Index() {
             </div>
 
             {/* Main content */}
-            <div className="col-span-12 flex animate-fade-up flex-col items-start lg:col-span-10">
+            <div className="col-span-12 flex animate-fade-up flex-col items-center text-center md:items-start md:text-left lg:col-span-10">
               {/* Monogram + eyebrow */}
               <div className="mb-10 flex items-center gap-5">
                 <div className="relative">
@@ -181,7 +181,7 @@ function Index() {
               <div className="relative max-w-4xl">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -left-8 -top-20 select-none font-serif text-[220px] leading-none text-gold/5 lg:-left-16"
+                  className="pointer-events-none absolute -left-8 -top-20 hidden select-none font-serif text-[220px] leading-none text-gold/5 md:block lg:-left-16"
                 >
                   A
                 </span>
