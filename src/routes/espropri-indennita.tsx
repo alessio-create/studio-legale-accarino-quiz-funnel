@@ -60,8 +60,8 @@ const config = {
   solutionImageAlt: "Codice di diritto amministrativo e perizie",
 
   // TRIGGER: nomina la paura concreta. ACTION: confidence boost immediato.
-  heroH1Plain: "L'offerta che hai ricevuto",
-  heroH1Accent: "è davvero il valore del tuo bene?",
+  heroH1Plain: "L'offerta che hai ricevuto vale",
+  heroH1Accent: "davvero il valore del tuo bene?",
   heroSub:
     "Hai 30 giorni per non accettare cifre che ti porteresti dietro per sempre. Scopri in 90 secondi quanto vale davvero il tuo terreno, e di quanto si può rinegoziare l'indennità della PA.",
 
