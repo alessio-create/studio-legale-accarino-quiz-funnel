@@ -632,7 +632,7 @@ function Index() {
                 </Link>
               </Button>
               <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-foreground/60">
-                Risposta qualificata in 24h
+                {"\n"}
               </span>
             </div>
           </Reveal>
