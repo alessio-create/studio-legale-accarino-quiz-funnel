@@ -280,9 +280,9 @@ function Quiz() {
             {String(step + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
           </span>
         </div>
-        <div className="relative h-px w-full bg-primary/10">
+        <div className="relative h-1 w-full bg-primary/[0.06] rounded-full overflow-hidden">
           <div
-            className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+            className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] rounded-full"
             style={{ width: `${progress}%` }}
           />
         </div>
