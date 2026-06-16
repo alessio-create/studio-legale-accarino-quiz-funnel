@@ -217,15 +217,12 @@ function Optin() {
                 </div>
 
                 <div className="mt-7 grid gap-5 sm:grid-cols-2">
-                  {fields.map((f, i) => (
+                  {fields.map((f) => (
                     <div key={f.id} className={`space-y-2 ${f.full ? "sm:col-span-2" : ""}`}>
                       <Label
                         htmlFor={f.id}
-                        className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground"
+                        className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground"
                       >
-                        <span className="font-serif text-[11px] text-gold/70">
-                          {String.fromCharCode(65 + i)}
-                        </span>
                         {f.label}
                       </Label>
                       <Input
