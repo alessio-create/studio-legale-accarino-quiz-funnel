@@ -225,7 +225,7 @@ const verticalQuestions: Record<Exclude<VerticalKey, "generic">, Question[]> = {
 
 function Quiz() {
   const navigate = useNavigate();
-  const { vertical } = Route.useSearch();
+  const { vertical } = Route.useSearch() as { vertical: VerticalKey };
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>(() => {
     const init: Record<string, string> = {};
