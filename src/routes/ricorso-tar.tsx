@@ -60,7 +60,7 @@ const config = {
   solutionImageAlt: "Pratiche urbanistiche e progettuali",
 
   heroH1Plain: "Permesso negato o PA che non risponde?",
-  heroH1Accent: "Il TAR esiste esattamente per questo.",
+  heroH1Accent: "Il TAR è la tua leva per sbloccare tutto.",
   heroSub:
     "Diniego pretestuoso, silenzio del Comune, vincolo della Soprintendenza arrivato all’ultimo minuto: 60 giorni per agire, 90 in media per sbloccare. Verifica adesso se il tuo caso ha margini reali.",
 
