@@ -87,14 +87,11 @@ function Booking() {
 
       {/* Corner brackets */}
 
-      {/* Header */}
-      <header className="relative z-10 ">
+      {/* Header with progress hairline */}
+      <header className="relative z-10">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center gap-4">
-            <div className="relative">
-              <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
-            </div>
-
+            <img src={monogramGold} alt="Studio Legale Accarino" className="h-9 w-auto md:h-10" />
             <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
               Prenotazione
             </span>
@@ -103,8 +100,14 @@ function Booking() {
             06 / 06
           </span>
         </div>
-        
+        <div className="relative h-1 w-full bg-primary/[0.06] rounded-full overflow-hidden">
+          <div
+            className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] rounded-full"
+            style={{ width: "100%" }}
+          />
+        </div>
       </header>
+
 
       {/* CALENDAR */}
       <section className="relative z-10">
