@@ -194,7 +194,7 @@ function Optin() {
                 {painData.lede}
               </p>
 
-              {/* What we do — hairline divider + lettered markers */}
+              {/* What we do — step process, not quiz answers */}
               <div className="mt-12 flex items-center gap-5">
                 <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">·</span>
                 <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
@@ -202,17 +202,22 @@ function Optin() {
                 </span>
                 <span className="h-px flex-1 bg-primary/15" />
               </div>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-6 relative space-y-0">
+                {/* connecting vertical line */}
+                <span aria-hidden className="absolute left-[19px] top-6 bottom-6 w-px bg-primary/8" />
                 {painData.actions.map((action, i) => (
                   <li
                     key={action}
-                    className="group relative flex items-center gap-4 border border-primary/15 bg-primary/[0.03] p-4 backdrop-blur-sm transition-colors hover:border-gold/60 hover:bg-primary/[0.06] sm:p-5"
+                    className="group relative flex items-start gap-5 py-4 sm:py-5"
                   >
-                    <span aria-hidden className="absolute inset-y-0 left-0 w-[2px] bg-gold" />
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-primary/20 bg-background/50 text-[10px] font-bold tracking-[0.2em] text-gold/80">
-                      {String.fromCharCode(65 + i)}
+                    <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/10 bg-background text-[10px] font-semibold tracking-widest text-gold transition-colors group-hover:border-gold/40 group-hover:text-gold-deep">
+                      {String(i + 1).padStart(2, '0')}
                     </div>
-                    <span className="text-sm leading-snug text-primary sm:text-base">{action}</span>
+                    <div className="flex-1 pt-2">
+                      <span className="text-sm leading-relaxed text-primary sm:text-base">
+                        {action}
+                      </span>
+                    </div>
                   </li>
                 ))}
               </ul>
