@@ -221,9 +221,11 @@ function Quiz() {
   const navigate = useNavigate();
   const [vertical] = useState<VerticalKey>(getInitialVertical);
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>(() =>
-    vertical !== "generic" ? { pain: verticalToPain[vertical] } : {},
-  );
+  const [answers, setAnswers] = useState<Record<string, string>>(() => {
+    if (vertical === "generic") return {};
+    return { pain: verticalToPain[vertical] };
+  });
+
 
 
 
