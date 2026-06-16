@@ -209,7 +209,7 @@ function Optin() {
                 <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-gold" />
 
                 <div className="flex items-center gap-5 border-b border-primary/10 pb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                  <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VI</span>
                   <div className="h-px w-8 bg-gold/40" />
                   <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                     Dati di contatto
