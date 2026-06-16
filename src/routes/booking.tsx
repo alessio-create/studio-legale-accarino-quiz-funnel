@@ -7,10 +7,7 @@ import { Button } from "@/components/ui/button";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  ArrowRight, Calendar as CalendarIcon, Check, ChevronLeft, ChevronRight,
-  Clock, MessageSquare, FileSignature, Sparkles, ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import founder from "@/assets/founder.jpg";
 
 export const Route = createFileRoute("/booking")({
