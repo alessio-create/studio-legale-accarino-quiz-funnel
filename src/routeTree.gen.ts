@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RicorsoTarRouteImport } from './routes/ricorso-tar'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as OrdinanzaDemolizioneRouteImport } from './routes/ordinanza-demolizione'
 import { Route as OptinRouteImport } from './routes/optin'
 import { Route as EspropriIndennitaRouteImport } from './routes/espropri-indennita'
@@ -31,6 +32,11 @@ const RicorsoTarRoute = RicorsoTarRouteImport.update({
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrdinanzaDemolizioneRoute = OrdinanzaDemolizioneRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
+    | '/privacy-policy'
     | '/quiz'
     | '/ricorso-tar'
     | '/sitemap.xml'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
+    | '/privacy-policy'
     | '/quiz'
     | '/ricorso-tar'
     | '/sitemap.xml'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
+    | '/privacy-policy'
     | '/quiz'
     | '/ricorso-tar'
     | '/sitemap.xml'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   EspropriIndennitaRoute: typeof EspropriIndennitaRoute
   OptinRoute: typeof OptinRoute
   OrdinanzaDemolizioneRoute: typeof OrdinanzaDemolizioneRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   QuizRoute: typeof QuizRoute
   RicorsoTarRoute: typeof RicorsoTarRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/quiz'
       fullPath: '/quiz'
       preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ordinanza-demolizione': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   EspropriIndennitaRoute: EspropriIndennitaRoute,
   OptinRoute: OptinRoute,
   OrdinanzaDemolizioneRoute: OrdinanzaDemolizioneRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   QuizRoute: QuizRoute,
   RicorsoTarRoute: RicorsoTarRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
