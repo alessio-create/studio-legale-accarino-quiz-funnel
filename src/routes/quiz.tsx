@@ -1,10 +1,21 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import monogramGold from "@/assets/monogram-gold.svg";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Check, ShieldCheck } from "lucide-react";
 
+const VERTICAL_VALUES = ["espropri", "demolizione", "tar", "generic"] as const;
+
 export const Route = createFileRoute("/quiz")({
+  validateSearch: (search: Record<string, unknown>) => {
+    const v = search.vertical;
+    return {
+      vertical:
+        typeof v === "string" && (VERTICAL_VALUES as readonly string[]).includes(v)
+          ? (v as (typeof VERTICAL_VALUES)[number])
+          : ("generic" as const),
+    };
+  },
   head: () => ({
     meta: [
       { title: "Verifica il tuo caso · Studio Legale Accarino" },
@@ -14,6 +25,7 @@ export const Route = createFileRoute("/quiz")({
   }),
   component: Quiz,
 });
+
 
 type VerticalKey = "espropri" | "demolizione" | "tar" | "generic";
 
