@@ -293,7 +293,7 @@ function Quiz() {
         <div className="container">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
             {/* Main content */}
-            <div key={current.id} className="col-span-12 max-w-3xl animate-fade-up lg:col-start-2 lg:col-span-10">
+            <div key={current.id} className="col-span-12 mx-auto max-w-3xl animate-fade-up lg:col-start-2 lg:col-span-10">
               <div className="flex items-center gap-5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">
                   {String(step + 1).padStart(2, "0")}
