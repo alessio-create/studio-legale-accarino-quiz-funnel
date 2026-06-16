@@ -86,7 +86,6 @@ function Booking() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[80vh] grain opacity-40" />
 
       {/* Corner brackets */}
-      
       <span aria-hidden className="absolute right-6 top-6 z-10 h-4 w-4 border-r border-t border-gold/30 lg:right-12 lg:top-12" />
 
       {/* Header */}
