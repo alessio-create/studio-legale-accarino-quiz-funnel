@@ -95,7 +95,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               {/* Monogram + eyebrow */}
               <div className="mb-10 flex items-center gap-5">
                 <div className="relative">
-                  <Logo variant="gold" logomarkOnly className="h-16 w-auto md:h-20" />
+                  <Logo variant="gold" logomarkOnly className="h-20 w-auto md:h-24" />
                 </div>
                 <div className="hidden h-px w-8 bg-gold/40 md:block" />
                 <span className="hidden text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60 md:inline">
