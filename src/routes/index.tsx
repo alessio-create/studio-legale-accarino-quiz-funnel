@@ -445,10 +445,7 @@ function Index() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-8">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-deep">
-                      {a.role}
-                    </p>
-                    <h3 className="mt-4 text-2xl leading-tight text-primary transition-colors duration-500 group-hover:text-gold-deep">
+                    <h3 className="text-2xl leading-tight text-primary transition-colors duration-500 group-hover:text-gold-deep">
                       {a.title}
                     </h3>
                     <span
