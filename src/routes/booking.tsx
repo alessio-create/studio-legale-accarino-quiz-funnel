@@ -133,25 +133,17 @@ function Booking() {
 
             <div className="col-span-12 lg:col-span-10">
               <div className="flex items-center gap-5">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">VI</span>
+                <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VIII</span>
                 <div className="h-px w-8 bg-gold/40" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   Calendario
                 </span>
               </div>
 
-              <div className="relative mt-6 max-w-3xl">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
-                >
-                  ☉
-                </span>
-                <h1 className="relative text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
-                  Scegli il momento per la tua call con
-                  {" "}<span className="text-gold-deep">l’Avv. Accarino.</span>
-                </h1>
-              </div>
+              <h1 className="mt-6 max-w-3xl text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
+                Scegli il momento per la tua call con
+                {" "}<span className="text-gold-deep">l’Avv. Accarino.</span>
+              </h1>
               <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
 
               <Reveal delay={120} className="relative mt-12 border border-primary/15 bg-primary/[0.02] backdrop-blur-sm md:mt-14">
@@ -182,7 +174,7 @@ function Booking() {
                     <div className="border-b border-primary/10 p-6 sm:p-7 md:border-b-0 md:border-r md:p-9">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">A</span>
+                          <span className="text-gold">·</span>
                           <h3 className="text-lg font-500 tracking-[-0.01em] text-primary md:text-xl">
                             {months[viewMonth]} {viewYear}
                           </h3>
@@ -222,7 +214,7 @@ function Booking() {
 
                     <div className="p-6 sm:p-7 md:p-9">
                       <div className="flex items-center gap-3">
-                        <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">B</span>
+                        <span className="text-gold">·</span>
                         <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                           Orari disponibili
                         </span>

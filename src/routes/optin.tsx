@@ -167,27 +167,19 @@ function Optin() {
         <div className="container">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
             <div className="col-span-12 max-w-3xl animate-fade-up lg:col-start-2 lg:col-span-10">
-              {/* Eyebrow */}
+              {/* Eyebrow — roman numeral */}
               <div className="flex items-center gap-5">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">V</span>
                 <div className="h-px w-8 bg-gold/40" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   Idoneità verificata
                 </span>
               </div>
 
-              {/* Headline with serif watermark */}
-              <div className="relative mt-6">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
-                >
-                  V
-                </span>
-                <h1 className="relative text-balance text-[clamp(1.5rem,3.6vw,2.6rem)] font-500 leading-[1.1] tracking-[-0.02em] text-primary">
-                  Il tuo caso è <span className="text-gold-deep">idoneo.</span>
-                </h1>
-              </div>
+              {/* Headline — no watermark, simpler */}
+              <h1 className="mt-6 text-balance text-[clamp(1.5rem,3.6vw,2.6rem)] font-500 leading-[1.1] tracking-[-0.02em] text-primary">
+                Il tuo caso è <span className="text-gold-deep">idoneo.</span>
+              </h1>
               <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
 
               <p className="mt-6 max-w-xl text-base leading-[1.55] text-muted-foreground sm:text-lg">
@@ -197,14 +189,12 @@ function Optin() {
                 {painData.lede}
               </p>
 
-              {/* What we do — hairlines + dots */}
-              <ul className="mt-10 space-y-3 border-t border-primary/10 pt-6">
-                {painData.actions.map((action, i) => (
+              {/* What we do — plain dot + hairline */}
+              <ul className="mt-10 space-y-4 border-t border-primary/10 pt-6">
+                {painData.actions.map((action) => (
                   <li key={action} className="flex items-start gap-4">
-                    <span className="font-serif text-[10px] uppercase tracking-[0.3em] text-gold/70 mt-1 tabular-nums">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="h-px w-6 bg-gold/40 mt-3 shrink-0" />
+                    <span className="mt-2 text-gold">·</span>
+                    <div className="mt-[14px] h-px w-6 bg-gold/40 shrink-0" />
                     <span className="text-sm leading-snug text-primary">{action}</span>
                   </li>
                 ))}
@@ -219,7 +209,7 @@ function Optin() {
                 <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-gold" />
 
                 <div className="flex items-center gap-5 border-b border-primary/10 pb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                  <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VI</span>
                   <div className="h-px w-8 bg-gold/40" />
                   <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                     Dati di contatto
@@ -227,15 +217,12 @@ function Optin() {
                 </div>
 
                 <div className="mt-7 grid gap-5 sm:grid-cols-2">
-                  {fields.map((f, i) => (
+                  {fields.map((f) => (
                     <div key={f.id} className={`space-y-2 ${f.full ? "sm:col-span-2" : ""}`}>
                       <Label
                         htmlFor={f.id}
-                        className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground"
+                        className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground"
                       >
-                        <span className="font-serif text-[11px] text-gold/70">
-                          {String.fromCharCode(65 + i)}
-                        </span>
                         {f.label}
                       </Label>
                       <Input
@@ -289,7 +276,7 @@ function Optin() {
               {/* Reviews */}
               <div className="mt-16">
                 <div className="flex items-center gap-5">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                  <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VII</span>
                   <div className="h-px w-8 bg-gold/40" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                     Chi ha già risolto come te
