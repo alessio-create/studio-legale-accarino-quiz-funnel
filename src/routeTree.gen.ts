@@ -16,6 +16,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as OrdinanzaDemolizioneRouteImport } from './routes/ordinanza-demolizione'
 import { Route as OptinRouteImport } from './routes/optin'
 import { Route as EspropriIndennitaRouteImport } from './routes/espropri-indennita'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -54,6 +55,11 @@ const EspropriIndennitaRoute = EspropriIndennitaRouteImport.update({
   path: '/espropri-indennita',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookingRoute = BookingRouteImport.update({
   id: '/booking',
   path: '/booking',
@@ -68,6 +74,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/booking'
+    | '/cookie-policy'
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/booking'
+    | '/cookie-policy'
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/booking'
+    | '/cookie-policy'
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookingRoute: typeof BookingRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
   EspropriIndennitaRoute: typeof EspropriIndennitaRoute
   OptinRoute: typeof OptinRoute
   OrdinanzaDemolizioneRoute: typeof OrdinanzaDemolizioneRoute
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EspropriIndennitaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/booking': {
       id: '/booking'
       path: '/booking'
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookingRoute: BookingRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
   EspropriIndennitaRoute: EspropriIndennitaRoute,
   OptinRoute: OptinRoute,
   OrdinanzaDemolizioneRoute: OrdinanzaDemolizioneRoute,
@@ -229,3 +250,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
