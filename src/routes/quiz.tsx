@@ -98,7 +98,7 @@ const verticalQuestions: Record<Exclude<VerticalKey, "generic">, Question[]> = {
     {
       id: "role",
       eyebrow: "Il tuo profilo",
-      title: "Chi è interessato dall'esproprio?",
+      title: "L'offerta che hai ricevuto è davvero il valore del tuo bene?",
       watermark: "I",
       options: [
         "Proprietario terriero o azienda agricola",
