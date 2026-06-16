@@ -272,7 +272,6 @@ function Quiz() {
           <div className="flex items-center gap-4">
             <div className="relative">
               <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
-              <span aria-hidden className="absolute -inset-2 border border-gold/20" />
             </div>
             <div className="hidden h-px w-8 bg-gold/40 sm:block" />
             <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">

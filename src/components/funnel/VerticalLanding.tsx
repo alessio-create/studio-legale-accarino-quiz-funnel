@@ -96,7 +96,6 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               <div className="mb-10 flex items-center gap-5">
                 <div className="relative">
                   <Logo variant="gold" logomarkOnly className="h-10 w-auto md:h-12" />
-                  <span aria-hidden className="absolute -inset-2 border border-gold/20" />
                 </div>
                 <div className="hidden h-px w-8 bg-gold/40 md:block" />
                 <span className="hidden text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60 md:inline">
