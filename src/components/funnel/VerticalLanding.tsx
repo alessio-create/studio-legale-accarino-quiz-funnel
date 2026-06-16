@@ -1,6 +1,6 @@
 
 import {
-  ArrowRight, ArrowUpRight, Award, BookOpen, Check, CheckCircle2, Scale, Star, type LucideIcon,
+  ArrowRight, ArrowUpRight, Check, Star, Sparkles, type LucideIcon,
 } from "lucide-react";
 import Logo from "./Logo";
 import Footer from "@/components/funnel/Footer";
@@ -226,12 +226,8 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         variant="dark"
         speed="slow"
         items={cfg.latinTicker.map((s) => (
-          <span key={s} className="inline-flex items-center gap-2.5 text-gold">
-            <BookOpen className="h-3.5 w-3.5 opacity-60" />
-            {s}
-          </span>
+          <span key={s} className="text-gold">{s}</span>
         ))}
-        separator={<Scale className="h-4 w-4 text-gold/70" strokeWidth={1.5} />}
       />
 
       {/* PROBLEM */}
@@ -291,13 +287,8 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
       <Ticker
         variant="light"
         speed="slow"
-        items={cfg.resultsTicker.map((s) => (
-          <span key={s} className="inline-flex items-center gap-2.5">
-            <CheckCircle2 className="h-3.5 w-3.5 text-gold-deep/70" strokeWidth={1.5} />
-            {s}
-          </span>
-        ))}
-        separator={<Award className="h-4 w-4 text-gold-deep" strokeWidth={1.5} />}
+        items={cfg.resultsTicker}
+        separator={<Sparkles className="h-4 w-4 text-gold" />}
       />
 
       {/* PROCESS */}
