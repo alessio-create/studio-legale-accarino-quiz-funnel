@@ -8,7 +8,10 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
-import founder from "@/assets/founder.jpg";
+import francescoPhoto from "@/assets/team-francesco-accarino.png";
+import paoloPhoto from "@/assets/team-paolo-accarino.png";
+import danielePhoto from "@/assets/team-daniele-accarino.png";
+import antoniaPhoto from "@/assets/team-antonia-bacco.png";
 
 export const Route = createFileRoute("/booking")({
   head: () => ({
