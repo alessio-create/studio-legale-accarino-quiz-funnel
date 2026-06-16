@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 const Footer = () => (
-  <footer className="border-t border-primary-foreground/10 bg-primary py-6 text-primary-foreground">
+  <footer className="bg-primary py-6 text-primary-foreground">
     <div className="container">
       <div className="flex flex-col items-center justify-between gap-3 text-center text-xs text-primary-foreground/60 md:flex-row md:text-left">
         <p>
