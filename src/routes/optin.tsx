@@ -96,16 +96,22 @@ const painCopy: Record<string, { headline: string; lede: string; actions: string
 
 const defaultPainKey = "Più di uno dei precedenti";
 
+const WEBHOOK_URL = "https://hook.eu2.make.com/ypkum6sbdui19a6ntxz4seaa4lbav78v";
+
 function Optin() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", phone: "", location: "" });
   const [acceptPolicy, setAcceptPolicy] = useState(true);
   const [answers, setAnswers] = useState<Answers>({});
+  const [vertical, setVertical] = useState<string>("generic");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     try {
       const raw = sessionStorage.getItem("quiz_answers");
       if (raw) setAnswers(JSON.parse(raw));
+      const v = sessionStorage.getItem("quiz_vertical");
+      if (v) setVertical(v);
     } catch {}
   }, []);
 
@@ -114,9 +120,44 @@ function Optin() {
     return painCopy[key];
   }, [answers.pain]);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!acceptPolicy) return;
+    if (!acceptPolicy || submitting) return;
+    setSubmitting(true);
+
+    const payload = {
+      submittedAt: new Date().toISOString(),
+      source: "lp.studiolegaleaccarino.it",
+      vertical,
+      contact: {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        location: form.location,
+      },
+      quiz: {
+        role: answers.role ?? null,
+        pain: answers.pain ?? null,
+        urgency: answers.urgency ?? null,
+        value: answers.value ?? null,
+      },
+      consent: {
+        privacyPolicyAccepted: acceptPolicy,
+        acceptedAt: new Date().toISOString(),
+      },
+      pageUrl: typeof window !== "undefined" ? window.location.href : "",
+    };
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.error("Webhook submission failed", err);
+    }
+
     navigate({ to: "/booking" });
   };
 
@@ -283,9 +324,9 @@ function Optin() {
                   variant="cta"
                   size="xl"
                   className="mt-7 w-full"
-                  disabled={!acceptPolicy}
+                  disabled={!acceptPolicy || submitting}
                 >
-                  Accedi al calendario
+                  {submitting ? "Invio in corso..." : "Accedi al calendario"}
                 </Button>
 
                 <p className="mt-5 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
