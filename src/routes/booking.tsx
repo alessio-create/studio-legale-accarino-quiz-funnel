@@ -403,34 +403,31 @@ function Booking() {
       </section>
 
       {/* FAQ */}
-      <section className="relative z-10 border-t border-primary/10 py-20 md:py-28">
+      <section className="relative z-10 border-t border-primary/10 bg-soft py-20 md:py-28">
         <div className="container max-w-3xl">
-          <Reveal>
-            <div className="flex items-center gap-5">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
-              <div className="h-px w-8 bg-gold/40" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                FAQ
-              </span>
-            </div>
-            <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
+          <Reveal className="text-center">
+            <span className="eyebrow-center">FAQ</span>
+            <h2 className="mt-6 text-balance text-display-sm text-primary">
               Tutto quello che vuoi sapere <span className="text-gold-deep">prima della call.</span>
             </h2>
-            <div className="mt-6 h-px w-24 bg-gold" />
           </Reveal>
           <Reveal delay={120}>
-            <Accordion type="single" collapsible className="mt-12 border-t border-primary/10 md:mt-16">
+            <Accordion type="single" collapsible className="mt-12 space-y-3">
               {faqs.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-primary/10">
-                  <AccordionTrigger className="py-6 text-left text-lg font-500 tracking-[-0.01em] text-primary hover:text-gold hover:no-underline md:py-7">
-                    <span className="flex items-baseline gap-4">
-                      <span className="font-serif text-[10px] uppercase tracking-[0.3em] text-gold/70">
+                <AccordionItem
+                  key={i}
+                  value={`item-${i}`}
+                  className="group border border-border bg-card px-6 transition-luxe data-[state=open]:border-gold data-[state=open]:shadow-luxe"
+                >
+                  <AccordionTrigger className="py-6 text-left text-title text-primary hover:text-gold-deep hover:no-underline data-[state=open]:text-gold-deep">
+                    <span className="flex items-center gap-4">
+                      <span className="text-[11px] font-semibold tabular-nums tracking-[0.22em] text-gold-deep">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-6 text-base text-muted-foreground md:pb-7">
+                  <AccordionContent className="pb-6 pl-12 text-base leading-relaxed text-muted-foreground">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
