@@ -231,13 +231,14 @@ function getInitialVertical(): VerticalKey {
 
 function Quiz() {
   const navigate = useNavigate();
-  const [vertical] = useState<VerticalKey>(getInitialVertical);
+  const { vertical } = Route.useSearch();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>(() => {
     const init: Record<string, string> = {};
     if (vertical !== "generic") init.pain = verticalToPain[vertical];
     return init;
   });
+
 
 
 
