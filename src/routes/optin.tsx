@@ -324,9 +324,9 @@ function Optin() {
                   variant="cta"
                   size="xl"
                   className="mt-7 w-full"
-                  disabled={!acceptPolicy}
+                  disabled={!acceptPolicy || submitting}
                 >
-                  Accedi al calendario
+                  {submitting ? "Invio in corso..." : "Accedi al calendario"}
                 </Button>
 
                 <p className="mt-5 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
