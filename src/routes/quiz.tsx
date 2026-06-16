@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import Logo from "@/components/funnel/Logo";
+import monogramGold from "@/assets/monogram-gold.svg";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Check, ShieldCheck } from "lucide-react";
 
@@ -269,14 +269,12 @@ function Quiz() {
       {/* Header with progress hairline */}
       <header className="relative z-10 border-b border-primary/10">
         <div className="container flex h-20 items-center justify-between md:h-24">
-          <div className="flex items-center gap-4">
-            <div className="relative">
-              <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
-            </div>
-            <div className="hidden h-px w-8 bg-gold/40 sm:block" />
-            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
-              {meta.chapter}
-            </span>
+          <div className="flex items-center">
+            <img
+              src={monogramGold}
+              alt="Studio Legale Accarino"
+              className="h-12 w-auto md:h-16"
+            />
           </div>
           <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
             {String(step + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
