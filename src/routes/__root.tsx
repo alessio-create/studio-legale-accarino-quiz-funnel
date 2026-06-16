@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Studio Legale Accarino · Diritto amministrativo, espropri, TAR" },
+      { title: "Studio Legale Accarino Diritto amministrativo, espropri, TAR" },
       {
         name: "description",
         content:
@@ -83,6 +83,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Studio Legale Accarino" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Studio Legale Accarino Diritto amministrativo, espropri, TAR" },
+      { name: "twitter:title", content: "Studio Legale Accarino Diritto amministrativo, espropri, TAR" },
+      { name: "description", content: "A legal quiz funnel for Studio Legale Accarino, guiding users from initial questions to booking a consultation." },
+      { property: "og:description", content: "A legal quiz funnel for Studio Legale Accarino, guiding users from initial questions to booking a consultation." },
+      { name: "twitter:description", content: "A legal quiz funnel for Studio Legale Accarino, guiding users from initial questions to booking a consultation." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1ead1a5-c7b2-41d8-9082-d1a93f5c5f92/id-preview-9b33de5d--05778c1f-9b21-46f5-9dab-ce8bef001de9.lovable.app-1781598020296.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1ead1a5-c7b2-41d8-9082-d1a93f5c5f92/id-preview-9b33de5d--05778c1f-9b21-46f5-9dab-ce8bef001de9.lovable.app-1781598020296.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
