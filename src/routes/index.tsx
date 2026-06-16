@@ -139,8 +139,8 @@ function Index() {
         <div className="absolute inset-0 grain opacity-25" />
 
         {/* Corner brackets */}
-        <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/40 lg:left-12 lg:top-12" />
-        <span aria-hidden className="absolute bottom-24 right-6 z-10 h-4 w-4 border-b border-r border-gold/40 lg:bottom-32 lg:right-12" />
+        
+        
 
         <div className="container relative z-10 py-20 sm:py-24 lg:py-28">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
@@ -153,7 +153,7 @@ function Index() {
                 >
                   Studio · 2025
                 </span>
-                <div className="ml-1 h-12 w-px bg-gold/30" />
+                <div className="ml-1 hidden" />
               </div>
               <span
                 className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40"
@@ -170,7 +170,7 @@ function Index() {
                 <div className="relative">
                   <Logo variant="gold" logomarkOnly className="h-20 w-auto md:h-24" />
                 </div>
-                <div className="hidden h-px w-8 bg-gold/40 md:block" />
+
                 <span className="hidden text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60 md:inline">
                   Salerno &amp; Cava de’ Tirreni
                 </span>
@@ -191,7 +191,7 @@ function Index() {
               </div>
 
               {/* Sub + CTA */}
-              <div className="mt-12 flex w-full flex-col items-center gap-10 border-t border-primary-foreground/10 pt-10 text-center md:flex-row md:items-center md:justify-center md:gap-16">
+              <div className="mt-12 flex w-full flex-col items-center gap-10 pt-10 text-center md:flex-row md:items-center md:justify-center md:gap-16">
                 <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
                   Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi:
                   quando lo Stato sbaglia, esistono i ricorsi giusti. Verifica in 90 secondi
@@ -206,7 +206,7 @@ function Index() {
                     </Link>
                   </Button>
                   <div className="flex items-center gap-3 text-primary-foreground/50">
-                    <span className="h-px w-8 bg-gold/40" />
+
                     <span className="text-[10px] uppercase tracking-[0.22em]">
                       90 secondi · senza impegno
                     </span>
@@ -218,7 +218,7 @@ function Index() {
             {/* Right vertical mark */}
             <div className="hidden lg:col-span-1 lg:flex justify-end">
               <div className="flex flex-col items-center gap-4 pt-2">
-                <div className="h-32 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
+                <div className="hidden" />
                 <span
                   className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.4em] text-gold"
                   style={{ writingMode: "vertical-rl" }}
@@ -261,7 +261,7 @@ function Index() {
       </section>
 
       {/* ───────────── STATS BAND — editorial counts ───────────── */}
-      <section className="relative overflow-hidden border-b border-border bg-background">
+      <section className="relative overflow-hidden bg-background">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.05]"
@@ -287,7 +287,7 @@ function Index() {
                 </p>
                 <span
                   aria-hidden
-                  className="mt-5 block h-px w-8 bg-gold/60 transition-all duration-500 group-hover:w-16 group-hover:bg-gold sm:w-10"
+                  className="hidden"
                 />
                 <p className="mt-5 text-base leading-snug text-primary sm:text-lg">{s.label}</p>
                 <p className="mt-2 max-w-[20ch] text-[11px] uppercase tracking-[0.2em] leading-relaxed text-muted-foreground">
@@ -312,7 +312,7 @@ function Index() {
 
               <ul className="mt-12 grid gap-8">
                 {solutionItems.map((b, i) => (
-                  <li key={b.title} className="group flex items-start gap-6 border-t border-border pt-6 first:border-t-0 first:pt-0">
+                  <li key={b.title} className="group flex items-start gap-6 pt-6 first:pt-0">
                     <span className="mt-1 text-[11px] font-semibold tabular-nums tracking-[0.22em] text-gold-deep">
                       0{i + 1}
                     </span>
@@ -345,8 +345,8 @@ function Index() {
 
             <Reveal delay={140}>
               <div className="relative">
-                <span aria-hidden className="absolute -left-3 -top-3 h-10 w-10 border-l border-t border-gold" />
-                <span aria-hidden className="absolute -bottom-3 -right-3 h-10 w-10 border-b border-r border-gold" />
+                
+                
                 <div className="relative overflow-hidden">
                   <img
                     src={lawBooks}
@@ -404,7 +404,7 @@ function Index() {
                 Tu hai 60 giorni e un avvocato generalista. Lo squilibrio è
                 strutturale — e si batte solo con specialisti del diritto amministrativo.
               </p>
-              <div className="mt-10 border-l-2 border-gold pl-6">
+              <div className="mt-10 pl-6">
                 <p className="text-sm leading-relaxed text-primary-foreground/85">
                   “Pensavamo che l’indennità offerta fosse l’unica possibile.
                   Era meno della metà del valore reale del fondo.”
@@ -413,7 +413,7 @@ function Index() {
               </div>
             </Reveal>
 
-            <ul className="grid gap-px bg-primary-foreground/10">
+            <ul className="grid gap-0">
               {problems.map(({ icon: Icon, title, body }, i) => (
                 <Reveal
                   key={title}
@@ -474,7 +474,7 @@ function Index() {
             </Link>
           </div>
 
-          <div className="mt-14 grid gap-px border border-border bg-primary/10 md:grid-cols-3">
+          <div className="mt-14 grid md:grid-cols-3">
             {audience.map((a, i) => (
               <Reveal key={a.title} delay={i * 120} className="bg-background">
                 <article className="group flex h-full flex-col">
@@ -499,7 +499,7 @@ function Index() {
                     </h3>
                     <span
                       aria-hidden
-                      className="mt-5 block h-px w-10 bg-gold/60 transition-all duration-500 group-hover:w-20 group-hover:bg-gold"
+                      className="hidden"
                     />
                     <p className="mt-5 text-body-sm leading-relaxed text-muted-foreground">{a.desc}</p>
                   </div>
@@ -538,7 +538,7 @@ function Index() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-px border border-border bg-primary/10 md:grid-cols-3">
+          <div className="mt-14 grid md:grid-cols-3">
             {reviews.map((r, i) => (
               <Reveal key={r.author} delay={i * 100} className="bg-background">
                 <article className="group flex h-full flex-col justify-between p-10 transition-colors hover:bg-soft">
@@ -553,12 +553,12 @@ function Index() {
                         0{i + 1}
                       </span>
                     </div>
-                    <span aria-hidden className="mt-6 block h-px w-10 bg-gold/60 transition-all duration-500 group-hover:w-20 group-hover:bg-gold" />
+                    <span aria-hidden className="hidden" />
                     <blockquote className="mt-6 text-balance text-lg leading-snug text-primary">
                       “{r.quote}”
                     </blockquote>
                   </div>
-                  <footer className="mt-10 border-t border-border pt-6">
+                  <footer className="mt-10 pt-6">
                     <p className="font-semibold text-primary">{r.author}</p>
                     <p className="mt-1 text-sm text-muted-foreground">{r.role}</p>
                     <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-gold-deep">{r.hotel}</p>
@@ -585,7 +585,7 @@ function Index() {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  className="group border border-border bg-card px-6 transition-luxe data-[state=open]:border-gold data-[state=open]:shadow-luxe"
+                  className="group bg-card px-6 transition-luxe data-[state=open]:shadow-luxe"
                 >
                   <AccordionTrigger className="py-6 text-left text-title text-primary hover:text-gold-deep hover:no-underline data-[state=open]:text-gold-deep">
                     <span className="flex items-center gap-4">

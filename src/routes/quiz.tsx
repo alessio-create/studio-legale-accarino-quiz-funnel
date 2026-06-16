@@ -263,11 +263,11 @@ function Quiz() {
       <div className="absolute inset-0 grain opacity-40" />
 
       {/* Corner brackets */}
-      <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/30 lg:left-12 lg:top-12" />
-      <span aria-hidden className="absolute bottom-6 right-6 z-10 h-4 w-4 border-b border-r border-gold/30 lg:bottom-12 lg:right-12" />
+      
+      
 
       {/* Header with progress hairline */}
-      <header className="relative z-10 border-b border-primary/10">
+      <header className="relative z-10 ">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center">
             <img
@@ -298,7 +298,7 @@ function Quiz() {
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">
                   {String(step + 1).padStart(2, "0")}
                 </span>
-                <div className="h-px w-8 bg-gold/40" />
+
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   {current.eyebrow}
                 </span>
@@ -315,7 +315,7 @@ function Quiz() {
                   {current.title}
                 </h1>
               </div>
-              <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
+              
 
               <div className="mt-10 space-y-3">
                 {current.options.map((option, i) => {
@@ -361,7 +361,7 @@ function Quiz() {
                 })}
               </div>
 
-              <div className="mt-12 flex items-center justify-between border-t border-primary/10 pt-6">
+              <div className="mt-12 flex items-center justify-between  pt-6">
                 <Button
                   variant="ghost"
                   onClick={back}

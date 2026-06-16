@@ -86,17 +86,17 @@ function Booking() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[80vh] grain opacity-40" />
 
       {/* Corner brackets */}
-      <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/30 lg:left-12 lg:top-12" />
+      
       <span aria-hidden className="absolute right-6 top-6 z-10 h-4 w-4 border-r border-t border-gold/30 lg:right-12 lg:top-12" />
 
       {/* Header */}
-      <header className="relative z-10 border-b border-primary/10">
+      <header className="relative z-10 ">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center gap-4">
             <div className="relative">
               <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
             </div>
-            <div className="hidden h-px w-8 bg-gold/40 sm:block" />
+
             <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
               Prenotazione
             </span>
@@ -105,9 +105,7 @@ function Booking() {
             06 / 06
           </span>
         </div>
-        <div className="relative h-px w-full bg-primary/10">
-          <div className="absolute inset-y-0 left-0 bg-gold" style={{ width: "100%" }} />
-        </div>
+        
       </header>
 
       {/* CALENDAR */}
@@ -123,7 +121,7 @@ function Booking() {
                 >
                   Capitolo 06
                 </span>
-                <div className="ml-1 h-12 w-px bg-gold/30" />
+                <div className="ml-1 hidden" />
               </div>
               <span
                 className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
@@ -136,7 +134,7 @@ function Booking() {
             <div className="col-span-12 lg:col-span-10">
               <div className="flex items-center gap-5">
                 <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VIII</span>
-                <div className="h-px w-8 bg-gold/40" />
+
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   Calendario
                 </span>
@@ -146,11 +144,11 @@ function Booking() {
                 Scegli il momento per la tua call con
                 {" "}<span className="text-gold-deep">lo Studio Accarino.</span>
               </h1>
-              <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
+              
 
-              <Reveal delay={120} className="relative mt-12 border border-primary/15 bg-primary/[0.02] backdrop-blur-sm md:mt-14">
-                <span aria-hidden className="absolute -left-px -top-px h-3 w-3 border-l border-t border-gold" />
-                <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-gold" />
+              <Reveal delay={120} className="relative mt-12 bg-primary/[0.02] backdrop-blur-sm md:mt-14">
+                
+                
 
                 {confirmed ? (
                   <div className="px-6 py-14 text-center animate-scale-in sm:px-10 md:py-20">
@@ -163,7 +161,7 @@ function Booking() {
                     <h2 className="mt-5 text-balance text-3xl font-500 tracking-[-0.02em] text-primary md:text-4xl">
                       Consulenza preventiva confermata
                     </h2>
-                    <div className="mx-auto mt-6 h-px w-16 bg-gold" />
+                    
                     <p className="mt-6 text-lg text-primary">
                       {selectedDay} {months[viewMonth]} {viewYear} · {selectedSlot}
                     </p>
@@ -173,7 +171,7 @@ function Booking() {
                   </div>
                 ) : (
                   <div className="grid md:grid-cols-[1.4fr_1fr]">
-                    <div className="border-b border-primary/10 p-6 sm:p-7 md:border-b-0 md:border-r md:p-9">
+                    <div className=" p-6 sm:p-7 md:border-b-0 md:border-r md:p-9">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <span className="text-gold">·</span>
@@ -226,7 +224,7 @@ function Booking() {
                           <p className="mt-5 text-xl font-500 text-primary tracking-[-0.015em]">
                             {selectedDay} {months[viewMonth]}
                           </p>
-                          <div className="mt-3 h-px w-12 bg-gold" />
+
                           <div className="mt-6 grid grid-cols-2 gap-2.5">
                             {slots.map((s, idx) => (
                               <button
@@ -259,9 +257,9 @@ function Booking() {
                       ) : (
                         <div className="mt-14 flex flex-col items-center justify-center text-center">
                           <div className="flex items-center gap-3">
-                            <span className="h-px w-8 bg-gold/40" />
+
                             <span className="text-gold">·</span>
-                            <span className="h-px w-8 bg-gold/40" />
+
                           </div>
                           <p className="mt-5 text-sm text-muted-foreground">
                             Seleziona un giorno per vedere gli orari disponibili.
@@ -275,7 +273,7 @@ function Booking() {
 
               <p className="mt-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                 <span className="text-gold">·</span>
-                <span className="h-px w-6 bg-gold/40" />
+
                 Consulenza preventiva · 30 minuti · senza impegno
               </p>
             </div>
@@ -293,7 +291,7 @@ function Booking() {
       </section>
 
       {/* WHO */}
-      <section className="relative z-10 border-t border-primary/10 py-20 md:py-28">
+      <section className="relative z-10  py-20 md:py-28">
         <div className="container max-w-6xl">
           <div className="grid gap-10 md:gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-20">
             <Reveal className="relative mx-auto w-full max-w-sm lg:max-w-none">
@@ -304,7 +302,7 @@ function Booking() {
                   { name: "Daniele Accarino", role: "Partner", photo: danielePhoto },
                   { name: "Antonia Bacco", role: "Avvocato", photo: antoniaPhoto },
                 ].map((member) => (
-                  <div key={member.name} className="group relative overflow-hidden border border-primary/10 transition-all duration-500 hover:border-gold/60">
+                  <div key={member.name} className="group relative overflow-hidden transition-all duration-500">
                     <img
                       src={member.photo}
                       alt={member.name}
@@ -322,7 +320,7 @@ function Booking() {
             <Reveal delay={150}>
               <div className="flex items-center gap-5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
-                <div className="h-px w-8 bg-gold/40" />
+
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   Chi ti risponderà
                 </span>
@@ -340,7 +338,7 @@ function Booking() {
                 Quando prenoti, parli direttamente con noi. Niente filtri, niente
                 assistenti generici, niente “le farò sapere”.
               </p>
-              <div className="mt-10 grid grid-cols-3 gap-6 border-t border-primary/10 pt-8 md:mt-12 md:pt-10">
+              <div className="mt-10 grid grid-cols-3 gap-6  pt-8 md:mt-12 md:pt-10">
                 {[
                   { v: "50+", l: "Anni di esperienza" },
                   { v: "600+", l: "Mandati seguiti" },
@@ -358,20 +356,20 @@ function Booking() {
       </section>
 
       {/* NEXT STEPS */}
-      <section className="relative z-10 border-t border-primary/10 bg-primary py-20 text-primary-foreground md:py-28">
+      <section className="relative z-10  bg-primary py-20 text-primary-foreground md:py-28">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{ background: "radial-gradient(60% 50% at 10% 100%, var(--color-gold) 0%, transparent 70%)" }}
         />
-        <span aria-hidden className="absolute left-6 top-6 h-4 w-4 border-l border-t border-gold/40 lg:left-12 lg:top-12" />
-        <span aria-hidden className="absolute bottom-6 right-6 h-4 w-4 border-b border-r border-gold/40 lg:bottom-12 lg:right-12" />
+        
+        
 
         <div className="container relative z-10 max-w-5xl">
           <Reveal>
             <div className="flex items-center gap-5">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
-              <div className="h-px w-8 bg-gold/40" />
+
               <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">
                 Prossimi step
               </span>
@@ -382,7 +380,7 @@ function Booking() {
             <div className="mt-6 h-px w-24 bg-gold" />
           </Reveal>
 
-          <ol className="mt-12 grid gap-px overflow-hidden border border-primary-foreground/15 bg-primary-foreground/15 sm:grid-cols-2 md:mt-16 md:grid-cols-4">
+          <ol className="mt-12 grid overflow-hidden sm:grid-cols-2 md:mt-16 md:grid-cols-4">
             {[
               { title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
               { title: "Call di 30 minuti", body: "Lo Studio Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
@@ -392,7 +390,7 @@ function Booking() {
               <Reveal as="li" key={title} delay={i * 120} className="relative bg-primary p-7 group transition-colors hover:bg-primary/70 md:p-9">
                 <div className="flex items-center gap-4">
                   <span className="font-serif text-2xl text-gold tabular-nums">0{i + 1}</span>
-                  <div className="h-px w-8 bg-gold/40 transition-all duration-500 group-hover:w-12" />
+
                 </div>
                 <h3 className="mt-6 text-lg font-500 tracking-[-0.01em] text-primary-foreground md:mt-7">{title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{body}</p>
@@ -403,7 +401,7 @@ function Booking() {
       </section>
 
       {/* FAQ */}
-      <section className="relative z-10 border-t border-primary/10 bg-soft py-20 md:py-28">
+      <section className="relative z-10  bg-soft py-20 md:py-28">
         <div className="container max-w-3xl">
           <Reveal className="text-center">
             <span className="eyebrow-center">FAQ</span>
@@ -417,7 +415,7 @@ function Booking() {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  className="group border border-border bg-card px-6 transition-luxe data-[state=open]:border-gold data-[state=open]:shadow-luxe"
+                  className="group bg-card px-6 transition-luxe data-[state=open]:shadow-luxe"
                 >
                   <AccordionTrigger className="py-6 text-left text-title text-primary hover:text-gold-deep hover:no-underline data-[state=open]:text-gold-deep">
                     <span className="flex items-center gap-4">
@@ -438,7 +436,7 @@ function Booking() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative z-10 border-t border-primary/10 bg-primary py-20 text-primary-foreground md:py-28">
+      <section className="relative z-10  bg-primary py-20 text-primary-foreground md:py-28">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.12]"
@@ -452,7 +450,7 @@ function Booking() {
             <h2 className="mt-5 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em]">
               Prenota ora la tua <span className="text-gold">consulenza preventiva.</span>
             </h2>
-            <div className="mx-auto mt-6 h-px w-24 bg-gold" />
+            
             <p className="mt-6 text-lg text-primary-foreground/70">
               30 minuti con lo Studio Accarino. Senza impegno. Valore concreto garantito.
             </p>
