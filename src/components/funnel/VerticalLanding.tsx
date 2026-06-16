@@ -155,7 +155,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Credibility band */}
-            <div className="col-span-12 mt-14 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-primary-foreground/10 pt-8 lg:mt-20">
+            <div className="col-span-12 mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-primary-foreground/10 pt-8 md:justify-start lg:mt-20">
               {["Diritto Amministrativo", "Consulenza Tecnica", "Ricorsi TAR", "Stime Peritali"].map((t) => (
                 <span
                   key={t}
