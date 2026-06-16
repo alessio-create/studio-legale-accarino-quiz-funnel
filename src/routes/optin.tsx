@@ -145,7 +145,7 @@ function Optin() {
       <header className="relative z-10">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center gap-4">
-            <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
+            <img src={monogramGold} alt="Studio Legale Accarino" className="h-9 w-auto md:h-10" />
             <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
               Pratica idonea
             </span>
