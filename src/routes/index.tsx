@@ -232,7 +232,7 @@ function Index() {
 
 
         {/* Credentials micro-ticker pinned to hero bottom */}
-        <div className="absolute inset-x-0 bottom-0 z-10 border-t border-primary-foreground/10 bg-primary/80 backdrop-blur-md">
+        <div className="absolute inset-x-0 bottom-0 z-10 bg-primary/80 backdrop-blur-md">
           <div className="container flex items-center gap-4 py-4 sm:gap-8 sm:py-5">
             <span className="hidden flex-shrink-0 text-[10px] font-semibold uppercase tracking-[0.22em] text-gold sm:inline-flex">
               Hanno scelto lo Studio
