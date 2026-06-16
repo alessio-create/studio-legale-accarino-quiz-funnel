@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import Logo from "@/components/funnel/Logo";
+import monogramGold from "@/assets/monogram-gold.svg";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import { Button } from "@/components/ui/button";
@@ -87,14 +87,11 @@ function Booking() {
 
       {/* Corner brackets */}
 
-      {/* Header */}
-      <header className="relative z-10 ">
+      {/* Header with progress hairline */}
+      <header className="relative z-10">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center gap-4">
-            <div className="relative">
-              <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
-            </div>
-
+            <img src={monogramGold} alt="Studio Legale Accarino" className="h-9 w-auto md:h-10" />
             <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
               Prenotazione
             </span>
@@ -103,33 +100,21 @@ function Booking() {
             06 / 06
           </span>
         </div>
-        
+        <div className="relative h-1 w-full bg-primary/[0.06] rounded-full overflow-hidden">
+          <div
+            className="absolute inset-y-0 left-0 bg-gold transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] rounded-full"
+            style={{ width: "100%" }}
+          />
+        </div>
       </header>
 
+
       {/* CALENDAR */}
-      <section className="relative z-10">
+      <section id="calendar" className="relative z-10">
         <div className="container py-16 sm:py-20 lg:py-24">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
-            {/* Left vertical meta */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
-              <div className="flex flex-col items-start gap-3">
-                <span
-                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                >
-                  Capitolo 06
-                </span>
-                <div className="ml-1 hidden" />
-              </div>
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-              >
-                Step finale
-              </span>
-            </div>
+            <div className="col-span-12 mx-auto max-w-5xl animate-fade-up lg:col-start-2 lg:col-span-10">
 
-            <div className="col-span-12 lg:col-span-10">
               <div className="flex items-center gap-5">
                 <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VIII</span>
 
@@ -276,14 +261,6 @@ function Booking() {
               </p>
             </div>
 
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-end gap-12 pt-2">
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                Studio Legale Accarino · Booking
-              </span>
-            </div>
           </div>
         </div>
       </section>
@@ -453,12 +430,13 @@ function Booking() {
           </Reveal>
           <Reveal delay={150}>
             <Button asChild variant="cta" size="xl" className="group mt-10">
-              <Link to="/quiz">
-                Verifica il tuo caso
+              <a href="#calendar">
+                Scegli data e ora
                 <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
-              </Link>
+              </a>
             </Button>
           </Reveal>
+
         </div>
       </section>
 
