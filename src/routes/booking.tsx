@@ -327,7 +327,6 @@ function Booking() {
               <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
                 Studio <span className="text-gold-deep">Accarino.</span>
               </h2>
-              <div className="mt-6 h-px w-24 bg-gold" />
               <p className="mt-6 text-lg leading-[1.55] text-muted-foreground">
                 Quattro professionisti, un’unica struttura. Dal 1975 lo Studio Legale Accarino
                 accompagna privati, imprese e Pubbliche Amministrazioni nel diritto amministrativo,
