@@ -8,7 +8,7 @@ interface ReviewProps {
 }
 
 const Review = ({ quote, author, role, hotel }: ReviewProps) => (
-  <article className="flex h-full flex-col justify-between border border-border bg-card p-8 shadow-card transition-luxe hover:shadow-luxe">
+  <article className="flex h-full flex-col justify-between bg-card p-8 shadow-card transition-luxe hover:shadow-luxe">
     <div>
       <div className="flex gap-1 text-gold">
         {[...Array(5)].map((_, i) => (
