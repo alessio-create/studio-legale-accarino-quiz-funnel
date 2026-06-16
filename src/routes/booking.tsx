@@ -296,9 +296,28 @@ function Booking() {
       <section className="relative z-10 border-t border-primary/10 py-20 md:py-28">
         <div className="container max-w-6xl">
           <div className="grid gap-10 md:gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-20">
-            <Reveal className="relative group mx-auto w-full max-w-sm lg:max-w-none">
-              <div className="absolute -left-2 -top-2 h-full w-full border border-gold transition-all duration-700 group-hover:-left-5 group-hover:-top-5" aria-hidden />
-              <img src={founder} alt="Avv. Accarino" className="relative w-full object-cover shadow-luxe transition-transform duration-700 group-hover:scale-[1.01]" loading="lazy" />
+            <Reveal className="relative mx-auto w-full max-w-sm lg:max-w-none">
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { name: "Francesco Accarino", role: "Founding Partner", photo: francescoPhoto },
+                  { name: "Paolo Accarino", role: "Senior Partner", photo: paoloPhoto },
+                  { name: "Daniele Accarino", role: "Partner", photo: danielePhoto },
+                  { name: "Antonia Bacco", role: "Avvocato", photo: antoniaPhoto },
+                ].map((member) => (
+                  <div key={member.name} className="group relative overflow-hidden border border-primary/10 transition-all duration-500 hover:border-gold/60">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent p-3 pt-10">
+                      <p className="text-xs font-500 text-primary-foreground">{member.name}</p>
+                      <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold">{member.role}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Reveal>
             <Reveal delay={150}>
               <div className="flex items-center gap-5">
@@ -309,23 +328,23 @@ function Booking() {
                 </span>
               </div>
               <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
-                Avv. <span className="text-gold-deep">Accarino.</span>
+                Studio <span className="text-gold-deep">Accarino.</span>
               </h2>
               <div className="mt-6 h-px w-24 bg-gold" />
               <p className="mt-6 text-lg leading-[1.55] text-muted-foreground">
-                Founder dello Studio Legale Accarino e responsabile dell’area
-                Edilizia, Urbanistica & Espropri. Da oltre 20 anni difende proprietari,
-                aziende agricole e imprese di costruzione nei procedimenti contro la PA.
+                Quattro professionisti, un’unica struttura. Dal 1975 lo Studio Legale Accarino
+                accompagna privati, imprese e Pubbliche Amministrazioni nel diritto amministrativo,
+                con particolare focus su espropri, urbanistica e appalti.
               </p>
               <p className="mt-5 text-base text-muted-foreground">
-                Quando prenoti, parli direttamente con lui. Niente filtri, niente
-                assistenti, niente “le farò sapere”.
+                Quando prenoti, parli direttamente con noi. Niente filtri, niente
+                assistenti generici, niente “le farò sapere”.
               </p>
               <div className="mt-10 grid grid-cols-3 gap-6 border-t border-primary/10 pt-8 md:mt-12 md:pt-10">
                 {[
-                  { v: "20+", l: "Anni di esperienza" },
-                  { v: "+35%", l: "Indennità media ottenuta" },
-                  { v: "200+", l: "Casi seguiti" },
+                  { v: "50+", l: "Anni di esperienza" },
+                  { v: "600+", l: "Mandati seguiti" },
+                  { v: "4", l: "Professionisti" },
                 ].map((s, i) => (
                   <Reveal key={s.l} delay={300 + i * 100}>
                     <p className="text-3xl font-500 tracking-[-0.02em] text-gold-deep md:text-4xl">{s.v}</p>
