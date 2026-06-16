@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import Logo from "@/components/funnel/Logo";
+import monogramGold from "@/assets/monogram-gold.svg";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
 import { Button } from "@/components/ui/button";
