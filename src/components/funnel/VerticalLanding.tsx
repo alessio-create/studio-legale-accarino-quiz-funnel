@@ -127,7 +127,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 <div className="flex flex-col items-center gap-5 md:items-start">
                   <Button asChild variant="cta" size="xl" className="group">
                     <a href={ctaHref}>
-                      Verifica il tuo caso
+                      <div className="text-[10px] font-bold tracking-[0.2em]">INIZIA ORA</div>
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Button>
@@ -239,7 +239,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:gap-6">
                 <Button asChild variant="cta" size="lg">
                   <a href={ctaHref}>
-                    Verifica idoneità <ArrowRight className="h-4 w-4" />
+                    <div className="text-[10px] font-bold tracking-[0.2em]">INIZIA ORA</div> <ArrowRight className="h-4 w-4" />
                   </a>
                 </Button>
                 <a
@@ -392,7 +392,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
           <Reveal className="mt-14 text-center">
             <Button asChild variant="cta" size="xl">
               <a href={ctaHref}>
-                Verifica il tuo caso <ArrowRight className="h-5 w-5" />
+                <div className="text-[10px] font-bold tracking-[0.2em]">INIZIA ORA</div> <ArrowRight className="h-5 w-5" />
               </a>
             </Button>
           </Reveal>

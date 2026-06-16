@@ -202,7 +202,7 @@ function Index() {
                 <div className="flex flex-col items-center gap-5 md:items-start">
                   <Button asChild variant="cta" size="xl" className="group">
                     <Link to="/quiz">
-                      Verifica il tuo caso
+                      <div className="text-[10px] font-bold tracking-[0.2em]">INIZIA ORA</div>
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
