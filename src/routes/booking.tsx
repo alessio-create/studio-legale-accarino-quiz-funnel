@@ -214,7 +214,7 @@ function Booking() {
 
                     <div className="p-6 sm:p-7 md:p-9">
                       <div className="flex items-center gap-3">
-                        <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">B</span>
+                        <span className="text-gold">·</span>
                         <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                           Orari disponibili
                         </span>
