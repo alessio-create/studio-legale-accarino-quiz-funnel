@@ -222,12 +222,6 @@ const verticalQuestions: Record<Exclude<VerticalKey, "generic">, Question[]> = {
   ],
 };
 
-function getInitialVertical(): VerticalKey {
-  if (typeof window === "undefined") return "generic";
-  const v = new URLSearchParams(window.location.search).get("vertical");
-  if (v && v in verticalToPain) return v as VerticalKey;
-  return "generic";
-}
 
 function Quiz() {
   const navigate = useNavigate();
