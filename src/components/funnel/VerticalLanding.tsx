@@ -91,7 +91,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Main content */}
-            <div className="col-span-12 flex animate-fade-up flex-col items-start lg:col-span-10">
+            <div className="col-span-12 flex animate-fade-up flex-col items-center text-center md:items-start md:text-left lg:col-span-10">
               {/* Monogram + eyebrow */}
               <div className="mb-10 flex items-center gap-5">
                 <div className="relative">
@@ -108,7 +108,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               <div className="relative max-w-4xl">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -left-8 -top-20 select-none font-serif text-[220px] leading-none text-gold/5 lg:-left-16"
+                  className="pointer-events-none absolute -left-8 -top-20 hidden select-none font-serif text-[220px] leading-none text-gold/5 md:block lg:-left-16"
                 >
                   A
                 </span>
@@ -329,9 +329,9 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                     <span className="font-300 text-[2.5rem] leading-none tabular-nums tracking-[-0.04em] text-gold/80">
                       0{i + 1}
                     </span>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3">
-                        <Icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start gap-3">
+                        <Icon className="mt-1 h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
                         <h3 className="text-title text-primary-foreground">{title}</h3>
                       </div>
                       <p className="mt-3 text-body-sm leading-relaxed text-primary-foreground/70">{body}</p>

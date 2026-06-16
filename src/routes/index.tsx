@@ -164,7 +164,7 @@ function Index() {
             </div>
 
             {/* Main content */}
-            <div className="col-span-12 flex animate-fade-up flex-col items-start lg:col-span-10">
+            <div className="col-span-12 flex animate-fade-up flex-col items-center text-center md:items-start md:text-left lg:col-span-10">
               {/* Monogram + eyebrow */}
               <div className="mb-10 flex items-center gap-5">
                 <div className="relative">
@@ -181,7 +181,7 @@ function Index() {
               <div className="relative max-w-4xl">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -left-8 -top-20 select-none font-serif text-[220px] leading-none text-gold/5 lg:-left-16"
+                  className="pointer-events-none absolute -left-8 -top-20 hidden select-none font-serif text-[220px] leading-none text-gold/5 md:block lg:-left-16"
                 >
                   A
                 </span>
@@ -192,14 +192,14 @@ function Index() {
               </div>
 
               {/* Sub + CTA */}
-              <div className="mt-12 flex w-full flex-col items-start gap-10 border-t border-primary-foreground/10 pt-10 md:flex-row md:items-center md:gap-16">
+              <div className="mt-12 flex w-full flex-col items-center gap-10 border-t border-primary-foreground/10 pt-10 text-center md:flex-row md:items-center md:gap-16 md:text-left">
                 <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
                   Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi:
                   quando lo Stato sbaglia, esistono i ricorsi giusti. Verifica in 90 secondi
                   se il tuo caso ha margini reali.
                 </p>
 
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col items-center gap-5 md:items-start">
                   <Button asChild variant="cta" size="xl" className="group">
                     <Link to="/quiz">
                       Verifica il tuo caso
@@ -328,7 +328,7 @@ function Index() {
                 ))}
               </ul>
 
-              <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
+              <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:gap-6">
                 <Button asChild variant="cta" size="lg">
                   <Link to="/quiz">
                     Verifica idoneità <ArrowRight className="h-4 w-4" />
