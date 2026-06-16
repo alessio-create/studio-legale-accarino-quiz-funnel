@@ -55,7 +55,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
     <div className="min-h-screen overflow-x-clip bg-background">
       {/* HERO — Refined central editorial */}
       <section
-        className="relative isolate flex min-h-[88svh] items-center overflow-hidden text-primary-foreground"
+        className="relative isolate flex h-svh max-h-[900px] min-h-[600px] items-center overflow-hidden text-primary-foreground"
         style={{ backgroundColor: "var(--color-primary)" }}
       >
         <div
@@ -65,17 +65,17 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         />
         <div className="absolute inset-0 grain opacity-25" />
 
-        <div className="container relative z-10 py-24 sm:py-28 lg:py-32">
+        <div className="container relative z-10 flex h-full w-full items-center py-10 sm:py-14">
           <div className="mx-auto flex max-w-4xl animate-fade-up flex-col items-center text-center">
 
             {/* Brand identity */}
-            <div className="mb-12 flex flex-col items-center sm:mb-16">
-              <Logo variant="gold" logomarkOnly className="h-20 w-auto" />
+            <div className="mb-6 flex flex-col items-center sm:mb-8">
+              <Logo variant="gold" logomarkOnly className="h-12 w-auto sm:h-16" />
             </div>
 
 
             {/* Eyebrow */}
-            <div className="mb-8 flex items-center gap-3">
+            <div className="mb-5 flex items-center gap-3">
               <span aria-hidden className="h-px w-8 bg-gold/40" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
                 {cfg.eyebrow}
@@ -84,20 +84,20 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Headline */}
-            <h1 className="max-w-3xl text-balance text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.12] tracking-[-0.015em] text-primary-foreground">
+            <h1 className="max-w-3xl text-balance text-[clamp(1.75rem,4.5vw,3.25rem)] font-light leading-[1.1] tracking-[-0.015em] text-primary-foreground">
               {cfg.heroH1Plain}
-              <span className="mt-3 block font-semibold text-gold">
+              <span className="mt-2 block font-semibold text-gold">
                 {cfg.heroH1Accent}
               </span>
             </h1>
 
             {/* Supporting copy */}
-            <p className="mt-8 max-w-2xl text-balance text-base font-light leading-relaxed text-primary-foreground/70 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-balance text-sm font-light leading-relaxed text-primary-foreground/70 sm:text-base">
               {cfg.heroSub}
             </p>
 
             {/* CTA */}
-            <div className="mt-10 flex flex-col items-center gap-6">
+            <div className="mt-7 flex flex-col items-center gap-4">
               <Button asChild variant="ctaDark" size="xl" className="group">
                 <a href={ctaHref}>
                   <span>Inizia ora</span>
