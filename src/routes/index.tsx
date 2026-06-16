@@ -421,10 +421,6 @@ function Index() {
                   delay={i * 90}
                   className="group relative bg-primary p-8 transition-luxe hover:bg-primary-foreground/[0.04]"
                 >
-                  <span
-                    aria-hidden
-                    className="absolute left-0 top-0 h-px w-0 bg-gold transition-all duration-500 group-hover:w-full"
-                  />
                   <div className="flex items-start gap-6">
                     <span className="font-300 text-[2.5rem] leading-none tabular-nums tracking-[-0.04em] text-gold/80">
                       0{i + 1}
