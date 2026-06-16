@@ -122,15 +122,15 @@ const faqs = [
 function Index() {
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
-      {/* ───────────── HERO — editorial legal asymmetry ───────────── */}
-      <section className="relative isolate flex min-h-[80svh] items-center overflow-hidden bg-primary text-primary-foreground">
+      {/* ───────────── HERO — Refined central editorial ───────────── */}
+      <section className="relative isolate flex min-h-[88svh] items-center overflow-hidden bg-primary text-primary-foreground">
         <img
           src={heroCourthouse}
           alt="Tribunale amministrativo"
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary/90 to-primary" />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.18]"
@@ -138,91 +138,55 @@ function Index() {
         />
         <div className="absolute inset-0 grain opacity-25" />
 
-        {/* Corner brackets */}
-        
-        
+        <div className="container relative z-10 py-24 sm:py-28 lg:py-32">
+          <div className="mx-auto flex max-w-4xl animate-fade-up flex-col items-center text-center">
 
-        <div className="container relative z-10 py-20 sm:py-24 lg:py-28">
-          <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
-            {/* Left vertical meta */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
-              <div className="flex flex-col items-start gap-3">
-                <span
-                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                >
-                  Studio · 2025
-                </span>
-                <div className="ml-1 hidden" />
-              </div>
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40"
-                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-              >
-                Diritto Amministrativo
+            {/* Brand identity */}
+            <div className="mb-12 flex flex-col items-center sm:mb-16">
+              <Logo variant="gold" logomarkOnly className="h-20 w-auto" />
+            </div>
+
+
+            {/* Eyebrow */}
+            <div className="mb-8 flex items-center gap-3">
+              <span aria-hidden className="h-px w-8 bg-gold/40" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+                Diritto amministrativo
               </span>
+              <span aria-hidden className="h-px w-8 bg-gold/40" />
             </div>
 
-            {/* Main content */}
-            <div className="col-span-12 flex animate-fade-up flex-col items-center text-center lg:col-span-10">
-              {/* Monogram + eyebrow */}
-              <div className="mb-10 flex items-center gap-5">
-                <div className="relative">
-                  <Logo variant="gold" logomarkOnly className="h-20 w-auto md:h-24" />
-                </div>
+            {/* Headline */}
+            <h1 className="max-w-3xl text-balance text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.12] tracking-[-0.015em] text-primary-foreground">
+              Difendi il tuo patrimonio
+              <span className="mt-3 block font-semibold text-gold">
+                dalle decisioni della PA.
+              </span>
+            </h1>
 
-                <span className="hidden text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60 md:inline">
-                  Salerno &amp; Cava de’ Tirreni
-                </span>
-              </div>
+            {/* Supporting copy */}
+            <p className="mt-8 max-w-2xl text-balance text-base font-light leading-relaxed text-primary-foreground/70 sm:text-lg">
+              Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi. Verifica in 90 secondi se il tuo caso ha margini reali.
+            </p>
 
-              {/* Headline */}
-              <div className="relative max-w-4xl">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -left-8 -top-20 hidden select-none font-serif text-[220px] leading-none text-gold/5 md:block lg:-left-16"
-                >
-                  A
-                </span>
-                <h1 className="relative text-balance text-[clamp(2rem,5.4vw,4.5rem)] font-500 leading-[1.05] tracking-[-0.025em] text-primary-foreground">
-                  Difendi il tuo patrimonio dalle{" "}
-                  <span className="italic-accent px-1 text-gold">decisioni della PA.</span>
-                </h1>
-              </div>
+            {/* CTA */}
+            <div className="mt-10 flex flex-col items-center gap-6">
+              <Button asChild variant="ctaDark" size="xl" className="group">
+                <Link to="/quiz">
+                  <span>Inizia ora</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
 
-              {/* Sub + CTA */}
-              <div className="mt-12 flex w-full flex-col items-center gap-10 pt-10 text-center md:flex-row md:items-center md:justify-center md:gap-16">
-                <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
-                  Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi:
-                  quando lo Stato sbaglia, esistono i ricorsi giusti. Verifica in 90 secondi
-                  se il tuo caso ha margini reali.
-                </p>
-
-                <div className="flex flex-col items-center gap-5">
-                  <Button asChild variant="cta" size="xl" className="group">
-                    <Link to="/quiz">
-                      <div className="text-[10px] font-bold tracking-[0.2em]">INIZIA ORA</div>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Right vertical mark */}
-            <div className="hidden lg:col-span-1 lg:flex justify-end">
-              <div className="flex flex-col items-center gap-4 pt-2">
-                <div className="hidden" />
-                <span
-                  className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.4em] text-gold"
-                  style={{ writingMode: "vertical-rl" }}
-                >
-                  Studio Legale Accarino
-                </span>
+              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-primary-foreground/50">
+                <span>30 anni di diritto amministrativo</span>
+                <span aria-hidden className="text-gold">·</span>
+                <span>Salerno</span>
               </div>
             </div>
           </div>
         </div>
+
 
 
         {/* Credentials micro-ticker pinned to hero bottom */}
