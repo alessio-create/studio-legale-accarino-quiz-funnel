@@ -279,8 +279,9 @@ function Booking() {
                 )}
               </Reveal>
 
-              <p className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                <ShieldCheck className="h-3.5 w-3.5 text-gold" />
+              <p className="mt-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                <span className="text-gold">·</span>
+                <span className="h-px w-6 bg-gold/40" />
                 Consulenza preventiva · 30 minuti · senza impegno
               </p>
             </div>
