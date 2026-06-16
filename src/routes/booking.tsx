@@ -8,13 +8,16 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
-import founder from "@/assets/founder.jpg";
+import francescoPhoto from "@/assets/team-francesco-accarino.png";
+import paoloPhoto from "@/assets/team-paolo-accarino.png";
+import danielePhoto from "@/assets/team-daniele-accarino.png";
+import antoniaPhoto from "@/assets/team-antonia-bacco.png";
 
 export const Route = createFileRoute("/booking")({
   head: () => ({
     meta: [
       { title: "Prenota la consulenza — Studio Legale Accarino" },
-      { name: "description", content: "Scegli data e ora per la tua consulenza preventiva con l'Avv. Accarino." },
+      { name: "description", content: "Scegli data e ora per la tua consulenza preventiva con lo Studio Accarino." },
       { name: "robots", content: "noindex,follow" },
     ],
   }),
@@ -36,7 +39,7 @@ const generateMonthDays = (year: number, month: number) => {
 };
 
 const faqs = [
-  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. L’Avv. Accarino arriva alla call con risposte già pronte sulla tua situazione." },
+  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. Lo Studio Accarino arriva alla call con risposte già pronte sulla tua situazione." },
   { q: "Quanto dura la consulenza preventiva?", a: "30 minuti netti. Niente sales pitch: analisi del tuo caso, risposta a 2–3 domande concrete, e — se ci sono margini reali — proposta di collaborazione con tempi e costi chiari." },
   { q: "Cosa devo preparare?", a: "Idealmente: copia dell’atto ricevuto (decreto di esproprio, ordinanza, diniego), eventuali planimetrie o titoli edilizi. Se non li hai pronti, parliamo lo stesso." },
   { q: "La consulenza è davvero senza impegno?", a: "Sì. È un’analisi del tuo caso senza alcun obbligo di proseguire. Esci con una valutazione tecnica chiara anche se non lavoreremo insieme." },
@@ -141,7 +144,7 @@ function Booking() {
 
               <h1 className="mt-6 max-w-3xl text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
                 Scegli il momento per la tua call con
-                {" "}<span className="text-gold-deep">l’Avv. Accarino.</span>
+                {" "}<span className="text-gold-deep">lo Studio Accarino.</span>
               </h1>
               <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
 
@@ -293,9 +296,28 @@ function Booking() {
       <section className="relative z-10 border-t border-primary/10 py-20 md:py-28">
         <div className="container max-w-6xl">
           <div className="grid gap-10 md:gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-20">
-            <Reveal className="relative group mx-auto w-full max-w-sm lg:max-w-none">
-              <div className="absolute -left-2 -top-2 h-full w-full border border-gold transition-all duration-700 group-hover:-left-5 group-hover:-top-5" aria-hidden />
-              <img src={founder} alt="Avv. Accarino" className="relative w-full object-cover shadow-luxe transition-transform duration-700 group-hover:scale-[1.01]" loading="lazy" />
+            <Reveal className="relative mx-auto w-full max-w-sm lg:max-w-none">
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { name: "Francesco Accarino", role: "Founding Partner", photo: francescoPhoto },
+                  { name: "Paolo Accarino", role: "Senior Partner", photo: paoloPhoto },
+                  { name: "Daniele Accarino", role: "Partner", photo: danielePhoto },
+                  { name: "Antonia Bacco", role: "Avvocato", photo: antoniaPhoto },
+                ].map((member) => (
+                  <div key={member.name} className="group relative overflow-hidden border border-primary/10 transition-all duration-500 hover:border-gold/60">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent p-3 pt-10">
+                      <p className="text-xs font-500 text-primary-foreground">{member.name}</p>
+                      <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold">{member.role}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Reveal>
             <Reveal delay={150}>
               <div className="flex items-center gap-5">
@@ -306,23 +328,23 @@ function Booking() {
                 </span>
               </div>
               <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
-                Avv. <span className="text-gold-deep">Accarino.</span>
+                Studio <span className="text-gold-deep">Accarino.</span>
               </h2>
               <div className="mt-6 h-px w-24 bg-gold" />
               <p className="mt-6 text-lg leading-[1.55] text-muted-foreground">
-                Founder dello Studio Legale Accarino e responsabile dell’area
-                Edilizia, Urbanistica & Espropri. Da oltre 20 anni difende proprietari,
-                aziende agricole e imprese di costruzione nei procedimenti contro la PA.
+                Quattro professionisti, un’unica struttura. Dal 1975 lo Studio Legale Accarino
+                accompagna privati, imprese e Pubbliche Amministrazioni nel diritto amministrativo,
+                con particolare focus su espropri, urbanistica e appalti.
               </p>
               <p className="mt-5 text-base text-muted-foreground">
-                Quando prenoti, parli direttamente con lui. Niente filtri, niente
-                assistenti, niente “le farò sapere”.
+                Quando prenoti, parli direttamente con noi. Niente filtri, niente
+                assistenti generici, niente “le farò sapere”.
               </p>
               <div className="mt-10 grid grid-cols-3 gap-6 border-t border-primary/10 pt-8 md:mt-12 md:pt-10">
                 {[
-                  { v: "20+", l: "Anni di esperienza" },
-                  { v: "+35%", l: "Indennità media ottenuta" },
-                  { v: "200+", l: "Casi seguiti" },
+                  { v: "50+", l: "Anni di esperienza" },
+                  { v: "600+", l: "Mandati seguiti" },
+                  { v: "4", l: "Professionisti" },
                 ].map((s, i) => (
                   <Reveal key={s.l} delay={300 + i * 100}>
                     <p className="text-3xl font-500 tracking-[-0.02em] text-gold-deep md:text-4xl">{s.v}</p>
@@ -363,7 +385,7 @@ function Booking() {
           <ol className="mt-12 grid gap-px overflow-hidden border border-primary-foreground/15 bg-primary-foreground/15 sm:grid-cols-2 md:mt-16 md:grid-cols-4">
             {[
               { title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
-              { title: "Call di 30 minuti", body: "L’Avv. Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
+              { title: "Call di 30 minuti", body: "Lo Studio Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
               { title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
               { title: "Avvio in 7 giorni", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
             ].map(({ title, body }, i) => (
@@ -435,7 +457,7 @@ function Booking() {
             </h2>
             <div className="mx-auto mt-6 h-px w-24 bg-gold" />
             <p className="mt-6 text-lg text-primary-foreground/70">
-              30 minuti con l’Avv. Accarino. Senza impegno. Valore concreto garantito.
+              30 minuti con lo Studio Accarino. Senza impegno. Valore concreto garantito.
             </p>
           </Reveal>
           <Reveal delay={150}>
