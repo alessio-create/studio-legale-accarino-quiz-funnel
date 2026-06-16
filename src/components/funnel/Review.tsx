@@ -19,7 +19,7 @@ const Review = ({ quote, author, role, hotel }: ReviewProps) => (
         “{quote}”
       </blockquote>
     </div>
-    <footer className="mt-8 border-t border-border pt-5">
+    <footer className="mt-8 pt-5">
       <p className="font-semibold text-primary">{author}</p>
       <p className="text-sm text-muted-foreground">{role}</p>
       <p className="mt-1 text-xs uppercase tracking-[0.2em] text-gold">{hotel}</p>
