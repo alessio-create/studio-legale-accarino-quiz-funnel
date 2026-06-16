@@ -66,8 +66,8 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
         <div className="absolute inset-0 grain opacity-25" />
 
         {/* Corner brackets */}
-        <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/40 lg:left-12 lg:top-12" />
-        <span aria-hidden className="absolute bottom-6 right-6 z-10 h-4 w-4 border-b border-r border-gold/40 lg:bottom-12 lg:right-12" />
+        
+        
 
         <div className="container relative z-10 py-20 sm:py-24 lg:py-28">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
@@ -80,7 +80,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 >
                   Capitolo 01
                 </span>
-                <div className="ml-1 h-12 w-px bg-gold/30" />
+                <div className="ml-1 hidden" />
               </div>
               <span
                 className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40"
@@ -97,7 +97,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 <div className="relative">
                   <Logo variant="gold" logomarkOnly className="h-20 w-auto md:h-24" />
                 </div>
-                <div className="hidden h-px w-8 bg-gold/40 md:block" />
+
                 <span className="hidden text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/60 md:inline">
                   SBLOCCO PROGETTI & TAR
                 </span>
@@ -118,7 +118,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               </div>
 
               {/* Sub + CTA */}
-              <div className="mt-12 flex w-full flex-col items-center gap-10 border-t border-primary-foreground/10 pt-10 text-center md:flex-row md:items-center md:justify-center md:gap-16">
+              <div className="mt-12 flex w-full flex-col items-center gap-10 pt-10 text-center md:flex-row md:items-center md:justify-center md:gap-16">
                 <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
                   {cfg.heroSub}
                 </p>
@@ -131,7 +131,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                     </a>
                   </Button>
                   <div className="flex items-center gap-3 text-primary-foreground/50">
-                    <span className="h-px w-8 bg-gold/40" />
+
                     <span className="text-[10px] uppercase tracking-[0.22em]">
                       90 secondi · senza impegno
                     </span>
@@ -143,7 +143,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             {/* Right vertical mark */}
             <div className="hidden lg:col-span-1 lg:flex justify-end">
               <div className="flex flex-col items-center gap-4 pt-2">
-                <div className="h-32 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
+                <div className="hidden" />
                 <span
                   className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.4em] text-gold"
                   style={{ writingMode: "vertical-rl" }}
@@ -154,11 +154,11 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Credibility band */}
-            <div className="col-span-12 mt-14 grid grid-cols-2 gap-3 border-t border-primary-foreground/10 pt-8 lg:mt-20 lg:grid-cols-4 lg:gap-4">
+            <div className="col-span-12 mt-14 grid grid-cols-2 gap-3 pt-8 lg:mt-20 lg:grid-cols-4 lg:gap-4">
               {["Diritto Amministrativo", "Consulenza Tecnica", "Ricorsi TAR", "Stime Peritali"].map((t) => (
                 <div
                   key={t}
-                  className="flex aspect-[4/3] items-center justify-center border border-primary-foreground/15 p-4"
+                  className="flex aspect-[4/3] items-center justify-center p-4"
                 >
                   <span className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-primary-foreground/70">
                     {t}
@@ -171,7 +171,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
       </section>
 
       {/* STATS BAND */}
-      <section className="relative overflow-hidden border-b border-border bg-background">
+      <section className="relative overflow-hidden bg-background">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.05]"
@@ -197,7 +197,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 </p>
                 <span
                   aria-hidden
-                  className="mt-5 block h-px w-8 bg-gold/60 transition-all duration-500 group-hover:w-16 group-hover:bg-gold sm:w-10"
+                  className="hidden"
                 />
                 <p className="mt-5 text-base leading-snug text-primary sm:text-lg">{s.label}</p>
                 <p className="mt-2 max-w-[20ch] text-[11px] uppercase tracking-[0.2em] leading-relaxed text-muted-foreground">
@@ -222,7 +222,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
               <ul className="mt-12 grid gap-8">
                 {cfg.solutionItems.map((b, i) => (
-                  <li key={b.title} className="group flex items-start gap-6 border-t border-border pt-6 first:border-t-0 first:pt-0">
+                  <li key={b.title} className="group flex items-start gap-6 pt-6 first:pt-0">
                     <span className="mt-1 text-[11px] font-semibold tabular-nums tracking-[0.22em] text-gold-deep">
                       0{i + 1}
                     </span>
@@ -255,8 +255,8 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
             <Reveal delay={140}>
               <div className="relative">
-                <span aria-hidden className="absolute -left-3 -top-3 z-10 h-10 w-10 border-l border-t border-gold" />
-                <span aria-hidden className="absolute -bottom-3 -right-3 z-10 h-10 w-10 border-b border-r border-gold" />
+                
+                
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <img
                     src={cfg.solutionImage}
@@ -306,7 +306,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               <p className="mt-6 text-lg leading-relaxed text-primary-foreground/75">
                 {cfg.problemLead}
               </p>
-              <div className="mt-10 border-l-2 border-gold pl-6">
+              <div className="mt-10 pl-6">
                 <p className="text-sm leading-relaxed text-primary-foreground/85">
                   “{cfg.problemQuote.text}”
                 </p>
@@ -314,7 +314,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
               </div>
             </Reveal>
 
-            <ul className="grid gap-px bg-primary-foreground/10">
+            <ul className="grid gap-0">
               {cfg.problems.map(({ icon: Icon, title, body }, i) => (
                 <Reveal
                   key={title}
@@ -322,10 +322,6 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                   delay={i * 90}
                   className="group relative bg-primary p-8 transition-luxe hover:bg-primary-foreground/[0.04]"
                 >
-                  <span
-                    aria-hidden
-                    className="absolute left-0 top-0 h-px w-0 bg-gold transition-all duration-500 group-hover:w-full"
-                  />
                   <div className="flex items-start gap-6">
                     <span className="font-300 text-[2.5rem] leading-none tabular-nums tracking-[-0.04em] text-gold/80">
                       0{i + 1}
@@ -370,7 +366,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{cfg.processIntro}</p>
           </Reveal>
 
-          <div className="mt-16 grid gap-px border border-border bg-primary/10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4">
             {cfg.process.map((step, i) => (
               <Reveal key={step.title} delay={i * 110} className="bg-background">
                 <article className="group flex h-full flex-col p-8">
@@ -379,7 +375,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                   </span>
                   <span
                     aria-hidden
-                    className="mt-5 block h-px w-10 bg-gold/60 transition-all duration-500 group-hover:w-20 group-hover:bg-gold"
+                    className="hidden"
                   />
                   <h3 className="mt-5 text-title text-primary transition-colors group-hover:text-gold-deep">
                     {step.title}
@@ -420,7 +416,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-px border border-border bg-primary/10 md:grid-cols-3">
+          <div className="mt-14 grid md:grid-cols-3">
             {cfg.reviews.map((r, i) => (
               <Reveal key={r.author + i} delay={i * 100} className="bg-background">
                 <article className="group flex h-full flex-col justify-between p-10 transition-colors hover:bg-soft">
@@ -435,12 +431,12 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                         0{i + 1}
                       </span>
                     </div>
-                    <span aria-hidden className="mt-6 block h-px w-10 bg-gold/60 transition-all duration-500 group-hover:w-20 group-hover:bg-gold" />
+                    <span aria-hidden className="hidden" />
                     <blockquote className="mt-6 text-balance text-lg leading-snug text-primary">
                       “{r.quote}”
                     </blockquote>
                   </div>
-                  <footer className="mt-10 border-t border-border pt-6">
+                  <footer className="mt-10 pt-6">
                     <p className="font-semibold text-primary">{r.author}</p>
                     <p className="mt-1 text-sm text-muted-foreground">{r.role}</p>
                     <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-gold-deep">{r.hotel}</p>
@@ -467,7 +463,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  className="group border border-border bg-card px-6 transition-luxe data-[state=open]:border-gold data-[state=open]:shadow-luxe"
+                  className="group bg-card px-6 transition-luxe data-[state=open]:shadow-luxe"
                 >
                   <AccordionTrigger className="py-6 text-left text-title text-primary hover:text-gold-deep hover:no-underline data-[state=open]:text-gold-deep">
                     <span className="flex items-center gap-4">

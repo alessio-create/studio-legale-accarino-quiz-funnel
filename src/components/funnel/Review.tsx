@@ -8,7 +8,7 @@ interface ReviewProps {
 }
 
 const Review = ({ quote, author, role, hotel }: ReviewProps) => (
-  <article className="flex h-full flex-col justify-between border border-border bg-card p-8 shadow-card transition-luxe hover:shadow-luxe">
+  <article className="flex h-full flex-col justify-between bg-card p-8 shadow-card transition-luxe hover:shadow-luxe">
     <div>
       <div className="flex gap-1 text-gold">
         {[...Array(5)].map((_, i) => (
@@ -19,7 +19,7 @@ const Review = ({ quote, author, role, hotel }: ReviewProps) => (
         “{quote}”
       </blockquote>
     </div>
-    <footer className="mt-8 border-t border-border pt-5">
+    <footer className="mt-8 pt-5">
       <p className="font-semibold text-primary">{author}</p>
       <p className="text-sm text-muted-foreground">{role}</p>
       <p className="mt-1 text-xs uppercase tracking-[0.2em] text-gold">{hotel}</p>

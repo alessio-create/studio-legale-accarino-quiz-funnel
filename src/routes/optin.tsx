@@ -138,17 +138,17 @@ function Optin() {
       <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
 
       {/* Corner brackets */}
-      <span aria-hidden className="absolute left-6 top-6 z-10 h-4 w-4 border-l border-t border-gold/30 lg:left-12 lg:top-12" />
-      <span aria-hidden className="absolute bottom-6 right-6 z-10 h-4 w-4 border-b border-r border-gold/30 lg:bottom-12 lg:right-12" />
+      
+      
 
       {/* Header */}
-      <header className="relative z-10 border-b border-primary/10">
+      <header className="relative z-10 ">
         <div className="container flex h-20 items-center justify-between md:h-24">
           <div className="flex items-center gap-4">
             <div className="relative">
               <Logo variant="gold" logomarkOnly className="h-9 w-auto md:h-10" />
             </div>
-            <div className="hidden h-px w-8 bg-gold/40 sm:block" />
+
             <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline">
               Pratica idonea
             </span>
@@ -157,9 +157,7 @@ function Optin() {
             05 / 06
           </span>
         </div>
-        <div className="relative h-px w-full bg-primary/10">
-          <div className="absolute inset-y-0 left-0 bg-gold" style={{ width: "83%" }} />
-        </div>
+        
       </header>
 
       <main className="relative z-10 flex flex-1 items-start justify-center py-16 sm:py-20 lg:py-24">
@@ -169,7 +167,7 @@ function Optin() {
               {/* Eyebrow — roman numeral */}
               <div className="flex items-center gap-5">
                 <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">V</span>
-                <div className="h-px w-8 bg-gold/40" />
+
                 <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   Idoneità verificata
                 </span>
@@ -179,7 +177,7 @@ function Optin() {
               <h1 className="mt-6 text-balance text-[clamp(1.5rem,3.6vw,2.6rem)] font-500 leading-[1.1] tracking-[-0.02em] text-primary">
                 Il tuo caso è <span className="text-gold-deep">idoneo.</span>
               </h1>
-              <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
+              
 
               <p className="mt-6 max-w-xl text-base leading-[1.55] text-muted-foreground sm:text-lg">
                 {painData.headline}
@@ -189,11 +187,11 @@ function Optin() {
               </p>
 
               {/* What we do — plain dot + hairline */}
-              <ul className="mt-10 space-y-4 border-t border-primary/10 pt-6">
+              <ul className="mt-10 space-y-4  pt-6">
                 {painData.actions.map((action) => (
                   <li key={action} className="flex items-start gap-4">
                     <span className="mt-2 text-gold">·</span>
-                    <div className="mt-[14px] h-px w-6 bg-gold/40 shrink-0" />
+
                     <span className="text-sm leading-snug text-primary">{action}</span>
                   </li>
                 ))}
@@ -202,14 +200,14 @@ function Optin() {
               {/* Form */}
               <form
                 onSubmit={submit}
-                className="relative mt-12 border border-primary/15 bg-primary/[0.03] p-6 backdrop-blur-sm sm:p-8 md:p-10"
+                className="relative mt-12 bg-primary/[0.03] p-6 backdrop-blur-sm sm:p-8 md:p-10"
               >
-                <span aria-hidden className="absolute -left-px -top-px h-3 w-3 border-l border-t border-gold" />
-                <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-gold" />
+                
+                
 
-                <div className="flex items-center gap-5 border-b border-primary/10 pb-4">
+                <div className="flex items-center gap-5  pb-4">
                   <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VI</span>
-                  <div className="h-px w-8 bg-gold/40" />
+
                   <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                     Dati di contatto
                   </span>
@@ -240,7 +238,7 @@ function Optin() {
                   ))}
                 </div>
 
-                <div className="mt-8 flex items-start gap-3 border-t border-primary/10 pt-6">
+                <div className="mt-8 flex items-start gap-3  pt-6">
                   <Checkbox
                     id="accept-policy"
                     checked={acceptPolicy}
@@ -267,7 +265,7 @@ function Optin() {
 
                 <p className="mt-5 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                   <span className="text-gold">·</span>
-                  <span className="h-px w-6 bg-gold/40" />
+
                   Dati riservati · uso esclusivo dello studio
                 </p>
               </form>
@@ -276,7 +274,7 @@ function Optin() {
               <div className="mt-16">
                 <div className="flex items-center gap-5">
                   <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/80">VII</span>
-                  <div className="h-px w-8 bg-gold/40" />
+
                   <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                     Chi ha già risolto come te
                   </span>
