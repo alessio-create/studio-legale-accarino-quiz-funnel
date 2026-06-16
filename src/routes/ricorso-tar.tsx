@@ -7,7 +7,7 @@ import solutionImg from "@/assets/practice-urbanistica.jpg";
 export const Route = createFileRoute("/ricorso-tar")({
   head: () => ({
     meta: [
-      { title: "Permesso negato o silenzio della PA? Sblocca al TAR | Accarino" },
+      { title: "Permesso negato o silenzio PA: ricorso TAR | Accarino" },
       {
         name: "description",
         content:
