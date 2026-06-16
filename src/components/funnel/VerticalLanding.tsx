@@ -329,9 +329,9 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
                     <span className="font-300 text-[2.5rem] leading-none tabular-nums tracking-[-0.04em] text-gold/80">
                       0{i + 1}
                     </span>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3">
-                        <Icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start gap-3">
+                        <Icon className="mt-1 h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
                         <h3 className="text-title text-primary-foreground">{title}</h3>
                       </div>
                       <p className="mt-3 text-body-sm leading-relaxed text-primary-foreground/70">{body}</p>
