@@ -210,22 +210,26 @@ const verticalQuestions: Record<Exclude<VerticalKey, "generic">, Question[]> = {
   ],
 };
 
+function getInitialVertical(): VerticalKey {
+  if (typeof window === "undefined") return "generic";
+  const v = new URLSearchParams(window.location.search).get("vertical");
+  if (v && v in verticalToPain) return v as VerticalKey;
+  return "generic";
+}
+
 function Quiz() {
   const navigate = useNavigate();
+  const [vertical] = useState<VerticalKey>(getInitialVertical);
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [vertical, setVertical] = useState<VerticalKey>("generic");
+  const [answers, setAnswers] = useState<Record<string, string>>(() => {
+    const init: Record<string, string> = {};
+    if (vertical !== "generic") init.pain = verticalToPain[vertical];
+    return init;
+  });
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    const v = params.get("vertical");
-    if (v && v in verticalToPain) {
-      const key = v as Exclude<VerticalKey, "generic">;
-      setVertical(key);
-      setAnswers((a) => ({ ...a, pain: verticalToPain[key] }));
-    }
-  }, []);
+
+
+
 
   const activeQuestions = useMemo<Question[]>(
     () => (vertical === "generic" ? genericQuestions : verticalQuestions[vertical]),
