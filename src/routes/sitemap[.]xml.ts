@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-// TODO: replace with the project URL once a custom domain is connected.
-const BASE_URL = "";
+const BASE_URL = "https://lp.studiolegaleaccarino.it";
 
 interface SitemapEntry {
   path: string;
@@ -21,7 +20,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/espropri-indennita", lastmod: today, changefreq: "monthly", priority: "0.8" },
           { path: "/ordinanza-demolizione", lastmod: today, changefreq: "monthly", priority: "0.8" },
           { path: "/ricorso-tar", lastmod: today, changefreq: "monthly", priority: "0.8" },
-          { path: "/llm.html", lastmod: today, changefreq: "monthly", priority: "0.6" },
+          { path: "/privacy-policy", lastmod: today, changefreq: "yearly", priority: "0.3" },
+          { path: "/cookie-policy", lastmod: today, changefreq: "yearly", priority: "0.3" },
         ];
 
         const urls = entries.map((e) =>
