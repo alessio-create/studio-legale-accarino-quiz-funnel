@@ -261,14 +261,6 @@ function Booking() {
               </p>
             </div>
 
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-end gap-12 pt-2">
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                Studio Legale Accarino · Booking
-              </span>
-            </div>
           </div>
         </div>
       </section>
