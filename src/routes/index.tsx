@@ -91,9 +91,9 @@ const problems = [
 ];
 
 const audience = [
-  { image: personLandowner, alt: "Proprietario terriero davanti al proprio fondo", role: "Audience 01", title: "Proprietari terrieri & aziende agricole", desc: "Famiglie con proprietà ereditate, imprese agricole, fondi attraversati da nuove infrastrutture. Difendiamo l’indennità reale, non quella offerta dalla PA." },
-  { image: personHomeowner, alt: "Proprietaria di casa davanti alla propria abitazione", role: "Audience 02", title: "Proprietari di casa & piccoli costruttori", desc: "Strutture esistenti, sopraelevazioni, ampliamenti, sanatorie. Impugniamo ordinanze di demolizione e blocchi su abusi recuperabili." },
-  { image: personBuilder, alt: "Imprenditore edile in cantiere", role: "Audience 03", title: "PMI & imprese di costruzione", desc: "Costruttori e developer fermati da dinieghi, vincoli o silenzio della PA. Sblocchiamo permessi e progetti con ricorsi mirati al TAR." },
+  { image: personLandowner, alt: "Proprietario terriero davanti al proprio fondo", role: "", title: "Proprietari terrieri & aziende agricole", desc: "Famiglie con proprietà ereditate, imprese agricole, fondi attraversati da nuove infrastrutture. Difendiamo l’indennità reale, non quella offerta dalla PA." },
+  { image: personHomeowner, alt: "Proprietaria di casa davanti alla propria abitazione", role: "", title: "Proprietari di casa & piccoli costruttori", desc: "Strutture esistenti, sopraelevazioni, ampliamenti, sanatorie. Impugniamo ordinanze di demolizione e blocchi su abusi recuperabili." },
+  { image: personBuilder, alt: "Imprenditore edile in cantiere", role: "", title: "PMI & imprese di costruzione", desc: "Costruttori e developer fermati da dinieghi, vincoli o silenzio della PA. Sblocchiamo permessi e progetti con ricorsi mirati al TAR." },
 ];
 
 const tickerResults = [
@@ -405,7 +405,7 @@ function Index() {
         separator={<Sparkles className="h-4 w-4 text-gold" />}
       />
 
-      {/* ───────────── AUDIENCE — portrait grid, grayscale → color ───────────── */}
+      {/* ───────────── CLIENTS — portrait grid, grayscale → color ───────────── */}
       <section className="section-y bg-soft">
         <div className="container">
           <div className="flex flex-wrap items-end justify-between gap-8 sm:mb-16">
