@@ -110,7 +110,7 @@ function Booking() {
 
 
       {/* CALENDAR */}
-      <section className="relative z-10">
+      <section id="calendar" className="relative z-10">
         <div className="container py-16 sm:py-20 lg:py-24">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
             <div className="col-span-12 mx-auto max-w-5xl animate-fade-up lg:col-start-2 lg:col-span-10">
