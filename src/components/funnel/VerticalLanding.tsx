@@ -70,7 +70,7 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
 
             {/* Brand identity */}
             <div className="mb-6 flex flex-col items-center sm:mb-8">
-              <Logo variant="gold" logomarkOnly className="h-12 w-auto sm:h-16" />
+              <Logo variant="gold" logomarkOnly className="h-16 w-auto sm:h-24" />
             </div>
 
 
