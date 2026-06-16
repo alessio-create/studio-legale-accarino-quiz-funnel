@@ -222,9 +222,11 @@ function Quiz() {
   const [vertical] = useState<VerticalKey>(getInitialVertical);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>(() => {
-    if (vertical === "generic") return {};
-    return { pain: verticalToPain[vertical] };
+    const init: Record<string, string> = {};
+    if (vertical !== "generic") init.pain = verticalToPain[vertical];
+    return init;
   });
+
 
 
 
