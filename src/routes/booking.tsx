@@ -371,16 +371,15 @@ function Booking() {
 
           <ol className="mt-12 grid gap-px overflow-hidden border border-primary-foreground/15 bg-primary-foreground/15 sm:grid-cols-2 md:mt-16 md:grid-cols-4">
             {[
-              { icon: MessageSquare, title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
-              { icon: Clock, title: "Call di 30 minuti", body: "L’Avv. Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
-              { icon: FileSignature, title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
-              { icon: Sparkles, title: "Avvio in 7 giorni", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
-            ].map(({ icon: Icon, title, body }, i) => (
+              { title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
+              { title: "Call di 30 minuti", body: "L’Avv. Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
+              { title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
+              { title: "Avvio in 7 giorni", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
+            ].map(({ title, body }, i) => (
               <Reveal as="li" key={title} delay={i * 120} className="relative bg-primary p-7 group transition-colors hover:bg-primary/70 md:p-9">
                 <div className="flex items-center gap-4">
                   <span className="font-serif text-2xl text-gold tabular-nums">0{i + 1}</span>
-                  <div className="h-px w-6 bg-gold/40" />
-                  <Icon className="h-4 w-4 text-gold transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                  <div className="h-px w-8 bg-gold/40 transition-all duration-500 group-hover:w-12" />
                 </div>
                 <h3 className="mt-6 text-lg font-500 tracking-[-0.01em] text-primary-foreground md:mt-7">{title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{body}</p>
