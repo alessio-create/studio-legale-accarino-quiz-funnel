@@ -12,9 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RicorsoTarRouteImport } from './routes/ricorso-tar'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as OrdinanzaDemolizioneRouteImport } from './routes/ordinanza-demolizione'
 import { Route as OptinRouteImport } from './routes/optin'
 import { Route as EspropriIndennitaRouteImport } from './routes/espropri-indennita'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -33,6 +35,11 @@ const QuizRoute = QuizRouteImport.update({
   path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OrdinanzaDemolizioneRoute = OrdinanzaDemolizioneRouteImport.update({
   id: '/ordinanza-demolizione',
   path: '/ordinanza-demolizione',
@@ -46,6 +53,11 @@ const OptinRoute = OptinRouteImport.update({
 const EspropriIndennitaRoute = EspropriIndennitaRouteImport.update({
   id: '/espropri-indennita',
   path: '/espropri-indennita',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookingRoute = BookingRouteImport.update({
@@ -62,9 +74,11 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -72,9 +86,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -83,9 +99,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/booking': typeof BookingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/espropri-indennita': typeof EspropriIndennitaRoute
   '/optin': typeof OptinRoute
   '/ordinanza-demolizione': typeof OrdinanzaDemolizioneRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quiz': typeof QuizRoute
   '/ricorso-tar': typeof RicorsoTarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -95,9 +113,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/booking'
+    | '/cookie-policy'
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
+    | '/privacy-policy'
     | '/quiz'
     | '/ricorso-tar'
     | '/sitemap.xml'
@@ -105,9 +125,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/booking'
+    | '/cookie-policy'
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
+    | '/privacy-policy'
     | '/quiz'
     | '/ricorso-tar'
     | '/sitemap.xml'
@@ -115,9 +137,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/booking'
+    | '/cookie-policy'
     | '/espropri-indennita'
     | '/optin'
     | '/ordinanza-demolizione'
+    | '/privacy-policy'
     | '/quiz'
     | '/ricorso-tar'
     | '/sitemap.xml'
@@ -126,9 +150,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookingRoute: typeof BookingRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
   EspropriIndennitaRoute: typeof EspropriIndennitaRoute
   OptinRoute: typeof OptinRoute
   OrdinanzaDemolizioneRoute: typeof OrdinanzaDemolizioneRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   QuizRoute: typeof QuizRoute
   RicorsoTarRoute: typeof RicorsoTarRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -157,6 +183,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ordinanza-demolizione': {
       id: '/ordinanza-demolizione'
       path: '/ordinanza-demolizione'
@@ -176,6 +209,13 @@ declare module '@tanstack/react-router' {
       path: '/espropri-indennita'
       fullPath: '/espropri-indennita'
       preLoaderRoute: typeof EspropriIndennitaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/booking': {
@@ -198,9 +238,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookingRoute: BookingRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
   EspropriIndennitaRoute: EspropriIndennitaRoute,
   OptinRoute: OptinRoute,
   OrdinanzaDemolizioneRoute: OrdinanzaDemolizioneRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   QuizRoute: QuizRoute,
   RicorsoTarRoute: RicorsoTarRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
