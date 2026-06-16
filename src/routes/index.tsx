@@ -328,7 +328,7 @@ function Index() {
                 ))}
               </ul>
 
-              <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
+              <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:gap-6">
                 <Button asChild variant="cta" size="lg">
                   <Link to="/quiz">
                     Verifica idoneità <ArrowRight className="h-4 w-4" />
