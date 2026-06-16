@@ -154,14 +154,16 @@ export default function VerticalLanding(cfg: VerticalLPConfig) {
             </div>
 
             {/* Credibility band */}
-            <div className="col-span-12 mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-primary-foreground/10 pt-8 md:justify-start lg:mt-20">
+            <div className="col-span-12 mt-14 grid grid-cols-2 gap-3 border-t border-primary-foreground/10 pt-8 lg:mt-20 lg:grid-cols-4 lg:gap-4">
               {["Diritto Amministrativo", "Consulenza Tecnica", "Ricorsi TAR", "Stime Peritali"].map((t) => (
-                <span
+                <div
                   key={t}
-                  className="text-[10px] font-semibold uppercase tracking-[0.25em] text-primary-foreground/45"
+                  className="flex aspect-[4/3] items-center justify-center border border-primary-foreground/15 p-4"
                 >
-                  {t}
-                </span>
+                  <span className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-primary-foreground/70">
+                    {t}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
