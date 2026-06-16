@@ -173,15 +173,15 @@ function Index() {
             <div className="mt-7 flex flex-col items-center gap-4">
               <Button asChild variant="ctaDark" size="xl" className="group">
                 <Link to="/quiz">
-                  <span>Inizia ora</span>
+                  <span>INIZIA ORA</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
 
               <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-primary-foreground/50">
-                <span>30 anni di diritto amministrativo</span>
-                <span aria-hidden className="text-gold">·</span>
-                <span>Salerno</span>
+                <span>{"\n"}</span>
+                <span aria-hidden className="text-gold"></span>
+                <span>{"\n"}</span>
               </div>
             </div>
           </div>
