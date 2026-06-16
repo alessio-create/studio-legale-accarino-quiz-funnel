@@ -174,7 +174,7 @@ function Booking() {
                     <div className="border-b border-primary/10 p-6 sm:p-7 md:border-b-0 md:border-r md:p-9">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-gold/70">A</span>
+                          <span className="text-gold">·</span>
                           <h3 className="text-lg font-500 tracking-[-0.01em] text-primary md:text-xl">
                             {months[viewMonth]} {viewYear}
                           </h3>
