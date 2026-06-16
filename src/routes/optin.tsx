@@ -6,9 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  ArrowRight, BadgeCheck, Users, Building2, Target, Sparkles, CheckCircle2, ShieldCheck,
-} from "lucide-react";
 
 export const Route = createFileRoute("/optin")({
   head: () => ({
@@ -22,13 +19,12 @@ export const Route = createFileRoute("/optin")({
 });
 
 type Answers = { role?: string; pain?: string; urgency?: string; value?: string };
-
 type ReviewItem = { quote: string; author: string; role: string; hotel: string };
 
-const painCopy: Record<string, { headline: string; how: string; actions: string[]; reviews: ReviewItem[] }> = {
+const painCopy: Record<string, { headline: string; lede: string; actions: string[]; reviews: ReviewItem[] }> = {
   "Esproprio o indennità da rinegoziare": {
     headline: "Indennità di esproprio rinegoziata sul valore reale del bene.",
-    how: "Perizia tecnica indipendente, opposizione alla stima della PA e, dove serve, ricorso alla Corte d’Appello: trasformiamo cifre arbitrarie in indennità di mercato.",
+    lede: "Perizia tecnica indipendente, opposizione alla stima della PA e — dove serve — ricorso alla Corte d’Appello.",
     actions: [
       "Stima indipendente del bene confrontata con quella della PA",
       "Opposizione alla determinazione provvisoria nei termini",
@@ -42,7 +38,7 @@ const painCopy: Record<string, { headline: string; how: string; actions: string[
   },
   "Ordinanza di demolizione / abuso edilizio": {
     headline: "Ordinanze di demolizione impugnate, abusi recuperabili messi in sicurezza.",
-    how: "Analisi tecnica dell’atto, valutazione di sanatoria o accertamento di conformità, ricorso al TAR con sospensiva quando i presupposti ci sono.",
+    lede: "Analisi tecnica dell’atto, valutazione di sanatoria o accertamento di conformità, ricorso al TAR con sospensiva.",
     actions: [
       "Analisi dell’ordinanza e mappatura dei vizi formali e sostanziali",
       "Valutazione di accertamento di conformità o sanatoria edilizia",
@@ -56,7 +52,7 @@ const painCopy: Record<string, { headline: string; how: string; actions: string[
   },
   "Diniego permessi / silenzio della PA": {
     headline: "Permessi sbloccati, dinieghi annullati, progetti rimessi in cantiere.",
-    how: "Diffida formale, ricorso al TAR contro diniego o silenzio-inadempimento, nomina commissario ad acta: rimettiamo in moto la PA con gli strumenti giusti.",
+    lede: "Diffida formale, ricorso al TAR contro diniego o silenzio-inadempimento, nomina commissario ad acta.",
     actions: [
       "Diffida e messa in mora dell’ente competente",
       "Ricorso al TAR contro diniego o silenzio-inadempimento",
@@ -70,7 +66,7 @@ const painCopy: Record<string, { headline: string; how: string; actions: string[
   },
   "Vincolo paesaggistico o ambientale": {
     headline: "Vincoli impugnati, deroghe ottenute, progetti compatibili difesi.",
-    how: "Analisi del provvedimento di vincolo, ricorso al TAR e collaborazione con tecnici qualificati per dimostrare compatibilità ambientale e paesaggistica.",
+    lede: "Analisi del provvedimento di vincolo, ricorso al TAR e collaborazione con tecnici qualificati.",
     actions: [
       "Analisi del provvedimento di vincolo e dei suoi presupposti",
       "Ricorso al TAR contro vincoli illegittimi o sproporzionati",
@@ -84,7 +80,7 @@ const painCopy: Record<string, { headline: string; how: string; actions: string[
   },
   "Più di uno dei precedenti": {
     headline: "Una difesa unitaria su tutti i fronti del diritto amministrativo.",
-    how: "Un solo studio segue esproprio, edilizia e ricorsi al TAR con strategia coordinata. Niente passaggi tra più consulenti, niente costi imprevisti.",
+    lede: "Un solo studio segue esproprio, edilizia e ricorsi al TAR con strategia coordinata.",
     actions: [
       "Audit completo di tutti gli atti pendenti e dei termini",
       "Strategia coordinata su procedure parallele",
@@ -118,28 +114,21 @@ function Optin() {
     return painCopy[key];
   }, [answers.pain]);
 
-  const summaryItems = [
-    { icon: Users, label: "Profilo", value: answers.role ?? "Proprietario / impresa" },
-    { icon: Building2, label: "Caso", value: answers.pain ?? "Diritto amministrativo" },
-    { icon: Sparkles, label: "Stato", value: answers.urgency ?? "—" },
-    { icon: Target, label: "Valore", value: answers.value ?? "—" },
-  ];
-
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!acceptPolicy) return;
     navigate({ to: "/booking" });
   };
 
-  const fields: { id: keyof typeof form; label: string; type: string; placeholder: string; pattern?: string; minLength?: number; maxLength?: number }[] = [
+  const fields: { id: keyof typeof form; label: string; type: string; placeholder: string; pattern?: string; minLength?: number; maxLength?: number; full?: boolean }[] = [
     { id: "name", label: "Nome e cognome", type: "text", placeholder: "Mario Rossi", minLength: 2, maxLength: 100 },
     { id: "location", label: "Comune / provincia", type: "text", placeholder: "Salerno (SA)" },
-    { id: "email", label: "Email", type: "email", placeholder: "nome@email.it", maxLength: 255 },
-    { id: "phone", label: "Telefono", type: "tel", placeholder: "+39 ...", pattern: "[0-9+\\s().-]{6,20}", minLength: 6, maxLength: 20 },
+    { id: "email", label: "Email", type: "email", placeholder: "nome@email.it", maxLength: 255, full: true },
+    { id: "phone", label: "Telefono", type: "tel", placeholder: "+39 ...", pattern: "[0-9+\\s().-]{6,20}", minLength: 6, maxLength: 20, full: true },
   ];
 
   return (
-    <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
+    <div className="relative isolate flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
       {/* Ambient gold glow */}
       <div
         aria-hidden
@@ -174,214 +163,144 @@ function Optin() {
         </div>
       </header>
 
-      <main className="relative z-10">
-        <div className="container py-16 sm:py-20 lg:py-24">
+      <main className="relative z-10 flex flex-1 items-start justify-center py-16 sm:py-20 lg:py-24">
+        <div className="container">
           <div className="grid grid-cols-12 items-start gap-6 lg:gap-8">
-            {/* Left vertical meta */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-start gap-12 pt-2">
-              <div className="flex flex-col items-start gap-3">
-                <span
-                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                >
-                  Capitolo 05
+            <div className="col-span-12 max-w-3xl animate-fade-up lg:col-start-2 lg:col-span-10">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-5">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                <div className="h-px w-8 bg-gold/40" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  Idoneità verificata
                 </span>
-                <div className="ml-1 h-12 w-px bg-gold/30" />
               </div>
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+
+              {/* Headline with serif watermark */}
+              <div className="relative mt-6">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
+                >
+                  V
+                </span>
+                <h1 className="relative text-balance text-[clamp(1.5rem,3.6vw,2.6rem)] font-500 leading-[1.1] tracking-[-0.02em] text-primary">
+                  Il tuo caso è <span className="text-gold-deep">idoneo.</span>
+                </h1>
+              </div>
+              <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
+
+              <p className="mt-6 max-w-xl text-base leading-[1.55] text-muted-foreground sm:text-lg">
+                {painData.headline}
+              </p>
+              <p className="mt-3 max-w-xl text-sm leading-[1.55] text-muted-foreground/80">
+                {painData.lede}
+              </p>
+
+              {/* What we do — hairlines + dots */}
+              <ul className="mt-10 space-y-3 border-t border-primary/10 pt-6">
+                {painData.actions.map((action, i) => (
+                  <li key={action} className="flex items-start gap-4">
+                    <span className="font-serif text-[10px] uppercase tracking-[0.3em] text-gold/70 mt-1 tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="h-px w-6 bg-gold/40 mt-3 shrink-0" />
+                    <span className="text-sm leading-snug text-primary">{action}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Form */}
+              <form
+                onSubmit={submit}
+                className="relative mt-12 border border-primary/15 bg-primary/[0.03] p-6 backdrop-blur-sm sm:p-8 md:p-10"
               >
-                Accesso al calendario
-              </span>
-            </div>
+                <span aria-hidden className="absolute -left-px -top-px h-3 w-3 border-l border-t border-gold" />
+                <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-gold" />
 
-            {/* Main content */}
-            <div className="col-span-12 lg:col-span-10">
-              <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-                {/* LEFT: form */}
-                <div className="min-w-0 animate-fade-up">
-                  <div className="flex items-center gap-5">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">V</span>
-                    <div className="h-px w-8 bg-gold/40" />
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                      Idoneità verificata
-                    </span>
-                  </div>
-
-                  <div className="relative mt-6">
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[180px] leading-none text-primary/[0.04] lg:-left-12 lg:text-[220px]"
-                    >
-                      ✓
-                    </span>
-                    <h1 className="relative text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
-                      Il tuo caso è <span className="text-gold-deep">idoneo.</span>
-                    </h1>
-                  </div>
-                  <div className="mt-6 h-px w-24 origin-left bg-gold animate-draw-line" />
-                  <p className="mt-6 max-w-xl text-lg leading-[1.55] text-muted-foreground">
-                    Lascia i tuoi dati per accedere alla consulenza preventiva con l’Avv. Accarino.
-                  </p>
-
-                  <form onSubmit={submit} className="relative mt-10 border border-primary/15 bg-primary/[0.02] p-6 backdrop-blur-sm sm:p-8 md:p-10">
-                    <span aria-hidden className="absolute -left-px -top-px h-3 w-3 border-l border-t border-gold" />
-                    <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-gold" />
-
-                    <div className="flex items-center gap-3 border-b border-primary/10 pb-4">
-                      <BadgeCheck className="h-4 w-4 text-gold" strokeWidth={2} />
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-deep">
-                        Dati di contatto
-                      </span>
-                    </div>
-
-                    <div className="mt-7 grid gap-5 sm:grid-cols-2">
-                      {fields.map((f, i) => (
-                        <div
-                          key={f.id}
-                          className={`space-y-2 ${f.id === "email" || f.id === "phone" ? "sm:col-span-2" : ""}`}
-                        >
-                          <Label htmlFor={f.id} className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                            <span className="font-serif text-[11px] text-gold/70">
-                              {String.fromCharCode(65 + i)}
-                            </span>
-                            {f.label}
-                          </Label>
-                          <Input
-                            id={f.id}
-                            type={f.type}
-                            required
-                            minLength={f.minLength}
-                            maxLength={f.maxLength}
-                            pattern={f.pattern}
-                            value={form[f.id]}
-                            onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
-                            placeholder={f.placeholder}
-                            className="h-12 rounded-none border-0 border-b border-primary/20 bg-transparent px-0 text-base text-primary placeholder:text-muted-foreground/50 shadow-none focus-visible:border-gold focus-visible:ring-0"
-                          />
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-8 flex items-start gap-3 border-t border-primary/10 pt-6">
-                      <Checkbox
-                        id="accept-policy"
-                        checked={acceptPolicy}
-                        onCheckedChange={(v) => setAcceptPolicy(v === true)}
-                        className="mt-0.5"
-                      />
-                      <Label htmlFor="accept-policy" className="text-sm leading-relaxed text-muted-foreground font-normal cursor-pointer">
-                        Accetto la Privacy Policy e acconsento al trattamento dei miei dati per essere ricontattato dallo Studio Legale Accarino.
-                      </Label>
-                    </div>
-
-                    <Button
-                      type="submit"
-                      variant="cta"
-                      size="xl"
-                      className="group mt-7 w-full"
-                      disabled={!acceptPolicy}
-                    >
-                      Accedi al calendario
-                      <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
-                    </Button>
-
-                    <p className="mt-5 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                      <ShieldCheck className="h-3.5 w-3.5 text-gold" />
-                      Dati riservati · uso esclusivo dello studio
-                    </p>
-                  </form>
+                <div className="flex items-center gap-5 border-b border-primary/10 pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                  <div className="h-px w-8 bg-gold/40" />
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                    Dati di contatto
+                  </span>
                 </div>
 
-                {/* RIGHT: profile + actions */}
-                <aside className="min-w-0 space-y-10 lg:sticky lg:top-28">
-                  <section className="relative border border-primary/15 bg-primary/[0.02] p-6 backdrop-blur-sm sm:p-8">
-                    <span aria-hidden className="absolute -right-px -top-px h-3 w-3 border-r border-t border-gold" />
-
-                    <div className="flex items-center gap-5">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
-                      <div className="h-px w-8 bg-gold/40" />
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                        Il tuo profilo
-                      </span>
+                <div className="mt-7 grid gap-5 sm:grid-cols-2">
+                  {fields.map((f, i) => (
+                    <div key={f.id} className={`space-y-2 ${f.full ? "sm:col-span-2" : ""}`}>
+                      <Label
+                        htmlFor={f.id}
+                        className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground"
+                      >
+                        <span className="font-serif text-[11px] text-gold/70">
+                          {String.fromCharCode(65 + i)}
+                        </span>
+                        {f.label}
+                      </Label>
+                      <Input
+                        id={f.id}
+                        type={f.type}
+                        required
+                        minLength={f.minLength}
+                        maxLength={f.maxLength}
+                        pattern={f.pattern}
+                        value={form[f.id]}
+                        onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
+                        placeholder={f.placeholder}
+                        className="h-12 rounded-none border-0 border-b border-primary/20 bg-transparent px-0 text-base text-primary placeholder:text-muted-foreground/50 shadow-none focus-visible:border-gold focus-visible:ring-0"
+                      />
                     </div>
+                  ))}
+                </div>
 
-                    <dl className="mt-7 grid gap-3 sm:grid-cols-2">
-                      {summaryItems.map(({ icon: Icon, label, value }, i) => (
-                        <div
-                          key={label}
-                          className="group relative border border-primary/10 bg-background/40 p-4 transition-colors hover:border-gold/50"
-                        >
-                          <span aria-hidden className="absolute inset-y-0 left-0 w-[2px] origin-center scale-y-0 bg-gold transition-transform duration-500 group-hover:scale-y-100" />
-                          <div className="flex items-center gap-3">
-                            <span className="font-serif text-[10px] uppercase tracking-[0.3em] text-gold/70">
-                              {String.fromCharCode(65 + i)}
-                            </span>
-                            <Icon className="h-3.5 w-3.5 text-gold/80" strokeWidth={2} />
-                            <dt className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                              {label}
-                            </dt>
-                          </div>
-                          <dd className="mt-3 text-sm font-medium text-primary leading-snug">
-                            {value}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
+                <div className="mt-8 flex items-start gap-3 border-t border-primary/10 pt-6">
+                  <Checkbox
+                    id="accept-policy"
+                    checked={acceptPolicy}
+                    onCheckedChange={(v) => setAcceptPolicy(v === true)}
+                    className="mt-0.5"
+                  />
+                  <Label
+                    htmlFor="accept-policy"
+                    className="text-sm leading-relaxed text-muted-foreground font-normal cursor-pointer"
+                  >
+                    Accetto la Privacy Policy e acconsento al trattamento dei miei dati per essere ricontattato dallo Studio Legale Accarino.
+                  </Label>
+                </div>
 
-                    <div className="relative mt-8">
-                      <h2 className="text-balance text-xl font-500 leading-snug tracking-[-0.01em] text-primary md:text-2xl">
-                        {painData.headline}
-                      </h2>
-                      <div className="mt-4 h-px w-16 bg-gold" />
-                      <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                        {painData.how}
-                      </p>
-                    </div>
+                <Button
+                  type="submit"
+                  variant="cta"
+                  size="xl"
+                  className="mt-7 w-full"
+                  disabled={!acceptPolicy}
+                >
+                  Accedi al calendario
+                </Button>
 
-                    <div className="mt-7 border-t border-primary/10 pt-6">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-deep">
-                        Cosa facciamo per te
-                      </p>
-                      <ul className="mt-5 space-y-3">
-                        {painData.actions.map((action, i) => (
-                          <li key={action} className="flex items-start gap-3">
-                            <span className="mt-0.5 font-serif text-[10px] uppercase tracking-[0.3em] text-gold/70">
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold-deep" strokeWidth={2} />
-                            <span className="text-sm leading-snug text-primary">{action}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </section>
+                <p className="mt-5 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                  <span className="text-gold">·</span>
+                  <span className="h-px w-6 bg-gold/40" />
+                  Dati riservati · uso esclusivo dello studio
+                </p>
+              </form>
 
-                  <div className="space-y-5">
-                    <div className="flex items-center gap-5">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
-                      <div className="h-px w-8 bg-gold/40" />
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                        Chi ha già risolto come te
-                      </span>
-                    </div>
-                    {painData.reviews.map((r) => (
-                      <Review key={r.author + r.hotel} quote={r.quote} author={r.author} role={r.role} hotel={r.hotel} />
-                    ))}
-                  </div>
-                </aside>
+              {/* Reviews */}
+              <div className="mt-16">
+                <div className="flex items-center gap-5">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">·</span>
+                  <div className="h-px w-8 bg-gold/40" />
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                    Chi ha già risolto come te
+                  </span>
+                </div>
+                <div className="mt-8 grid gap-5 md:grid-cols-2">
+                  {painData.reviews.map((r) => (
+                    <Review key={r.author + r.hotel} quote={r.quote} author={r.author} role={r.role} hotel={r.hotel} />
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* Right vertical mark */}
-            <div className="hidden lg:col-span-1 lg:flex flex-col items-end justify-between gap-12 pt-2">
-              <span
-                className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                Studio Legale Accarino · Optin
-              </span>
             </div>
           </div>
         </div>
