@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import Logo from "@/components/funnel/Logo";
+import monogramGold from "@/assets/monogram-gold.svg";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Check, ShieldCheck } from "lucide-react";
 
