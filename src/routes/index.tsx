@@ -22,13 +22,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Studio Legale Accarino — Espropri, Edilizia & TAR" },
+      { title: "Studio Legale Accarino · Espropri, Edilizia & TAR" },
       {
         name: "description",
         content:
           "Avvocati specializzati in indennità di esproprio, ordinanze di demolizione e ricorsi al TAR. Difesa di proprietari e imprese contro la PA.",
       },
-      { property: "og:title", content: "Studio Legale Accarino — Espropri, Edilizia & TAR" },
+      { property: "og:title", content: "Studio Legale Accarino · Espropri, Edilizia & TAR" },
       {
         property: "og:description",
         content:
@@ -402,14 +402,14 @@ function Index() {
               <p className="mt-6 text-lg leading-relaxed text-primary-foreground/75">
                 La PA ha ufficio legale, periti interni e tempi a suo favore.
                 Tu hai 60 giorni e un avvocato generalista. Lo squilibrio è
-                strutturale — e si batte solo con specialisti del diritto amministrativo.
+                strutturale, e si batte solo con specialisti del diritto amministrativo.
               </p>
               <div className="mt-10 pl-6">
                 <p className="text-sm leading-relaxed text-primary-foreground/85">
                   “Pensavamo che l’indennità offerta fosse l’unica possibile.
                   Era meno della metà del valore reale del fondo.”
                 </p>
-                <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-gold">Cliente — Provincia di Salerno</p>
+                <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-gold">Cliente · Provincia di Salerno</p>
               </div>
             </Reveal>
 

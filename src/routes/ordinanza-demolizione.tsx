@@ -11,7 +11,7 @@ export const Route = createFileRoute("/ordinanza-demolizione")({
       {
         name: "description",
         content:
-          "L'80% delle ordinanze di demolizione contiene vizi annullabili. Verifica in 90 secondi se la tua è impugnabile — prima che scadano i 60 giorni.",
+          "L'80% delle ordinanze di demolizione contiene vizi annullabili. Verifica in 90 secondi se la tua è impugnabile, prima che scadano i 60 giorni.",
       },
       { property: "og:title", content: "Ordinanza di demolizione? Verifica in 90 secondi" },
       {
@@ -62,7 +62,7 @@ const config = {
   heroH1Plain: "Ti è arrivata un’ordinanza di demolizione?",
   heroH1Accent: "L’80% di queste ordinanze è annullabile.",
   heroSub:
-    "Hai 60 giorni. Dopo, l’ordinanza diventa esecutiva e il Comune può acquisire l’immobile gratuitamente. Scopri in 90 secondi se la tua è impugnabile — e cosa fare prima che scada il termine.",
+    "Hai 60 giorni. Dopo, l’ordinanza diventa esecutiva e il Comune può acquisire l’immobile gratuitamente. Scopri in 90 secondi se la tua è impugnabile, e cosa fare prima che scada il termine.",
 
   heroStats: [
     { to: 60, suffix: " gg", label: "Per impugnare al TAR", caption: "Termine perentorio" },
@@ -86,12 +86,12 @@ const config = {
     "Sessanta giorni sembrano tanti finché non passano. Poi l’ordinanza diventa esecutiva. Dopo altri 90, l’immobile e tutta l’area di sedime entrano gratis nel patrimonio del Comune. Eppure quasi l’80% delle ordinanze contiene vizi formali o sostanziali che un ricorso fatto bene riesce ad annullare.",
   problemQuote: {
     text: "Pensavamo di non avere scampo. Quattro mesi dopo, l’ordinanza era annullata al TAR.",
-    attr: "Cliente — Costiera Amalfitana",
+    attr: "Cliente · Costiera Amalfitana",
   },
   problems: [
     { icon: AlertTriangle, title: "Stai pensando “tanto è solo un avviso, vediamo”", body: "Sbagliato. Il conteggio dei 60 giorni parte dalla notifica, non da quando decidi di prenderla sul serio. Una settimana persa è una settimana in meno per costruire la difesa." },
     { icon: FileWarning, title: "L’ordinanza è motivata in modo generico", body: "Motivazione copia-incolla, mancata comunicazione di avvio, classificazione errata dell’abuso: sono i vizi più frequenti e più facilmente opponibili. Il giudice li conosce bene." },
-    { icon: Clock, title: "La sanatoria è possibile, ma non per sempre", body: "L’accertamento di conformità (art. 36 D.P.R. 380/2001) è uno strumento potente — ma va attivato prima della demolizione. Dopo, l’occasione è chiusa." },
+    { icon: Clock, title: "La sanatoria è possibile, ma non per sempre", body: "L’accertamento di conformità (art. 36 D.P.R. 380/2001) è uno strumento potente, ma va attivato prima della demolizione. Dopo, l’occasione è chiusa." },
     { icon: Landmark, title: "Acquisizione gratuita al patrimonio del Comune", body: "Dopo 90 giorni di inadempienza, il bene e l’area circostante (fino a 10 volte la superficie dell’abuso) passano al Comune. Senza un euro per te." },
   ],
 
@@ -133,8 +133,8 @@ const config = {
 
   faqs: [
     { q: "Ho ricevuto un’ordinanza di demolizione: cosa devo fare subito?", a: "Conta i giorni dalla notifica e contatta un avvocato amministrativo entro i primi 10–15. Hai 60 giorni perentori per impugnare al TAR. Senza ricorso depositato in tempo, l’ordinanza diventa esecutiva e non c’è più nulla da fare per via giudiziaria." },
-    { q: "Cosa succede se i 60 giorni scadono?", a: "L’ordinanza diventa esecutiva. Dopo ulteriori 90 giorni di inadempienza, il Comune può procedere d’ufficio alla demolizione (a tue spese) e acquisire gratuitamente al patrimonio l’immobile e l’area di sedime — fino a 10 volte la superficie dell’abuso. Tutto questo senza alcun indennizzo." },
-    { q: "L’ordinanza è davvero impugnabile o sto sperando in niente?", a: "Le ordinanze annullate al TAR sono la maggioranza, non l’eccezione. I vizi più frequenti — motivazione generica, mancata comunicazione di avvio, qualificazione errata dell’abuso, incompetenza dell’organo — sono riconosciuti dai giudici amministrativi con costanza. Nella consulenza preventiva ti diciamo se il tuo caso rientra in queste categorie." },
+    { q: "Cosa succede se i 60 giorni scadono?", a: "L’ordinanza diventa esecutiva. Dopo ulteriori 90 giorni di inadempienza, il Comune può procedere d’ufficio alla demolizione (a tue spese) e acquisire gratuitamente al patrimonio l’immobile e l’area di sedime, fino a 10 volte la superficie dell’abuso. Tutto questo senza alcun indennizzo." },
+    { q: "L’ordinanza è davvero impugnabile o sto sperando in niente?", a: "Le ordinanze annullate al TAR sono la maggioranza, non l’eccezione. I vizi più frequenti, come motivazione generica, mancata comunicazione di avvio, qualificazione errata dell’abuso o incompetenza dell’organo, sono riconosciuti dai giudici amministrativi con costanza. Nella consulenza preventiva ti diciamo se il tuo caso rientra in queste categorie." },
     { q: "Meglio sanatoria o ricorso al TAR?", a: "Dipende dall’opera. Se l’abuso è doppia-conforme (alla normativa di quando è stato fatto e a quella attuale), l’accertamento di conformità chiude tutto con una sanzione. Se non lo è, il ricorso al TAR è la strada. Spesso si percorrono entrambe in parallelo: il ricorso blocca l’esecutività e dà tempo per istruire la sanatoria." },
     { q: "Quanto costa difendermi?", a: "Onorario legale + contributo unificato per il TAR + eventuale perizia tecnica. Nella consulenza preventiva ti diamo una stima precisa basata sulla complessità dell’abuso e sulla strategia scelta. Concordiamo i compensi prima di iniziare: niente sorprese." },
     { q: "Se la sospensiva è concessa, cosa cambia per me?", a: "Cambia tutto. L’ordinanza è temporaneamente disattivata: il Comune non può procedere alla demolizione fino alla decisione di merito. Hai mesi o anni di tempo per regolarizzare l’immobile, presentare una sanatoria, o difenderti nel merito senza la spada di Damocle." },

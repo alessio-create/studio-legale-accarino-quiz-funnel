@@ -13,7 +13,7 @@ export const Route = createFileRoute("/espropri-indennita")({
         content:
           "L'indennità che ti ha offerto la PA è quasi sempre sotto valore. Scopri in 90 secondi quanto puoi davvero ottenere. +35% medio sull'offerta iniziale.",
       },
-      { property: "og:title", content: "Indennità di esproprio sotto valore? — Studio Accarino" },
+      { property: "og:title", content: "Indennità di esproprio sotto valore? · Studio Accarino" },
       {
         property: "og:description",
         content: "L'offerta della PA è quasi mai quella giusta. Verifica i margini reali in 90 secondi.",
@@ -63,7 +63,7 @@ const config = {
   heroH1Plain: "L'offerta che hai ricevuto",
   heroH1Accent: "è davvero il valore del tuo bene?",
   heroSub:
-    "Hai 30 giorni per non accettare cifre che ti porteresti dietro per sempre. Scopri in 90 secondi quanto vale davvero il tuo terreno — e di quanto si può rinegoziare l'indennità della PA.",
+    "Hai 30 giorni per non accettare cifre che ti porteresti dietro per sempre. Scopri in 90 secondi quanto vale davvero il tuo terreno, e di quanto si può rinegoziare l'indennità della PA.",
 
   // CONSUMPTION: numeri grossi, immediati.
   heroStats: [
@@ -78,7 +78,7 @@ const config = {
   // CONSUMPTION: bullet brevi, ognuno con beneficio chiaro.
   solutionItems: [
     { title: "Sappiamo subito se il tuo caso ha margini", desc: "In 90 secondi capisci se vale la pena opporsi. Se non ci sono margini, te lo diciamo. Senza promesse vuote." },
-    { title: "Perizia tecnica indipendente del tuo bene", desc: "Una stima vera, fatta al valore reale di mercato — non sulle tabelle catastali che la PA usa per pagare il meno possibile." },
+    { title: "Perizia tecnica indipendente del tuo bene", desc: "Una stima vera, fatta al valore reale di mercato, non sulle tabelle catastali che la PA usa per pagare il meno possibile." },
     { title: "Opposizione formale nei termini", desc: "Depositata entro i 30 giorni di legge. Senza opposizione, l'offerta diventa definitiva e non puoi più toccarla." },
     { title: "Negoziamo prima di andare in causa", desc: "Nel 70% dei casi chiudiamo con accordo bonario. Meno tempo, meno costi, indennità ribilanciata." },
   ],
@@ -90,7 +90,7 @@ const config = {
     "Periti interni, tabelle precostituite, tempi a suo favore. Tu hai 30 giorni e un'offerta che sembra già definitiva. Non lo è. La prima cifra che ti mettono davanti è quasi sempre la più bassa che possono provarci a offrirti.",
   problemQuote: {
     text: "Ci avevano offerto 420.000 euro per il fondo di famiglia. Era meno della metà. Con la perizia siamo arrivati a 890.000.",
-    attr: "Cliente — Provincia di Salerno",
+    attr: "Cliente · Provincia di Salerno",
   },
   problems: [
     { icon: AlertTriangle, title: "Ti stanno pagando da terreno agricolo un bene che vale come edificabile", body: "È l'errore (o la scelta) più comune. Un terreno con vocazione urbanistica reale può valere 3–5 volte l'offerta che hai sul tavolo." },

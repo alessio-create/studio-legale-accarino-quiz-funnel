@@ -83,10 +83,10 @@ const config = {
   problemH1Plain: "Ogni mese di blocco",
   problemH1Accent: "è margine che evapora dal tuo cantiere.",
   problemLead:
-    "La PA non ha fretta. Ha periti interni, zero costi di ritardo e una motivazione strutturale a temporeggiare. Tu hai mutui, committenti, scadenze contrattuali. Il diritto amministrativo prevede strumenti rapidi per sbloccare la pratica — vanno usati subito, e bene.",
+    "La PA non ha fretta. Ha periti interni, zero costi di ritardo e una motivazione strutturale a temporeggiare. Tu hai mutui, committenti, scadenze contrattuali. Il diritto amministrativo prevede strumenti rapidi per sbloccare la pratica: vanno usati subito, e bene.",
   problemQuote: {
     text: "Permesso fermo da 14 mesi per un vincolo paesaggistico. Sbloccato in 90 giorni dopo il ricorso.",
-    attr: "Cliente — PMI edile · Campania",
+    attr: "Cliente · PMI edile · Campania",
   },
   problems: [
     { icon: AlertTriangle, title: "Il diniego si fonda su pareri trattati come vincolanti", body: "Soprintendenza, Genio Civile, Asl: spesso esprimono pareri istruttori non vincolanti che la PA usa come scudo. È un vizio classico, riconosciuto dal giudice amministrativo." },
