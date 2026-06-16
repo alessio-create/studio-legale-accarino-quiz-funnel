@@ -430,12 +430,13 @@ function Booking() {
           </Reveal>
           <Reveal delay={150}>
             <Button asChild variant="cta" size="xl" className="group mt-10">
-              <Link to="/quiz">
-                Verifica il tuo caso
+              <a href="#calendar">
+                Scegli data e ora
                 <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
-              </Link>
+              </a>
             </Button>
           </Reveal>
+
         </div>
       </section>
 
