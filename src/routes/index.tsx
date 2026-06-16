@@ -7,7 +7,7 @@ import heroCourthouse from "@/assets/hero-courthouse.jpg";
 import personLandowner from "@/assets/audience-landowner.jpg";
 import personHomeowner from "@/assets/audience-homeowner.jpg";
 import personBuilder from "@/assets/audience-builder.jpg";
-import lawBooks from "@/assets/law-books.jpg";
+import solutionImage from "@/assets/solution-illustration.jpg";
 import Logo from "@/components/funnel/Logo";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
@@ -302,22 +302,18 @@ function Index() {
             </Reveal>
 
             <Reveal delay={140}>
-              <div className="relative">
-                
-                
-                <div className="relative overflow-hidden">
-                  <img
-                    src={lawBooks}
-                    alt="Codice di diritto amministrativo e fascicoli"
-                    className="animate-image-reveal h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0"
-                    style={{ background: "linear-gradient(180deg, transparent 60%, color-mix(in oklab, var(--color-primary) 25%, transparent) 100%)" }}
-                  />
-                </div>
+              <div className="relative aspect-[4/5] min-h-[420px] overflow-hidden rounded-sm bg-soft">
+                <img
+                  src={solutionImage}
+                  alt="Diritto amministrativo e giustizia"
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{ background: "linear-gradient(180deg, transparent 60%, color-mix(in oklab, var(--color-primary) 15%, transparent) 100%)" }}
+                />
               </div>
             </Reveal>
           </div>
