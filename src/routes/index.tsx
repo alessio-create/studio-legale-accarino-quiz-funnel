@@ -192,14 +192,14 @@ function Index() {
               </div>
 
               {/* Sub + CTA */}
-              <div className="mt-12 flex w-full flex-col items-start gap-10 border-t border-primary-foreground/10 pt-10 md:flex-row md:items-center md:gap-16">
+              <div className="mt-12 flex w-full flex-col items-center gap-10 border-t border-primary-foreground/10 pt-10 text-center md:flex-row md:items-center md:gap-16 md:text-left">
                 <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
                   Espropri sotto valore, ordinanze di demolizione, dinieghi pretestuosi:
                   quando lo Stato sbaglia, esistono i ricorsi giusti. Verifica in 90 secondi
                   se il tuo caso ha margini reali.
                 </p>
 
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col items-center gap-5 md:items-start">
                   <Button asChild variant="cta" size="xl" className="group">
                     <Link to="/quiz">
                       Verifica il tuo caso
