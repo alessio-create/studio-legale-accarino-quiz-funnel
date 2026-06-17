@@ -149,6 +149,10 @@ function Optin() {
     };
 
     try {
+      sessionStorage.setItem("contact", JSON.stringify(form));
+    } catch {}
+
+    try {
       await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
