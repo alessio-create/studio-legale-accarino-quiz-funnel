@@ -523,8 +523,8 @@ function Booking() {
             <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
               Pronto a iniziare?
             </span>
-            <h2 className="mt-5 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em]">
-              Prenota ora la tua <span className="text-gold">consulenza preventiva.</span>
+            <h2 className="mt-5 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-gold">
+              Prenota ora la tua <span>consulenza preventiva.</span>
             </h2>
             
             <p className="mt-6 text-lg text-primary-foreground/70">
