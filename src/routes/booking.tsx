@@ -1,5 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, useServerFn } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
+import { getCalSlots, createCalBooking } from "@/lib/cal.functions";
 import monogramGold from "@/assets/monogram-gold.svg";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
@@ -26,7 +27,20 @@ export const Route = createFileRoute("/booking")({
 
 const months = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
 const weekdays = ["L","M","M","G","V","S","D"];
-const slots = ["10:00","11:30","14:00","15:30","17:00","18:30"];
+
+const pad = (n: number) => String(n).padStart(2, "0");
+const dateKey = (y: number, m: number, d: number) => `${y}-${pad(m + 1)}-${pad(d)}`;
+const formatSlotTime = (iso: string) => {
+  try {
+    return new Intl.DateTimeFormat("it-IT", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Europe/Rome",
+    }).format(new Date(iso));
+  } catch {
+    return iso.slice(11, 16);
+  }
+};
 
 const generateMonthDays = (year: number, month: number) => {
   const first = new Date(year, month, 1);
