@@ -54,7 +54,7 @@ const generateMonthDays = (year: number, month: number) => {
 };
 
 const faqs = [
-  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. Lo Studio Accarino arriva alla call con risposte già pronte sulla tua situazione." },
+  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. Lo Studio Legale Accarino arriva alla call con risposte già pronte sulla tua situazione." },
   { q: "Quanto dura la consulenza preventiva?", a: "30 minuti netti. Niente sales pitch: analisi del tuo caso, risposta a 2–3 domande concrete e, se ci sono margini reali, proposta di collaborazione con tempi e costi chiari." },
   { q: "Cosa devo preparare?", a: "Idealmente: copia dell’atto ricevuto (decreto di esproprio, ordinanza, diniego), eventuali planimetrie o titoli edilizi. Se non li hai pronti, parliamo lo stesso." },
   { q: "La consulenza è davvero senza impegno?", a: "Sì. È un’analisi del tuo caso senza alcun obbligo di proseguire. Esci con una valutazione tecnica chiara anche se non lavoreremo insieme." },
