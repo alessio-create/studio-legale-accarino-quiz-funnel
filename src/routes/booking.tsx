@@ -199,7 +199,7 @@ function Booking() {
 
               <h1 className="mt-6 max-w-3xl text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
                 Scegli il momento per la tua call con
-                {" "}<span className="text-gold-deep">lo Studio Accarino.</span>
+                {" "}<span className="text-gold-deep">lo Studio Legale Accarino.</span>
               </h1>
               
 
