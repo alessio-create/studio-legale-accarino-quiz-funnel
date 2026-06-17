@@ -19,7 +19,7 @@ export const Route = createFileRoute("/booking")({
   head: () => ({
     meta: [
       { title: "Prenota la consulenza · Studio Legale Accarino" },
-      { name: "description", content: "Scegli data e ora per la tua consulenza preventiva con lo Studio Accarino." },
+      { name: "description", content: "Scegli data e ora per la tua consulenza preventiva con lo Studio Legale Accarino." },
       { name: "robots", content: "noindex,follow" },
     ],
   }),
@@ -54,7 +54,7 @@ const generateMonthDays = (year: number, month: number) => {
 };
 
 const faqs = [
-  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. Lo Studio Accarino arriva alla call con risposte già pronte sulla tua situazione." },
+  { q: "Cosa succede dopo aver prenotato la consulenza?", a: "Ricevi un’email di conferma con il link Zoom e un mini-briefing di 3 minuti da compilare. Lo Studio Legale Accarino arriva alla call con risposte già pronte sulla tua situazione." },
   { q: "Quanto dura la consulenza preventiva?", a: "30 minuti netti. Niente sales pitch: analisi del tuo caso, risposta a 2–3 domande concrete e, se ci sono margini reali, proposta di collaborazione con tempi e costi chiari." },
   { q: "Cosa devo preparare?", a: "Idealmente: copia dell’atto ricevuto (decreto di esproprio, ordinanza, diniego), eventuali planimetrie o titoli edilizi. Se non li hai pronti, parliamo lo stesso." },
   { q: "La consulenza è davvero senza impegno?", a: "Sì. È un’analisi del tuo caso senza alcun obbligo di proseguire. Esci con una valutazione tecnica chiara anche se non lavoreremo insieme." },
@@ -199,7 +199,7 @@ function Booking() {
 
               <h1 className="mt-6 max-w-3xl text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
                 Scegli il momento per la tua call con
-                {" "}<span className="text-gold-deep">lo Studio Accarino.</span>
+                {" "}<span className="text-gold-deep">lo Studio Legale Accarino.</span>
               </h1>
               
 
@@ -447,7 +447,7 @@ function Booking() {
           <ol className="grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
             {[
               { num: "01", when: "Subito", title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
-              { num: "02", when: "Il giorno della call", title: "Call di 30 minuti", body: "Lo Studio Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
+              { num: "02", when: "Il giorno della call", title: "Call di 30 minuti", body: "Lo Studio Legale Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
               { num: "03", when: "Entro 48 ore", title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
               { num: "04", when: "Entro 7 giorni", title: "Avvio", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
             ].map(({ num, when, title, body }, i) => (
@@ -528,7 +528,7 @@ function Booking() {
             </h2>
             
             <p className="mt-6 text-lg text-primary-foreground/70">
-              30 minuti con lo Studio Accarino. Senza impegno. Valore concreto garantito.
+              30 minuti con lo Studio Legale Accarino. Senza impegno. Valore concreto garantito.
             </p>
           </Reveal>
           <Reveal delay={150}>
