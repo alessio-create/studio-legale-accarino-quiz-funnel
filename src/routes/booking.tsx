@@ -524,8 +524,9 @@ function Booking() {
               Pronto a iniziare?
             </span>
             <h2 className="mt-5 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em]">
-              Prenota ora la tua <span className="text-gold">consulenza preventiva.</span>
+              consulenza preventiva.
             </h2>
+            <span className="text-gold">Prenota ora la tua consulenza preventiva.</span>
             
             <p className="mt-6 text-lg text-primary-foreground/70">
               30 minuti con lo Studio Legale Accarino. Senza impegno. Valore concreto garantito.
