@@ -141,6 +141,43 @@ function Booking() {
           notes: contact.location ? `Località: ${contact.location}` : undefined,
         },
       });
+
+      // Notify webhook with the booking confirmation (additional event)
+      try {
+        let quiz: Record<string, unknown> = {};
+        try {
+          const rawQuiz = sessionStorage.getItem("quiz");
+          if (rawQuiz) quiz = JSON.parse(rawQuiz);
+        } catch {}
+        let vertical: string | null = null;
+        try { vertical = sessionStorage.getItem("vertical"); } catch {}
+
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            event: "booking_confirmed",
+            submittedAt: new Date().toISOString(),
+            source: "booking_page",
+            pageUrl: typeof window !== "undefined" ? window.location.href : null,
+            vertical,
+            contact,
+            quiz,
+            appointment: {
+              startISO: selectedSlot,
+              startLocal: formatSlotTime(selectedSlot),
+              day: selectedDay,
+              month: months[viewMonth],
+              year: viewYear,
+              timezone: "Europe/Rome",
+              durationMinutes: 30,
+            },
+          }),
+        });
+      } catch (whErr) {
+        console.error("Booking webhook failed", whErr);
+      }
+
       setConfirmed(true);
     } catch (err) {
       console.error("Cal booking failed", err);
