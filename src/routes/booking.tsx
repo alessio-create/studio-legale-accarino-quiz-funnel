@@ -1,6 +1,7 @@
-import { createFileRoute, useServerFn } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useMemo, useState } from "react";
-import { getCalSlots, createCalBooking } from "@/lib/cal.functions";
+import { getCalSlots, createCalBooking, type CalSlotsByDate } from "@/lib/cal.functions";
 import monogramGold from "@/assets/monogram-gold.svg";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
