@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, ArrowUpRight, Check, Scale,
   AlertTriangle, Clock, Landmark, FileWarning, Star, Sparkles,
+  Sprout, Home, Building2,
 } from "lucide-react";
 import heroCourthouse from "@/assets/hero-courthouse.jpg";
 import solutionImage from "@/assets/office.jpg";
@@ -434,30 +435,28 @@ function Index() {
           </div>
 
           <div className="mt-14 grid md:grid-cols-3">
-            {audience.map((a, i) => (
-              <Reveal key={a.title} delay={i * 120} className="bg-background">
-                <article className="group flex h-full flex-col">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-soft">
-                    <img
-                      src={a.image}
-                      alt={a.alt}
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-8">
-                    <h3 className="text-2xl leading-tight text-primary transition-colors duration-500 group-hover:text-gold-deep">
-                      {a.title}
-                    </h3>
-                    <span
-                      aria-hidden
-                      className="hidden"
-                    />
-                    <p className="mt-5 text-body-sm leading-relaxed text-muted-foreground">{a.desc}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+            {audience.map((a, i) => {
+              const Icon = a.icon;
+              return (
+                <Reveal key={a.title} delay={i * 120} className="bg-background">
+                  <article className="group flex h-full flex-col">
+                    <div className="relative flex aspect-[3/4] items-center justify-center overflow-hidden bg-primary">
+                      <Icon className="h-20 w-20 text-gold/50 transition-all duration-500 group-hover:text-gold/80 group-hover:scale-110" strokeWidth={1} />
+                    </div>
+                    <div className="flex flex-1 flex-col p-8">
+                      <h3 className="text-2xl leading-tight text-primary transition-colors duration-500 group-hover:text-gold-deep">
+                        {a.title}
+                      </h3>
+                      <span
+                        aria-hidden
+                        className="hidden"
+                      />
+                      <p className="mt-5 text-body-sm leading-relaxed text-muted-foreground">{a.desc}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
 
           <Reveal className="mt-14 text-center">
