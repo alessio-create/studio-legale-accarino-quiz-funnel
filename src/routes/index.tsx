@@ -4,10 +4,7 @@ import {
   AlertTriangle, Clock, Landmark, FileWarning, Star, Sparkles,
 } from "lucide-react";
 import heroCourthouse from "@/assets/hero-courthouse.jpg";
-import personLandowner from "@/assets/audience-landowner.jpg";
-import personHomeowner from "@/assets/audience-homeowner.jpg";
-import personBuilder from "@/assets/audience-builder.jpg";
-import solutionImage from "@/assets/solution-illustration.jpg";
+import solutionImage from "@/assets/office.jpg";
 import Logo from "@/components/funnel/Logo";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
