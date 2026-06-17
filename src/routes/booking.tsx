@@ -15,6 +15,8 @@ import paoloPhoto from "@/assets/team-paolo-accarino.png";
 import danielePhoto from "@/assets/team-daniele-accarino.png";
 import antoniaPhoto from "@/assets/team-antonia-bacco.png";
 
+const WEBHOOK_URL = "https://hook.eu2.make.com/ypkum6sbdui19a6ntxz4seaa4lbav78v";
+
 export const Route = createFileRoute("/booking")({
   head: () => ({
     meta: [
