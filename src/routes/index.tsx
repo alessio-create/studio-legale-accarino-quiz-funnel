@@ -440,8 +440,10 @@ function Index() {
               return (
                 <Reveal key={a.title} delay={i * 120} className="bg-background">
                   <article className="group flex h-full flex-col">
-                    <div className="relative flex aspect-[3/4] items-center justify-center overflow-hidden bg-primary">
-                      <Icon className="h-20 w-20 text-gold/50 transition-all duration-500 group-hover:text-gold/80 group-hover:scale-110" strokeWidth={1} />
+                    <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-soft">
+                      <div className="flex h-28 w-28 items-center justify-center rounded-full bg-primary/[0.05] transition-all duration-500 group-hover:bg-primary/[0.08]">
+                        <Icon className="h-14 w-14 text-primary transition-all duration-500 group-hover:scale-110" strokeWidth={1} />
+                      </div>
                     </div>
                     <div className="flex flex-1 flex-col p-8">
                       <h3 className="text-2xl leading-tight text-primary transition-colors duration-500 group-hover:text-gold-deep">
