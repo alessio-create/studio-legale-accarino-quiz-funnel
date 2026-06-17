@@ -220,7 +220,7 @@ function Booking() {
                     </h2>
                     
                     <p className="mt-6 text-lg text-primary">
-                      {selectedDay} {months[viewMonth]} {viewYear} · {selectedSlot}
+                      {selectedDay} {months[viewMonth]} {viewYear} · {selectedSlot ? formatSlotTime(selectedSlot) : ""}
                     </p>
                     <p className="mt-5 text-sm text-muted-foreground">
                       Riceverai a breve un’email di conferma con il link e il mini-briefing di preparazione.
@@ -251,7 +251,9 @@ function Booking() {
                       <div className="mt-1 grid grid-cols-7 gap-1">
                         {cells.map((day, i) => {
                           if (day === null) return <div key={i} />;
-                          const disabled = isPast(day) || isWeekend(day);
+                          const past = isPast(day);
+                          const available = !past && hasSlots(day);
+                          const disabled = !available;
                           const selected = selectedDay === day;
                           return (
                             <button
@@ -267,6 +269,11 @@ function Booking() {
                           );
                         })}
                       </div>
+                      {loadingSlots && (
+                        <p className="mt-4 text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+                          Caricamento disponibilità…
+                        </p>
+                      )}
                     </div>
 
                     <div className="p-6 sm:p-7 md:p-9">
@@ -283,13 +290,22 @@ function Booking() {
                           </p>
 
                           <div className="mt-6 grid grid-cols-2 gap-2.5">
-                            {slots.map((s, idx) => (
+                            {daySlots.length === 0 && !loadingSlots && (
+                              <p className="col-span-2 text-sm text-muted-foreground">
+                                Nessuno slot disponibile in questo giorno.
+                              </p>
+                            )}
+                            {daySlots.map((slot, idx) => {
+                              const iso = slot.start;
+                              const label = formatSlotTime(iso);
+                              const isSelected = selectedSlot === iso;
+                              return (
                               <button
-                                key={s}
-                                onClick={() => setSelectedSlot(s)}
+                                key={iso}
+                                onClick={() => setSelectedSlot(iso)}
                                 style={{ animationDelay: `${idx * 50}ms` }}
                                 className={`group relative overflow-hidden border px-3 py-3.5 text-base font-medium tabular-nums transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] animate-fade-in ${
-                                  selectedSlot === s
+                                  isSelected
                                     ? "border-gold bg-gold/10 text-gold-deep shadow-[0_0_0_1px_var(--color-gold)]"
                                     : "border-primary/15 bg-primary/[0.02] text-primary hover:border-gold/60 hover:text-gold-deep"
                                 }`}
@@ -297,18 +313,21 @@ function Booking() {
                                 <span
                                   aria-hidden
                                   className={`absolute inset-y-0 left-0 w-[2px] bg-gold transition-transform duration-500 origin-center ${
-                                    selectedSlot === s ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
+                                    isSelected ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
                                   }`}
                                 />
-                                {s}
+                                {label}
                               </button>
-                            ))}
+                            );})}
                           </div>
                           {selectedSlot && (
-                            <Button onClick={() => setConfirmed(true)} variant="cta" size="lg" className="group mt-7 w-full animate-scale-in">
-                              Conferma {selectedSlot}
+                            <Button onClick={handleConfirm} disabled={booking} variant="cta" size="lg" className="group mt-7 w-full animate-scale-in">
+                              {booking ? "Conferma in corso…" : `Conferma ${formatSlotTime(selectedSlot)}`}
                               <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
                             </Button>
+                          )}
+                          {bookingError && (
+                            <p className="mt-4 text-sm text-destructive">{bookingError}</p>
                           )}
                         </div>
                       ) : (
