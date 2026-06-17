@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { useEffect, useMemo, useState } from "react";
+import { getCalSlots, createCalBooking, type CalSlotsByDate } from "@/lib/cal.functions";
 import monogramGold from "@/assets/monogram-gold.svg";
 import Footer from "@/components/funnel/Footer";
 import Reveal from "@/components/funnel/Reveal";
@@ -26,7 +28,20 @@ export const Route = createFileRoute("/booking")({
 
 const months = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
 const weekdays = ["L","M","M","G","V","S","D"];
-const slots = ["10:00","11:30","14:00","15:30","17:00","18:30"];
+
+const pad = (n: number) => String(n).padStart(2, "0");
+const dateKey = (y: number, m: number, d: number) => `${y}-${pad(m + 1)}-${pad(d)}`;
+const formatSlotTime = (iso: string) => {
+  try {
+    return new Intl.DateTimeFormat("it-IT", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Europe/Rome",
+    }).format(new Date(iso));
+  } catch {
+    return iso.slice(11, 16);
+  }
+};
 
 const generateMonthDays = (year: number, month: number) => {
   const first = new Date(year, month, 1);
@@ -50,8 +65,28 @@ function Booking() {
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
-  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  const [selectedSlot, setSelectedSlot] = useState<string | null>(null); // ISO start
   const [confirmed, setConfirmed] = useState(false);
+  const [slotsByDate, setSlotsByDate] = useState<CalSlotsByDate>({});
+  const [loadingSlots, setLoadingSlots] = useState(false);
+  const [booking, setBooking] = useState(false);
+  const [bookingError, setBookingError] = useState<string | null>(null);
+
+  const fetchSlots = useServerFn(getCalSlots);
+  const bookSlot = useServerFn(createCalBooking);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoadingSlots(true);
+    const start = new Date(viewYear, viewMonth, 1).toISOString().slice(0, 10);
+    const endDate = new Date(viewYear, viewMonth + 1, 0);
+    const end = endDate.toISOString().slice(0, 10);
+    fetchSlots({ data: { start, end } })
+      .then((data) => { if (!cancelled) setSlotsByDate(data ?? {}); })
+      .catch((err) => { console.error("Cal slots error", err); if (!cancelled) setSlotsByDate({}); })
+      .finally(() => { if (!cancelled) setLoadingSlots(false); });
+    return () => { cancelled = true; };
+  }, [viewYear, viewMonth, fetchSlots]);
 
   const cells = generateMonthDays(viewYear, viewMonth);
   const isPast = (day: number) => {
@@ -59,10 +94,15 @@ function Booking() {
     const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
     return d < t;
   };
-  const isWeekend = (day: number) => {
-    const wd = new Date(viewYear, viewMonth, day).getDay();
-    return wd === 0 || wd === 6;
+  const hasSlots = (day: number) => {
+    const k = dateKey(viewYear, viewMonth, day);
+    return Array.isArray(slotsByDate[k]) && slotsByDate[k].length > 0;
   };
+
+  const daySlots = useMemo(() => {
+    if (selectedDay == null) return [];
+    return slotsByDate[dateKey(viewYear, viewMonth, selectedDay)] ?? [];
+  }, [selectedDay, slotsByDate, viewYear, viewMonth]);
 
   const prevMonth = () => {
     if (viewMonth === 0) { setViewMonth(11); setViewYear((y) => y - 1); }
@@ -74,6 +114,40 @@ function Booking() {
     else setViewMonth((m) => m + 1);
     setSelectedDay(null); setSelectedSlot(null);
   };
+
+  const handleConfirm = async () => {
+    if (!selectedSlot || booking) return;
+    setBookingError(null);
+    setBooking(true);
+    let contact: { name?: string; email?: string; phone?: string; location?: string } = {};
+    try {
+      const raw = sessionStorage.getItem("contact");
+      if (raw) contact = JSON.parse(raw);
+    } catch {}
+    if (!contact.name || !contact.email) {
+      setBookingError("Dati di contatto mancanti. Compila prima il form.");
+      setBooking(false);
+      return;
+    }
+    try {
+      await bookSlot({
+        data: {
+          start: selectedSlot,
+          name: contact.name,
+          email: contact.email,
+          phone: contact.phone,
+          notes: contact.location ? `Località: ${contact.location}` : undefined,
+        },
+      });
+      setConfirmed(true);
+    } catch (err) {
+      console.error("Cal booking failed", err);
+      setBookingError("Non siamo riusciti a confermare lo slot. Riprova o scegli un altro orario.");
+    } finally {
+      setBooking(false);
+    }
+  };
+
 
   return (
     <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
@@ -146,7 +220,7 @@ function Booking() {
                     </h2>
                     
                     <p className="mt-6 text-lg text-primary">
-                      {selectedDay} {months[viewMonth]} {viewYear} · {selectedSlot}
+                      {selectedDay} {months[viewMonth]} {viewYear} · {selectedSlot ? formatSlotTime(selectedSlot) : ""}
                     </p>
                     <p className="mt-5 text-sm text-muted-foreground">
                       Riceverai a breve un’email di conferma con il link e il mini-briefing di preparazione.
@@ -177,7 +251,9 @@ function Booking() {
                       <div className="mt-1 grid grid-cols-7 gap-1">
                         {cells.map((day, i) => {
                           if (day === null) return <div key={i} />;
-                          const disabled = isPast(day) || isWeekend(day);
+                          const past = isPast(day);
+                          const available = !past && hasSlots(day);
+                          const disabled = !available;
                           const selected = selectedDay === day;
                           return (
                             <button
@@ -193,6 +269,11 @@ function Booking() {
                           );
                         })}
                       </div>
+                      {loadingSlots && (
+                        <p className="mt-4 text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+                          Caricamento disponibilità…
+                        </p>
+                      )}
                     </div>
 
                     <div className="p-6 sm:p-7 md:p-9">
@@ -209,13 +290,22 @@ function Booking() {
                           </p>
 
                           <div className="mt-6 grid grid-cols-2 gap-2.5">
-                            {slots.map((s, idx) => (
+                            {daySlots.length === 0 && !loadingSlots && (
+                              <p className="col-span-2 text-sm text-muted-foreground">
+                                Nessuno slot disponibile in questo giorno.
+                              </p>
+                            )}
+                            {daySlots.map((slot, idx) => {
+                              const iso = slot.start;
+                              const label = formatSlotTime(iso);
+                              const isSelected = selectedSlot === iso;
+                              return (
                               <button
-                                key={s}
-                                onClick={() => setSelectedSlot(s)}
+                                key={iso}
+                                onClick={() => setSelectedSlot(iso)}
                                 style={{ animationDelay: `${idx * 50}ms` }}
                                 className={`group relative overflow-hidden border px-3 py-3.5 text-base font-medium tabular-nums transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] animate-fade-in ${
-                                  selectedSlot === s
+                                  isSelected
                                     ? "border-gold bg-gold/10 text-gold-deep shadow-[0_0_0_1px_var(--color-gold)]"
                                     : "border-primary/15 bg-primary/[0.02] text-primary hover:border-gold/60 hover:text-gold-deep"
                                 }`}
@@ -223,18 +313,21 @@ function Booking() {
                                 <span
                                   aria-hidden
                                   className={`absolute inset-y-0 left-0 w-[2px] bg-gold transition-transform duration-500 origin-center ${
-                                    selectedSlot === s ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
+                                    isSelected ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
                                   }`}
                                 />
-                                {s}
+                                {label}
                               </button>
-                            ))}
+                            );})}
                           </div>
                           {selectedSlot && (
-                            <Button onClick={() => setConfirmed(true)} variant="cta" size="lg" className="group mt-7 w-full animate-scale-in">
-                              Conferma {selectedSlot}
+                            <Button onClick={handleConfirm} disabled={booking} variant="cta" size="lg" className="group mt-7 w-full animate-scale-in">
+                              {booking ? "Conferma in corso…" : `Conferma ${formatSlotTime(selectedSlot)}`}
                               <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
                             </Button>
+                          )}
+                          {bookingError && (
+                            <p className="mt-4 text-sm text-destructive">{bookingError}</p>
                           )}
                         </div>
                       ) : (
