@@ -447,7 +447,7 @@ function Booking() {
           <ol className="grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
             {[
               { num: "01", when: "Subito", title: "Email di conferma", body: "Ricevi data, ora e link Zoom. Più un mini-briefing di 3 minuti da compilare." },
-              { num: "02", when: "Il giorno della call", title: "Call di 30 minuti", body: "Lo Studio Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
+              { num: "02", when: "Il giorno della call", title: "Call di 30 minuti", body: "Lo Studio Legale Accarino analizza il tuo caso e risponde a 2–3 domande concrete." },
               { num: "03", when: "Entro 48 ore", title: "Proposta su misura", body: "Se ci sono margini, ricevi proposta scritta con piano, costi e timeline." },
               { num: "04", when: "Entro 7 giorni", title: "Avvio", body: "Audit degli atti, prima istanza o ricorso depositato nei termini di legge." },
             ].map(({ num, when, title, body }, i) => (
