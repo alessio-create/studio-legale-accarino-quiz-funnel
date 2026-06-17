@@ -65,8 +65,28 @@ function Booking() {
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
-  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  const [selectedSlot, setSelectedSlot] = useState<string | null>(null); // ISO start
   const [confirmed, setConfirmed] = useState(false);
+  const [slotsByDate, setSlotsByDate] = useState<CalSlotsByDate>({});
+  const [loadingSlots, setLoadingSlots] = useState(false);
+  const [booking, setBooking] = useState(false);
+  const [bookingError, setBookingError] = useState<string | null>(null);
+
+  const fetchSlots = useServerFn(getCalSlots);
+  const bookSlot = useServerFn(createCalBooking);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoadingSlots(true);
+    const start = new Date(viewYear, viewMonth, 1).toISOString().slice(0, 10);
+    const endDate = new Date(viewYear, viewMonth + 1, 0);
+    const end = endDate.toISOString().slice(0, 10);
+    fetchSlots({ data: { start, end } })
+      .then((data) => { if (!cancelled) setSlotsByDate(data ?? {}); })
+      .catch((err) => { console.error("Cal slots error", err); if (!cancelled) setSlotsByDate({}); })
+      .finally(() => { if (!cancelled) setLoadingSlots(false); });
+    return () => { cancelled = true; };
+  }, [viewYear, viewMonth, fetchSlots]);
 
   const cells = generateMonthDays(viewYear, viewMonth);
   const isPast = (day: number) => {
@@ -74,10 +94,15 @@ function Booking() {
     const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
     return d < t;
   };
-  const isWeekend = (day: number) => {
-    const wd = new Date(viewYear, viewMonth, day).getDay();
-    return wd === 0 || wd === 6;
+  const hasSlots = (day: number) => {
+    const k = dateKey(viewYear, viewMonth, day);
+    return Array.isArray(slotsByDate[k]) && slotsByDate[k].length > 0;
   };
+
+  const daySlots = useMemo(() => {
+    if (selectedDay == null) return [];
+    return slotsByDate[dateKey(viewYear, viewMonth, selectedDay)] ?? [];
+  }, [selectedDay, slotsByDate, viewYear, viewMonth]);
 
   const prevMonth = () => {
     if (viewMonth === 0) { setViewMonth(11); setViewYear((y) => y - 1); }
@@ -89,6 +114,40 @@ function Booking() {
     else setViewMonth((m) => m + 1);
     setSelectedDay(null); setSelectedSlot(null);
   };
+
+  const handleConfirm = async () => {
+    if (!selectedSlot || booking) return;
+    setBookingError(null);
+    setBooking(true);
+    let contact: { name?: string; email?: string; phone?: string; location?: string } = {};
+    try {
+      const raw = sessionStorage.getItem("contact");
+      if (raw) contact = JSON.parse(raw);
+    } catch {}
+    if (!contact.name || !contact.email) {
+      setBookingError("Dati di contatto mancanti. Compila prima il form.");
+      setBooking(false);
+      return;
+    }
+    try {
+      await bookSlot({
+        data: {
+          start: selectedSlot,
+          name: contact.name,
+          email: contact.email,
+          phone: contact.phone,
+          notes: contact.location ? `Località: ${contact.location}` : undefined,
+        },
+      });
+      setConfirmed(true);
+    } catch (err) {
+      console.error("Cal booking failed", err);
+      setBookingError("Non siamo riusciti a confermare lo slot. Riprova o scegli un altro orario.");
+    } finally {
+      setBooking(false);
+    }
+  };
+
 
   return (
     <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
