@@ -13,7 +13,7 @@ export const Route = createFileRoute("/espropri-indennita")({
         content:
           "L'indennità che ti ha offerto la PA è quasi sempre sotto valore. Scopri in 90 secondi quanto puoi davvero ottenere. +35% medio sull'offerta iniziale.",
       },
-      { property: "og:title", content: "Indennità di esproprio sotto valore? · Studio Accarino" },
+      { property: "og:title", content: "Indennità di esproprio sotto valore? · Studio Legale Accarino" },
       {
         property: "og:description",
         content: "L'offerta della PA è quasi mai quella giusta. Verifica i margini reali in 90 secondi.",
