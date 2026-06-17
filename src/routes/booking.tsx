@@ -394,7 +394,7 @@ function Booking() {
                 </span>
               </div>
               <h2 className="mt-6 text-balance text-[clamp(1.85rem,4.6vw,3.4rem)] font-500 leading-[1.06] tracking-[-0.02em] text-primary">
-                Studio <span className="text-gold-deep">Accarino.</span>
+                Studio Legale{"\u00a0"}Accarino.
               </h2>
               <p className="mt-6 text-lg leading-[1.55] text-muted-foreground">
                 Quattro professionisti, un’unica struttura. Dal 1975 lo Studio Legale Accarino
