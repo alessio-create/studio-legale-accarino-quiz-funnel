@@ -528,7 +528,7 @@ function Booking() {
             </h2>
             
             <p className="mt-6 text-lg text-primary-foreground/70">
-              30 minuti con lo Studio Accarino. Senza impegno. Valore concreto garantito.
+              30 minuti con lo Studio Legale Accarino. Senza impegno. Valore concreto garantito.
             </p>
           </Reveal>
           <Reveal delay={150}>
