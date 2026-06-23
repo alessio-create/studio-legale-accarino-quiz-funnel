@@ -178,6 +178,20 @@ function Booking() {
         console.error("Booking webhook failed", whErr);
       }
 
+      // Google Ads conversion tracking
+      try {
+        const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+        if (typeof w.gtag === "function") {
+          w.gtag("event", "conversion", {
+            send_to: "AW-18127354957/TJaaCJqbjMQcEM345cND",
+            value: 1.0,
+            currency: "EUR",
+          });
+        }
+      } catch (gErr) {
+        console.error("Google Ads conversion tracking failed", gErr);
+      }
+
       setConfirmed(true);
     } catch (err) {
       console.error("Cal booking failed", err);
